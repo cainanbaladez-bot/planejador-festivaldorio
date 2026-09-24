@@ -1,0 +1,3 @@
+# normaliza fim de linha para não poluir o diff entre Windows e o GitHub
+* text=auto eol=lf
+*.png binary

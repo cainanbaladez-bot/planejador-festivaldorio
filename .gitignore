@@ -1,0 +1,15 @@
+# artefatos de build — regenerados por `py -3.10 build_planejador.py`
+# (a versão publicada é docs/index.html, que é idêntica e vai versionada)
+planejador.html
+planejador_teste_*.html
+
+# logs do raspador
+data/*.log
+
+# configuração local do preview do Claude
+.claude/
+
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db

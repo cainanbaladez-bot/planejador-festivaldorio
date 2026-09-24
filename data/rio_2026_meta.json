@@ -1,0 +1,21 @@
+{
+ "ano": 2026,
+ "raspado_em": "2026-09-24T15:22:33",
+ "filmes": 298,
+ "sessoes": 926,
+ "programacao_publica": true,
+ "primeiro_dia": "2026-10-01",
+ "ultimo_dia": "2026-10-14",
+ "cinemas": [
+  "Centro Cultural FGV",
+  "Centro Cultural da Justiça Federal - CCJF - Cinema",
+  "Cine Odeon - CCLSR",
+  "Cine Santa Teresa",
+  "CineCarioca José Wilker",
+  "Cinesystem Belas Artes Botafogo",
+  "Estação Claro Gávea",
+  "Estação Claro Rio",
+  "Kinoplex São Luiz",
+  "Reserva Cultural Niterói"
+ ]
+}

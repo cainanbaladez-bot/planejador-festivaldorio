@@ -1,0 +1,39 @@
+{
+  "name": "Planejador do Festival do Rio",
+  "short_name": "Festival do Rio",
+  "description": "Monte sua agenda do Festival do Rio: explore a programação, marque o que quer ver e encaixe as sessões sem conflito.",
+  "lang": "pt-BR",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "id": "/planejador-festivaldorio/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#181409",
+  "theme_color": "#181409",
+  "categories": [
+    "entertainment",
+    "lifestyle",
+    "utilities"
+  ],
+  "icons": [
+    {
+      "src": "icone-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icone-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icone-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

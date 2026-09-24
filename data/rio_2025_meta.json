@@ -1,0 +1,26 @@
+{
+ "ano": 2025,
+ "raspado_em": "2026-09-21T16:28:18",
+ "filmes": 382,
+ "sessoes": 1166,
+ "programacao_publica": true,
+ "primeiro_dia": "2025-10-02",
+ "ultimo_dia": "2025-10-15",
+ "cinemas": [
+  "C.C. Justiça Federal - Sala de Cinema",
+  "C.C. Justiça Federal - Teatro",
+  "Cine Odeon - CCLSR",
+  "Cine Santa Teresa",
+  "CineCarioca José Wilker",
+  "CineCarioca Nova Brasília",
+  "CineCarioca Penha",
+  "Cinesystem Belas Artes",
+  "Estação NET Botafogo",
+  "Estação NET Gávea",
+  "Estação NET Rio",
+  "Kinoplex São Luiz",
+  "Museu do Amanhã",
+  "Parque Realengo Susana Naspolini",
+  "Reserva Cultural Niterói"
+ ]
+}
