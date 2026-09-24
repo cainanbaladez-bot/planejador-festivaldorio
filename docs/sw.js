@@ -10,7 +10,7 @@
    a pessoa já viu continua aparecendo offline, sem baixar ~300 imagens de véspera.
 
    Ao publicar uma versão nova do app, suba o VERSAO — isso descarta o cache velho. */
-const VERSAO = "rio-v2";
+const VERSAO = "rio-v3";
 const SHELL  = "planejador-rio-shell-" + VERSAO;
 const MIDIA  = "planejador-rio-posteres-" + VERSAO;
 

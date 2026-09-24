@@ -508,6 +508,38 @@ select:focus{outline:none;border-color:var(--amber)}
   box-shadow:0 10px 30px -8px #000;pointer-events:none;
 }
 .toast.show{transform:translateX(-50%) translateY(0)}
+
+/* ─── instalar no celular (PWA) ─── */
+.instala-bar{
+  position:fixed;left:12px;right:12px;bottom:12px;z-index:150;max-width:520px;margin:0 auto;
+  display:flex;align-items:center;gap:10px;padding:10px 8px 10px 14px;
+  background:var(--panel);border:1px solid var(--line);border-radius:12px;
+  box-shadow:0 12px 34px -10px #000;font-size:13px;line-height:1.4;color:var(--muted);
+  transform:translateY(160%);transition:transform .3s;
+}
+.instala-bar.show{transform:none}
+.instala-bar[hidden],.instala-passos[hidden]{display:none}
+.instala-bar p{flex:1;margin:0}
+.instala-bar p b{color:var(--ink);font-weight:600}
+.instala-bar .bt-inst{
+  background:var(--amber);color:#1b1608;border:0;border-radius:8px;padding:10px 14px;
+  font:600 13px var(--font-body);cursor:pointer;white-space:nowrap;min-height:40px;
+}
+.instala-bar .bt-x{background:none;border:0;color:var(--dim);font-size:20px;line-height:1;padding:8px 10px;cursor:pointer;min-height:40px}
+.instala-passos{position:fixed;inset:0;z-index:210;background:#000b;display:flex;align-items:flex-end;justify-content:center}
+.instala-passos .caixa{
+  background:var(--panel);border:1px solid var(--line);border-radius:14px 14px 0 0;
+  padding:20px 20px 24px;max-width:520px;width:100%;color:var(--ink);
+}
+.instala-passos h3{font-family:var(--font-display);font-size:19px;margin-bottom:12px}
+.instala-passos ol{margin:0 0 14px 20px;display:grid;gap:10px;font-size:14.5px;line-height:1.45}
+.instala-passos p{font-size:14px;line-height:1.5;margin-bottom:12px}
+.instala-passos .dica{font-size:12.5px;color:var(--muted)}
+.instala-passos .ic{display:inline-block;vertical-align:-3px;margin:0 2px;color:var(--amber)}
+.instala-passos button{
+  width:100%;margin-top:4px;background:var(--amber);color:#1b1608;border:0;border-radius:9px;
+  padding:12px;font:600 14px var(--font-body);cursor:pointer;
+}
 footer{
   border-top:1px solid var(--line);padding:26px 24px;text-align:center;
   font-family:var(--font-mono);font-size:11px;color:var(--dim);letter-spacing:.08em;
@@ -911,9 +943,23 @@ __BETA__
   <a href="https://www.festivaldorio.com.br" target="_blank" rel="noopener">festivaldorio.com.br</a>.</p>
   <p>Sua agenda fica salva só neste navegador — não há cadastro, senha nem servidor
   guardando nada. Use <b>🔗 Link</b> para levá-la a outro aparelho.</p>
+  <p id="rodape-instalar" hidden>📲 <a href="#" onclick="abrirInstalar();return false">Instalar no celular</a>
+  — o planejador vira um ícone na tela e abre mesmo sem internet.</p>
 </footer>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="instala-bar" id="instala-bar" role="dialog" aria-label="Instalar no celular" hidden>
+  <p><b>📲 Instale no celular</b><br>Abre direto do ícone, mesmo sem internet na sala.</p>
+  <button class="bt-inst" onclick="abrirInstalar()">Instalar</button>
+  <button class="bt-x" onclick="fecharInstalar()" aria-label="Agora não" title="Agora não">×</button>
+</div>
+<div class="instala-passos" id="instala-passos" hidden onclick="if(event.target===this)this.hidden=true">
+  <div class="caixa" role="dialog" aria-modal="true" aria-labelledby="instala-tit">
+    <h3 id="instala-tit">📲 Instalar no celular</h3>
+    <div id="instala-corpo"></div>
+    <button onclick="document.getElementById('instala-passos').hidden=true">Entendi</button>
+  </div>
+</div>
 <input id="backup-input" type="file" accept="application/json,.json" hidden onchange="importarBackup(this.files[0]);this.value=''">
 
 <script>
@@ -2117,9 +2163,76 @@ function checarLink(){
 }
 addEventListener("DOMContentLoaded",checarLink);
 
-/* instalado como app (PWA): quem instala e quem já abre pelo ícone */
-addEventListener("appinstalled",()=>medir("pwa-instalou"));
-if((window.matchMedia&&matchMedia("(display-mode: standalone)").matches)||navigator.standalone) medir("abriu-como-app");
+/* ── instalar no celular (PWA) ────────────────────────────────────────────────
+   Não depende de o navegador oferecer. Android/Chrome: guarda o beforeinstallprompt
+   e o botão chama a janela do próprio Chrome. iPhone: o Safari nunca oferece, então
+   o botão mostra os passos do Compartilhar. Navegador de dentro de outro app (X,
+   Instagram, WhatsApp) não instala — o texto manda abrir no navegador primeiro.
+   A barra aparece uma vez, 12 s depois de abrir, só no celular e fora do app
+   instalado; o "×" guarda a recusa. O link do rodapé continua valendo. */
+const LS_INST=`${LS_PREFIX}_instalar`;
+let promptInstalar=null;
+const UA=navigator.userAgent;
+const EH_IOS=/iPhone|iPad|iPod/.test(UA)||(/Macintosh/.test(UA)&&navigator.maxTouchPoints>1);
+const EH_ANDROID=/Android/.test(UA);
+const EM_OUTRO_APP=/FBAN|FBAV|Instagram|Twitter|WhatsApp|Line\/|; wv\)/i.test(UA);
+const ehAppInstalado=()=>(window.matchMedia&&matchMedia("(display-mode: standalone)").matches)||navigator.standalone===true;
+function lsInst(v){
+  try{ if(v===undefined) return localStorage.getItem(LS_INST); localStorage.setItem(LS_INST,v); }
+  catch(e){ return null; }
+}
+function mostraInstalar(){
+  if(ehAppInstalado()||!(EH_IOS||EH_ANDROID||promptInstalar&&matchMedia("(pointer:coarse)").matches)) return;
+  document.getElementById("rodape-instalar").hidden=false;
+  if(lsInst()) return;                                   // já fechou ou já instalou
+  const b=document.getElementById("instala-bar");
+  b.hidden=false; requestAnimationFrame(()=>requestAnimationFrame(()=>b.classList.add("show")));
+}
+function fechaBarra(){
+  const b=document.getElementById("instala-bar");
+  b.classList.remove("show"); setTimeout(()=>{b.hidden=true;},320);
+}
+function fecharInstalar(){ lsInst("fechou"); medir("instalar-fechou"); fechaBarra(); }
+function jaInstalou(){
+  lsInst("instalou"); fechaBarra();
+  document.getElementById("rodape-instalar").hidden=true;
+}
+const IC_COMPARTILHAR='<svg class="ic" width="15" height="18" viewBox="0 0 16 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 13V1.5M4.2 5.2 8 1.5l3.8 3.7"/><path d="M5.5 8H2.5v10.5h11V8h-3"/></svg>';
+async function abrirInstalar(){
+  medir("instalar-clicou");
+  if(promptInstalar){                                    // Android/Chrome: janela do navegador
+    const p=promptInstalar; promptInstalar=null;
+    p.prompt();
+    const r=await p.userChoice.catch(()=>null);
+    const ok=r&&r.outcome==="accepted";
+    medir(ok?"instalar-aceitou":"instalar-recusou");
+    if(ok) jaInstalou();
+    return;
+  }
+  let corpo;
+  if(EM_OUTRO_APP){
+    corpo=`<p>Você abriu o planejador pelo navegador de dentro de outro app (X, Instagram, WhatsApp…),
+      e ele não instala.</p>
+      <ol><li>Toque no menu <b>⋯</b> ou <b>⋮</b> e escolha <b>Abrir no navegador</b>${EH_IOS?" (ou <b>Abrir no Safari</b>)":""}.</li>
+      <li>Lá, toque de novo em <b>📲 Instalar no celular</b>, no fim da página.</li></ol>`;
+  }else if(EH_IOS){
+    corpo=`<ol><li>Toque em <b>Compartilhar</b> ${IC_COMPARTILHAR} na barra do Safari.</li>
+      <li>Role a lista e toque em <b>Adicionar à Tela de Início</b>.</li>
+      <li>Toque em <b>Adicionar</b>.</li></ol>
+      <p class="dica">Não aparece “Adicionar à Tela de Início”? Você deve estar no navegador de outro app:
+      toque em <b>Abrir no Safari</b> (a bússola) e repita.</p>`;
+  }else{
+    corpo=`<ol><li>Abra o menu <b>⋮</b> do navegador.</li>
+      <li>Toque em <b>Instalar app</b> ou <b>Adicionar à tela inicial</b>.</li></ol>`;
+  }
+  document.getElementById("instala-corpo").innerHTML=corpo+
+    `<p class="dica">O planejador vira um ícone na tela e abre mesmo sem internet. Sua agenda continua a mesma.</p>`;
+  document.getElementById("instala-passos").hidden=false;
+}
+addEventListener("beforeinstallprompt",e=>{ e.preventDefault(); promptInstalar=e; });
+addEventListener("appinstalled",()=>{ medir("pwa-instalou"); jaInstalou(); });
+if(ehAppInstalado()) medir("abriu-como-app");
+else setTimeout(mostraInstalar,12000);
 
 /* service worker: só registra quando servido por http(s) — em file:// nem tenta */
 if("serviceWorker" in navigator && location.protocol.startsWith("http")){

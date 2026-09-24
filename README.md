@@ -65,6 +65,10 @@ Servidor local: configuração `planejador-rio` (porta 8791) no `launch.json` do
   o filtro `planejador-*` apagava o cache do Planejador da Mostra (SP) e vice-versa.
 - **Chaves do navegador:** `rio<ano>_*` — cada edição guarda a agenda separada. Eventos de medição
   saem como `rio/<ação>` no mesmo GoatCounter dos outros sites.
+- **📲 Instalar no celular (24/09/2026):** barra discreta embaixo (12 s, só no celular, `×` guarda
+  a recusa) + link no rodapé. Android chama a janela do Chrome; iPhone mostra os passos do
+  Compartilhar; navegador de dentro do X/Instagram/WhatsApp manda abrir no navegador antes.
+  Mesmo código do de SP — detalhes no README de lá. Eventos `rio/instalar-*`.
 - **Sem enriquecimento ainda:** o filtro "Festivais" e o objetivo "Melhores avaliações" dependem do
   `enrich_filmes.py` de SP (festivais citados na sinopse + nota do Letterboxd), que não foi adaptado.
   Sem esses dados, o filtro de festival, a ordenação por nota e o objetivo "Melhores avaliações"
