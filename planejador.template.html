@@ -608,7 +608,7 @@ footer{
 }
 .rodape p{max-width:78ch;margin-bottom:7px}
 .rodape b{color:var(--muted);font-weight:600}
-.rodape a{color:var(--muted);text-decoration:underline;text-underline-offset:2px}
+.rodape a{color:var(--muted);text-decoration:underline;text-underline-offset:2px;overflow-wrap:anywhere}
 .rodape a:hover{color:var(--amber)}
 @media (max-width:640px){ .rodape{padding:18px 14px 34px} }
 
@@ -952,11 +952,12 @@ __BETA__
   </div>
 </div>
 <footer class="rodape">
-  <p><b>Projeto independente</b> — não é um site oficial do Festival do Rio. A programação
-  é lida do site do Festival; confirme sempre horários e ingressos em
-  <a href="https://www.festivaldorio.com.br" target="_blank" rel="noopener">festivaldorio.com.br</a>.</p>
-  <p>Sua agenda fica salva só neste navegador — não há cadastro, senha nem servidor
-  guardando nada. Use <b>🔗 Link</b> para levá-la a outro aparelho.</p>
+  <p><b>Projeto independente</b>, sem vínculo com o Festival do Rio. A programação é lida do site
+  oficial; confirme horários e ingressos em <a href="https://www.festivaldorio.com.br" target="_blank" rel="noopener">festivaldorio.com.br</a>.</p>
+  <p><b>Código aberto.</b> O programa que gera este site é público:
+  <a href="https://github.com/cainanbaladez-bot/planejador-festivaldorio" target="_blank" rel="noopener">github.com/cainanbaladez-bot/planejador-festivaldorio</a>.</p>
+  <p>Sua agenda fica só neste navegador. Não há cadastro, senha nem servidor. Para levá-la a
+  outro aparelho, use <b>📤 Compartilhar</b>.</p>
   <p id="rodape-instalar" hidden>📲 <a href="#" onclick="abrirInstalar();return false">Instalar no celular</a>
   — o planejador vira um ícone na tela e abre mesmo sem internet.</p>
 </footer>
