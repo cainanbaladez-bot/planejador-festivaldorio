@@ -522,6 +522,8 @@ select:focus{outline:none;border-color:var(--amber)}
   transform:translateY(160%);transition:transform .3s;
 }
 .instala-bar.show{transform:none}
+.btn.compartilhar{border-color:var(--amber);color:var(--amber);font-weight:600}
+.btn.compartilhar:hover{background:var(--amber);color:#1b1608}
 .instala-bar[hidden],.instala-passos[hidden]{display:none}
 .instala-bar p{flex:1;margin:0}
 .instala-bar p b{color:var(--ink);font-weight:600}
@@ -957,6 +959,11 @@ footer{
   <p><b>📲 Instale no celular</b><br>Abre direto do ícone, mesmo sem internet na sala.</p>
   <button class="bt-inst" onclick="abrirInstalar()">Instalar</button>
   <button class="bt-x" onclick="fecharInstalar()" aria-label="Agora não" title="Agora não">×</button>
+</div>
+<div class="instala-bar" id="atualizou-bar" role="status" hidden>
+  <p><b>🔄 Programação atualizada</b><br>Recarregue para ver os horários mais recentes.</p>
+  <button class="bt-inst" onclick="location.reload()">Recarregar</button>
+  <button class="bt-x" onclick="const b=this.parentNode;b.classList.remove('show');setTimeout(()=>b.hidden=true,320)" aria-label="Depois" title="Depois">×</button>
 </div>
 <div class="instala-passos" id="instala-passos" hidden onclick="if(event.target===this)this.hidden=true">
   <div class="caixa" role="dialog" aria-modal="true" aria-labelledby="instala-tit">
@@ -1619,8 +1626,8 @@ function renderAgenda(){
       <div class="agenda-actions">
         ${desfazerEstado?`<button class="btn" onclick="desfazerUltima()" title="Desfaz ${esc(desfazerEstado.rotulo)}">↶ Desfazer</button>`:""}
         <button class="btn primary" onclick="abrirMontador()"${watch.size?"":" disabled"} title="Escolha um objetivo e gere uma proposta de agenda">⚡ Montar minha agenda</button>
+        <button class="btn compartilhar" onclick="compartilharAgenda()" title="Manda um link com a sua agenda inteira — para outro aparelho seu ou para um amigo, sem precisar de conta">📤 Compartilhar</button>
         <button class="btn perigo" onclick="limparAgenda()"${items.length?"":" disabled"} title="Tira todas as sessões da agenda">🗑 Limpar agenda</button>
-        <button class="btn" onclick="copiarLink()" title="Copia um link com a sua agenda inteira — abra no celular, sem precisar de conta">🔗 Link</button>
         <button class="btn" onclick="exportarBackup()" title="Baixa marcações, agenda e preferências em JSON">⇩ Backup</button>
         <button class="btn" onclick="document.getElementById('backup-input').click()" title="Restaura um backup JSON">⇧ Restaurar</button>
         <button class="btn" onclick="copyAgenda()"${items.length?"":" disabled"}>⧉ Copiar</button>
@@ -2136,6 +2143,23 @@ async function copiarLink(){
   }
 }
 
+/* Compartilhar (29/09/2026): no dia em que 1 link copiado trouxe 12 pessoas em 1 hora,
+   o 🔗 Link virou 📤 Compartilhar. Com navigator.share (celular, Safari, Edge) abre o menu
+   do próprio aparelho — WhatsApp, Instagram, e-mail; sem ele, copia o link como antes. */
+async function compartilharAgenda(){
+  if(!agenda.size && !watch.size){ toast("Marque filmes ou ponha sessões na agenda antes de compartilhar"); return; }
+  if(!navigator.share){ return copiarLink(); }
+  const url=montarLink();
+  try{
+    await navigator.share({title:`Minha agenda · ${EDICAO}`,
+      text:`Minha agenda · ${EDICAO}. Monte a sua também:`, url});
+    medir("compartilhou");
+  }catch(e){
+    if(e&&e.name==="AbortError") medir("compartilhar-cancelou");
+    else copiarLink();
+  }
+}
+
 function exportarBackup(){
   const dados={schema:2,edicao:LS_PREFIX,criadoEm:new Date().toISOString(),agenda:[...agenda],
     watch:[...watch],disponibilidadeBloqueada:[...dispOff],cinemasBloqueados:[...cinOff],preferencias:planPrefs};
@@ -2290,6 +2314,24 @@ else setTimeout(mostraInstalar,12000);
 /* service worker: só registra quando servido por http(s) — em file:// nem tenta */
 if("serviceWorker" in navigator && location.protocol.startsWith("http")){
   addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));
+  /* Versão nova sem atraso (29/09/2026). O sw.js serve do cache e baixa a versão nova em
+     segundo plano; sem isto, a programação nova só aparecia na abertura SEGUINTE. Quando a
+     versão nova assume (controllerchange): recarrega sozinho se a pessoa acabou de abrir e
+     não tocou em nada; senão, oferece a barra. Nunca na 1ª instalação (não havia versão
+     antiga) nem quando chegou por link de agenda (a pergunta "abrir a do link" está na tela). */
+  const tinhaVersao=!!navigator.serviceWorker.controller, abertoEm=Date.now();
+  let mexeu=false, recarregando=false;
+  ["pointerdown","keydown"].forEach(t=>addEventListener(t,()=>{mexeu=true;},{once:true,passive:true}));
+  navigator.serviceWorker.addEventListener("controllerchange",()=>{
+    if(!tinhaVersao||recarregando) return;
+    const veioPorLink=/[#&](a|p[123])=/.test(location.hash);
+    if(!mexeu && !veioPorLink && Date.now()-abertoEm<8000){
+      recarregando=true; medir("atualizou-sozinho"); location.reload(); return;
+    }
+    const b=document.getElementById("atualizou-bar");
+    b.hidden=false; requestAnimationFrame(()=>requestAnimationFrame(()=>b.classList.add("show")));
+    medir("atualizou-barra");
+  });
 }
 
 /* ───────────────── preview browser / celular ───────────────── */

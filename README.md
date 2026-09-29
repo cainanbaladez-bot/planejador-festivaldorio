@@ -64,6 +64,20 @@ dia/hora/sala — antes o app apagava a sessão da agenda calado. Agora:
   `rio/agenda-mudou`. O aviso fica guardado até a pessoa tocar em "Ok, entendi".
 - **Nunca apagar o histórico** entre uma raspagem e outra — é ele que lembra as sessões antigas.
 
+### 📤 Compartilhar e 🔄 versão nova sem atraso (29/09/2026)
+
+- **📤 Compartilhar** (no lugar do 🔗 Link, logo depois do ⚡ Montar): com `navigator.share`
+  (celular, Safari, Edge) abre o menu do próprio aparelho — WhatsApp, Instagram, e-mail — com
+  título, texto e o link da agenda; sem ele, copia o link como antes. Motivo: em 29/09 no Rio,
+  um link copiado às 9h09 trouxe 12 pessoas em uma hora (7 montaram a própria agenda), mais do
+  que o X no dia inteiro. Eventos `compartilhou` / `compartilhar-cancelou` / `link-copiado`.
+- **Versão nova sem atraso:** o `sw.js` serve do cache e baixa a nova em segundo plano, então a
+  programação nova só aparecia na abertura seguinte. Agora, quando a versão nova assume
+  (`controllerchange`): se a pessoa abriu há menos de 8 s e não tocou em nada, recarrega sozinho;
+  senão, barra "🔄 Programação atualizada · Recarregar". Nunca na 1ª instalação nem quando chegou
+  por link de agenda. Eventos `atualizou-sozinho` / `atualizou-barra`. Testado trocando o
+  VERSAO do sw.js com a página aberta: as duas situações se comportam como descrito.
+
 ## Diferenças em relação a SP
 
 - **Mostras:** o site tem 28 submostras (20 são "Première Brasil: …"). Filtro e cor usam o **nome
