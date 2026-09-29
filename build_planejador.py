@@ -47,7 +47,7 @@ REGIOES_RIO = [
     ("flamengo", "Flamengo / Laranjeiras / Catete / Santa Teresa", [("catete", "Catete"), ("flamengo", "Flamengo"),
                  ("laranjeiras", "Laranjeiras"), ("leite leal", "Laranjeiras"), ("jose wilker", "Laranjeiras"),
                  ("santa teresa", "Santa Teresa"), ("paschoal carlos magno", "Santa Teresa"), ("gloria", "Glória")]),
-    ("centro", "Centro", [("praca maua", "Praça Mauá"), ("museu do amanha", "Praça Mauá"), ("floriano", "Cinelândia"),
+    ("centro", "Centro", [("praca maua", "Praça Mauá"), ("rodrigues alves", "Gamboa"), ("armazem da utopia", "Gamboa"), ("museu do amanha", "Praça Mauá"), ("floriano", "Cinelândia"),
                           ("odeon", "Cinelândia"), ("cinelandia", "Cinelândia"), ("rio branco", "Centro"),
                           ("primeiro de marco", "Centro"), ("ccbb", "Centro"), ("lapa", "Lapa"), ("centro", "Centro")]),
     ("norte", "Zona Norte", [("penha", "Penha"), ("bras de pina", "Penha"), ("nova brasilia", "Complexo do Alemão"),
@@ -87,7 +87,35 @@ for f in filmes:
     f["secao"] = curto
     if completo and completo != curto:
         f["sinopse"] = f"[{completo}] {f.get('sinopse', '')}"
+    if not f["secao"]:                              # 2026: "Aula Aberta com Asghar Farhadi"
+        f["secao"] = "Sessões especiais"
 sec_por_filme = {f["id"]: f["secao"] for f in filmes}
+
+# ── sessões que o festival mudou ou tirou (28/09/2026) ─────────────────────────
+# A agenda da pessoa guarda o id da sessão, e o id muda quando muda dia/hora/sala.
+# Sem isto, o app apagava da agenda, calado, a sessão que o festival remarcou.
+# O histórico guarda toda sessão já publicada; quando uma some, é pareada com uma
+# sessão NOVA do mesmo filme na mesma rodada (ordem cronológica) — "mudou" — ou,
+# sem par, marcada como tirada. O app troca a mudada sozinho e avisa as duas.
+MUDOU = {}
+if corrente:
+    HIST = DATA / f"rio_{ano}_historico.json"
+    hist = json.loads(HIST.read_text(encoding="utf-8")) if HIST.exists() else {}
+    fmt = lambda s: f"{s['data'][8:]}/{s['data'][5:7]} {s['hora']} · {s['sala']}"
+    atuais = {s["sessao_id"]: s for s in sessoes}
+    novas = [i for i in atuais if i not in hist]
+    sumidas = [i for i, h in hist.items() if i not in atuais and "p" not in h]
+    ordem = lambda i, fonte: fonte[i]["o"] if fonte is hist else atuais[i]["data"] + atuais[i]["hora"]
+    for fid in {hist[i]["f"] for i in sumidas}:
+        velhas = sorted([i for i in sumidas if hist[i]["f"] == fid], key=lambda i: ordem(i, hist))
+        subst = sorted([i for i in novas if atuais[i]["filme_id"] == fid], key=lambda i: ordem(i, atuais))
+        for k, i in enumerate(velhas):
+            hist[i]["p"] = subst[k] if k < len(subst) else ""
+    for i in novas:
+        s = atuais[i]
+        hist[i] = {"f": s["filme_id"], "t": fmt(s), "o": s["data"] + s["hora"]}
+    HIST.write_text(json.dumps(hist, ensure_ascii=False, indent=0), encoding="utf-8")
+    MUDOU = {i: {"f": h["f"], "t": h["t"], "p": h["p"]} for i, h in hist.items() if "p" in h}
 for s in sessoes:
     s["secao"] = sec_por_filme.get(s["filme_id"], s.get("secao", ""))
 
@@ -145,7 +173,7 @@ def js(x):
 html = TEMPLATE.read_text(encoding="utf-8")
 for marca, valor in (("/*__FILMES__*/[]", js(enxuga(filmes, CAMPOS_FILME))),
                      ("/*__SESSOES__*/[]", js(enxuga(sessoes, CAMPOS_SESSAO))),
-                     ("/*__CORES__*/{}", js(cores)), ("/*__REGIOES__*/[]", js(regioes)),
+                     ("/*__CORES__*/{}", js(cores)), ("/*__MUDOU__*/{}", js(MUDOU)), ("/*__REGIOES__*/[]", js(regioes)),
                      ("__BETA__", beta), ("__SUB__", sub), ("__MES__", mes), ("__ANO__", str(ano))):
     assert marca in html, f"marca {marca} sumiu do template"
     html = html.replace(marca, valor)

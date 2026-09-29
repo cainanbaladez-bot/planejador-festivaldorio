@@ -46,6 +46,24 @@ Servidor local: configuração `planejador-rio` (porta 8791) no `launch.json` do
 | `docs/` | O que o GitHub Pages publica (PWA: manifesto, `sw.js`, ícones — ainda os mesmos de SP). **Ao republicar, suba o `VERSAO` em `docs/sw.js`** (hoje `rio-v2`), senão quem instalou fica com o cache velho. |
 | `data/` | Dados raspados e logs. |
 
+## Atualização de 28/09/2026 e sessões remarcadas
+
+Re-raspagem: **313 filmes, 928 sessões, 11 cinemas** (eram 298 / 926 / 10). Em 4 dias o festival
+acrescentou 15 filmes (41 sessões — entre eles os capítulos de *The Story of Documentary Film*,
+que ganharam páginas próprias), **remarcou 21 sessões** (dia, hora ou sala) e **tirou 39** (quase
+todas de 13 e 14/10). Cinema novo: Armazém da Utopia (Av. Rodrigues Alves → região Centro).
+
+**Agenda que o festival mudou.** A agenda guarda o id da sessão, e o id muda quando muda
+dia/hora/sala — antes o app apagava a sessão da agenda calado. Agora:
+- `data/rio_<ano>_historico.json` guarda **toda sessão já publicada** (versionado; semeado em
+  28/09 com o que estava no ar desde 24/09). A cada build, a sessão que sumiu é pareada com uma
+  sessão **nova do mesmo filme** na mesma rodada (ordem cronológica) → "remarcada"; sem par →
+  "tirada". Vai para o app como `MUDOU` (id antigo → filme, texto da sessão antiga, id novo).
+- O app troca a remarcada sozinho, tira a cancelada, e mostra na Minha Agenda um aviso com o
+  antes → depois e o link para as outras sessões do filme; toast ao abrir; evento
+  `rio/agenda-mudou`. O aviso fica guardado até a pessoa tocar em "Ok, entendi".
+- **Nunca apagar o histórico** entre uma raspagem e outra — é ele que lembra as sessões antigas.
+
 ## Diferenças em relação a SP
 
 - **Mostras:** o site tem 28 submostras (20 são "Première Brasil: …"). Filtro e cor usam o **nome

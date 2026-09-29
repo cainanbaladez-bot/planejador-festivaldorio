@@ -395,6 +395,10 @@ select:focus{outline:none;border-color:var(--amber)}
 
 /* ─── agenda ─── */
 .agenda-top{display:flex;flex-wrap:wrap;align-items:center;gap:12px 16px;margin-bottom:22px}
+.aviso-mudou{border:1px solid #8a5a17;background:#2a1f0c;border-radius:10px;padding:14px 16px;margin-bottom:18px;color:var(--ink);font-size:14px;line-height:1.5}
+.aviso-mudou>b{color:var(--amber)}
+.aviso-mudou ul{margin:8px 0 12px 18px;display:grid;gap:6px}
+.aviso-mudou a{color:var(--amber)}
 .mode-switch{display:inline-flex;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:3px}
 .mode-btn{
   font:inherit;font-size:13px;font-weight:600;cursor:pointer;border:none;background:none;
@@ -917,6 +921,7 @@ __BETA__
   <section id="view-disp" hidden><div id="disp-root"></div></section>
 
   <section id="view-agenda" hidden>
+    <div id="agenda-avisos"></div>
     <div id="agenda-root"></div>
   </section>
 </main>
@@ -965,6 +970,7 @@ __BETA__
 <script>
 window.FILMES=/*__FILMES__*/[];
 window.SESSOES=/*__SESSOES__*/[];
+window.MUDOU=/*__MUDOU__*/{};
 /* O template é código-fonte e ainda não contém o catálogo. Se alguém o abrir por
    engano, leva para o artefato gerado em vez de mostrar uma aplicação vazia. */
 if(!window.FILMES.length && /planejador\.template\.html$/i.test(decodeURIComponent(location.pathname))){
@@ -1025,7 +1031,23 @@ function gravarLocal(chave, valor){
   catch(e){ storageFalhou=true; return false; }
 }
 const agendaSalva=lerLocal(LS_A,[]);
-let agenda = new Set((Array.isArray(agendaSalva)?agendaSalva:[]).filter(id=>SESSAO.has(id)));
+/* Sessão que o festival remarcou ou tirou depois que a pessoa a pôs na agenda.
+   MUDOU (do build): id antigo → {f: filme, t: "02/10 21:30 · sala", p: id novo | ""}.
+   Remarcada: troca sozinho pela nova. Tirada: sai da agenda. As duas viram aviso,
+   guardado até a pessoa dispensar (senão um save() qualquer apagaria a notícia). */
+const LS_AVISOS=`${LS_PREFIX}_avisos_agenda`;
+let avisosAgenda=(()=>{ const v=lerLocal(LS_AVISOS,[]); return Array.isArray(v)?v:[]; })();
+let agenda = new Set();
+let migrouAgenda=false;
+for(const id of (Array.isArray(agendaSalva)?agendaSalva:[])){
+  if(SESSAO.has(id)){ agenda.add(id); continue; }
+  const m=MUDOU[id]; if(!m) continue;
+  let alvo=m.p, passos=0;
+  while(alvo && !SESSAO.has(alvo) && MUDOU[alvo] && passos++<20) alvo=MUDOU[alvo].p;
+  migrouAgenda=true;
+  if(alvo && SESSAO.has(alvo)){ agenda.add(alvo); avisosAgenda.push({tipo:"mudou",f:m.f,de:m.t,para:alvo}); }
+  else avisosAgenda.push({tipo:"saiu",f:m.f,de:m.t});
+}
 /* watch guarda prioridade: 1 = quero muito ver, 2 = se sobrar tempo.
    Formato antigo (lista de ids) migra para prioridade 1. */
 /* watch guarda a prioridade. Chave nova porque a escala mudou de 2 para 3
@@ -1052,6 +1074,30 @@ const save = ()=>{
   if(!ok) toast("Não foi possível salvar neste navegador");
   return !!ok;
 };
+if(migrouAgenda){ gravarLocal(LS_AVISOS,avisosAgenda); save(); }
+
+function fmtSessaoCurta(s){ return `${s.data.slice(8)}/${s.data.slice(5,7)} ${s.hora} · ${s.sala}`; }
+function avisosAgendaHTML(){
+  if(!avisosAgenda.length) return "";
+  const itens=avisosAgenda.map(a=>{
+    const f=FILME.get(a.f), nome=esc(f?f.titulo:"Filme");
+    if(a.tipo==="mudou"){
+      const s=SESSAO.get(a.para);
+      return `<li><b>${nome}</b>: era ${esc(a.de)} → <b>agora ${s?esc(fmtSessaoCurta(s)):"—"}</b>. Já trocamos na sua agenda.</li>`;
+    }
+    const outras=f&&SESS_BY_FILME.get(f.id)?.length;
+    return `<li><b>${nome}</b>: a sessão de ${esc(a.de)} saiu da programação e foi tirada da agenda.
+      ${outras?`<a href="#" onclick="openModal('${f.id}');return false">Ver as outras ${outras} sessões</a>`:"O filme não tem outra sessão."}</li>`;
+  }).join("");
+  const n=avisosAgenda.length;
+  return `<div class="aviso-mudou" role="status">
+    <b>⚠ O festival mudou ${n} ${n===1?"sessão":"sessões"} da sua agenda</b>
+    <ul>${itens}</ul>
+    <button class="btn" onclick="dispensarAvisosAgenda()">Ok, entendi</button></div>`;
+}
+function dispensarAvisosAgenda(){
+  avisosAgenda=[]; gravarLocal(LS_AVISOS,[]); renderAgenda();
+}
 let desfazerEstado=null;
 function guardarDesfazer(rotulo){
   desfazerEstado={rotulo,agenda:[...agenda],watch:[...watch],disp:[...dispOff||[]],cin:[...cinOff||[]],prefs:{...planPrefs}};
@@ -1535,6 +1581,7 @@ function setAgendaMode(m){
 }
 
 function renderAgenda(){
+  document.getElementById("agenda-avisos").innerHTML=avisosAgendaHTML();
   const root=document.getElementById("agenda-root");
   if(SEM_HORARIOS){ root.innerHTML=avisoSemHorarios(); return; }
   const items=[...agenda].map(id=>SESSAO.get(id)).filter(Boolean)
@@ -2162,6 +2209,12 @@ function checarLink(){
   document.body.appendChild(d);
 }
 addEventListener("DOMContentLoaded",checarLink);
+
+/* avisa, ao abrir, que o festival mexeu na agenda da pessoa (detalhe em Minha Agenda) */
+if(avisosAgenda.length) setTimeout(()=>{
+  toast(`⚠ O festival mudou ${avisosAgenda.length===1?"1 sessão":avisosAgenda.length+" sessões"} da sua agenda — veja em Minha Agenda`);
+  medir("agenda-mudou");
+},1200);
 
 /* ── instalar no celular (PWA) ────────────────────────────────────────────────
    Não depende de o navegador oferecer. Android/Chrome: guarda o beforeinstallprompt
