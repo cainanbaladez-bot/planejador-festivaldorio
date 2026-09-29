@@ -26,6 +26,7 @@ CAMPOS_FILME = [
     "ano", "duracao", "secao", "classificacao", "diretores", "elenco",
     "roteiro", "fotografia", "montagem", "musica", "producao", "distribuicao",
     "imagem", "trailer", "link_compra", "url_pagina", "n_sessoes",
+    "festivais", "premiado", "premio_txt", "lb_nota", "lb_votos", "lb_url",
 ]
 CAMPOS_SESSAO = [
     "sessao_id", "filme_id", "titulo", "data", "hora", "sala", "cinema",
@@ -90,6 +91,16 @@ for f in filmes:
     if not f["secao"]:                              # 2026: "Aula Aberta com Asghar Farhadi"
         f["secao"] = "Sessões especiais"
 sec_por_filme = {f["id"]: f["secao"] for f in filmes}
+
+# enriquecimento (29/09/2026): festivais/prêmios da sinopse + nota do Letterboxd, gerado
+# pelo enrich_filmes.py (copiado de SP). Sem o arquivo, o app esconde filtro e selo.
+arq_enriq = DATA / f"rio_{ano}_enriquecimento.json"
+enriq = json.loads(arq_enriq.read_text(encoding="utf-8")) if arq_enriq.exists() else {}
+for f in filmes:
+    e = enriq.get(f["id"], {})
+    f.update(festivais=e.get("festivais", []), premiado=e.get("premiado", False),
+             premio_txt=e.get("premio_txt", ""), lb_nota=e.get("lb_nota"),
+             lb_votos=e.get("lb_votos"), lb_url=e.get("lb_url"))
 
 # ── sessões que o festival mudou ou tirou (28/09/2026) ─────────────────────────
 # A agenda da pessoa guarda o id da sessão, e o id muda quando muda dia/hora/sala.

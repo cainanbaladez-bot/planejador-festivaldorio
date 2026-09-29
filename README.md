@@ -78,6 +78,27 @@ dia/hora/sala — antes o app apagava a sessão da agenda calado. Agora:
   por link de agenda. Eventos `atualizou-sozinho` / `atualizou-barra`. Testado trocando o
   VERSAO do sw.js com a página aberta: as duas situações se comportam como descrito.
 
+## Pacote de navegação (29/09/2026)
+
+- **★ Nota do Letterboxd + 🏆 festivais/prêmios** — `enrich_filmes.py`, copiado de SP (mesmo
+  método: casa título + ano + diretor no autocomplete do Letterboxd, lê a nota do JSON-LD;
+  festivais por regex na sinopse). Rodar depois de cada raspagem, antes do build:
+  `py -3.10 enrich_filmes.py` (~10 min na 1ª vez; cache em `data/letterboxd_cache.json`, então
+  as seguintes só buscam os filmes novos). Em 29/09: **158/313 com nota** (muita estreia de
+  2026 ainda sem avaliação), 132 com festival, 30 premiados. Conferido: os casamentos batem
+  (os 2 de slug estranho eram título em outra língua — *La bola negra*, *Czech Girl*).
+  Volta o filtro Festivais, o selo e a ordenação por nota, e o objetivo "Melhores avaliações".
+- **⏱ Modo festival** — o app sabe que horas são no Rio. Sessão que já começou fica apagada
+  ("já passou"), sem "+ AGENDA", fora do montador (`liberada()`), dos filtros de dia/cinema e
+  da ordem cronológica. O filtro de dia começa em **Hoje / Amanhã** durante o festival.
+  Testar como se fosse outro momento: `?agora=2026-10-03T15:00` na URL (os testes em `tests/`
+  usam `?agora=2025-10-01T00:00`, porque as datas de teste são de 2025).
+- **🛡 Proteção da agenda** — `navigator.storage.persist()` na 1ª gravação com conteúdo (Chrome
+  e app instalado protegem da limpeza automática; o Safari ignora). Dica "💾 mande o link para
+  você mesmo" na Minha Agenda só para quem está no Safari do iPhone (apaga dado de site sem
+  visita há 7 dias) ou dentro do X/Instagram (gaveta própria); fecha uma vez e não volta. O
+  passo a passo do iPhone avisa que o app instalado começa vazio.
+
 ## Diferenças em relação a SP
 
 - **Mostras:** o site tem 28 submostras (20 são "Première Brasil: …"). Filtro e cor usam o **nome
@@ -101,7 +122,7 @@ dia/hora/sala — antes o app apagava a sessão da agenda calado. Agora:
   a recusa) + link no rodapé. Android chama a janela do Chrome; iPhone mostra os passos do
   Compartilhar; navegador de dentro do X/Instagram/WhatsApp manda abrir no navegador antes.
   Mesmo código do de SP — detalhes no README de lá. Eventos `rio/instalar-*`.
-- **Sem enriquecimento ainda:** o filtro "Festivais" e o objetivo "Melhores avaliações" dependem do
+- **Enriquecimento (desde 29/09):** o filtro "Festivais" e o objetivo "Melhores avaliações" dependem do
   `enrich_filmes.py` de SP (festivais citados na sinopse + nota do Letterboxd), que não foi adaptado.
   Sem esses dados, o filtro de festival, a ordenação por nota e o objetivo "Melhores avaliações"
   somem da tela (dia/cinema também somem enquanto não houver sessões).

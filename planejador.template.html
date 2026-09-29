@@ -395,6 +395,13 @@ select:focus{outline:none;border-color:var(--amber)}
 
 /* ─── agenda ─── */
 .agenda-top{display:flex;flex-wrap:wrap;align-items:center;gap:12px 16px;margin-bottom:22px}
+/* modo festival: sessão que já começou */
+.sess-row.passou{opacity:.45}
+.sess-passou{font:600 10.5px var(--font-mono);color:var(--dim);letter-spacing:.08em;text-transform:uppercase;padding:0 6px}
+.side-chip.passou{opacity:.35;cursor:default;text-decoration:line-through}
+.dica-backup{display:flex;gap:10px;align-items:flex-start;border:1px dashed var(--line);border-radius:10px;padding:10px 12px;margin-bottom:16px;font-size:13px;color:var(--muted);line-height:1.45}
+.dica-backup a{color:var(--amber)}
+.dica-backup button{margin-left:auto;background:none;border:0;color:var(--dim);font-size:18px;cursor:pointer;line-height:1}
 .aviso-mudou{border:1px solid #8a5a17;background:#2a1f0c;border-radius:10px;padding:14px 16px;margin-bottom:18px;color:var(--ink);font-size:14px;line-height:1.5}
 .aviso-mudou>b{color:var(--amber)}
 .aviso-mudou ul{margin:8px 0 12px 18px;display:grid;gap:6px}
@@ -997,6 +1004,15 @@ for(const s of SESSOES){
 for(const arr of SESS_BY_FILME.values()) arr.sort((a,b)=>(a.data+a.hora).localeCompare(b.data+b.hora));
 
 const DIAS = [...new Set(SESSOES.map(s=>s.data))].sort();
+/* ── modo festival (29/09/2026): o app sabe que horas são no Rio ──────────────
+   Sessão que já começou fica apagada, sem "+ AGENDA", e sai do montador e dos
+   filtros. `?agora=2026-10-03T15:00` na URL simula outro momento (para testar). */
+const AGORA_TESTE=(()=>{ const m=/[?&]agora=([\d:T-]+)/.exec(location.search);
+  return m?new Date(m[1].length<=16?m[1]+":00-03:00":m[1]):null; })();
+const agora=()=>AGORA_TESTE||new Date();
+const inicioSessao=s=>new Date(`${s.data}T${s.hora}:00-03:00`);
+const passou=s=>inicioSessao(s)<=agora();
+const diaRio=dt=>new Date(dt.getTime()-3*3600e3).toISOString().slice(0,10);
 /* Festival do Rio: os filmes saem antes da grade de horários. Sem sessões, agenda,
    disponibilidade e montador mostram este aviso; as ★ ficam guardadas (ids estáveis por slug)
    e tudo acende quando o build for refeito com os horários. */
@@ -1076,7 +1092,15 @@ let filters = {q:"", secao:"", dia:"", cinema:"", fest:"", marca:"", sort:"titul
 let modalFilmId = null;
 let modalTrigger=null;
 
+/* Pede ao navegador que não limpe os dados sozinho (Chrome/Android e app instalado
+   costumam conceder; o Safari ignora). Não protege de a pessoa limpar à mão. */
+let pediuPersistir=false;
+function pedirPersistencia(){
+  if(pediuPersistir||!(agenda.size||watch.size)) return; pediuPersistir=true;
+  try{ navigator.storage&&navigator.storage.persist&&navigator.storage.persist().catch(()=>{}); }catch(e){}
+}
 const save = ()=>{
+  pedirPersistencia();
   const ok=gravarLocal(LS_A,[...agenda]) & gravarLocal(LS_W3,[...watch]);
   if(!ok) toast("Não foi possível salvar neste navegador");
   return !!ok;
@@ -1084,8 +1108,24 @@ const save = ()=>{
 if(migrouAgenda){ gravarLocal(LS_AVISOS,avisosAgenda); save(); }
 
 function fmtSessaoCurta(s){ return `${s.data.slice(8)}/${s.data.slice(5,7)} ${s.hora} · ${s.sala}`; }
+/* Safari do iPhone apaga os dados de site sem visita há 7 dias (o app instalado, não);
+   navegador de dentro do X/Instagram guarda numa gaveta própria. Nos dois casos, dica
+   de mandar o link para si mesmo — até a pessoa fechar. */
+const LS_DICA=`${LS_PREFIX}_dica_backup`;
+function dicaBackupHTML(){
+  const ua=navigator.userAgent;
+  const ios=/iPhone|iPad|iPod/.test(ua)||(/Macintosh/.test(ua)&&navigator.maxTouchPoints>1);
+  const deApp=/FBAN|FBAV|Instagram|Twitter|WhatsApp|Line\/|; wv\)/i.test(ua);
+  const instalado=(window.matchMedia&&matchMedia("(display-mode: standalone)").matches)||navigator.standalone===true;
+  if(!agenda.size||instalado||!(ios||deApp)||lerLocal(LS_DICA,false)) return "";
+  const pq=deApp?"neste navegador de dentro do app — se abrir o planejador em outro lugar, ela não vai junto"
+               :"neste Safari — e o iPhone apaga dados de site que ficam 7 dias sem visita";
+  return `<div class="dica-backup">💾 <span>Sua agenda fica só ${pq}.
+    <a href="#" onclick="compartilharAgenda();return false">Mande o link para você mesmo</a> e não perde nada.</span>
+    <button onclick="gravarLocal(LS_DICA,true);renderAgenda()" aria-label="Fechar dica">×</button></div>`;
+}
 function avisosAgendaHTML(){
-  if(!avisosAgenda.length) return "";
+  if(!avisosAgenda.length) return dicaBackupHTML();
   const itens=avisosAgenda.map(a=>{
     const f=FILME.get(a.f), nome=esc(f?f.titulo:"Filme");
     if(a.tipo==="mudou"){
@@ -1100,7 +1140,7 @@ function avisosAgendaHTML(){
   return `<div class="aviso-mudou" role="status">
     <b>⚠ O festival mudou ${n} ${n===1?"sessão":"sessões"} da sua agenda</b>
     <ul>${itens}</ul>
-    <button class="btn" onclick="dispensarAvisosAgenda()">Ok, entendi</button></div>`;
+    <button class="btn" onclick="dispensarAvisosAgenda()">Ok, entendi</button></div>`+dicaBackupHTML();
 }
 function dispensarAvisosAgenda(){
   avisosAgenda=[]; gravarLocal(LS_AVISOS,[]); renderAgenda();
@@ -1206,7 +1246,10 @@ function updateBadge(){
 /* ───────────────── filmes view ───────────────── */
 function buildFilters(){
   const dSel=document.getElementById("f-dia");
-  dSel.innerHTML = `<option value="">Qualquer dia</option>` + DIAS.map(d=>`<option value="${d}">${esc(diaCurto(d))}</option>`).join("");
+  const HOJE=diaRio(agora()), AMANHA=diaRio(new Date(agora().getTime()+864e5));
+  const noFestival=DIAS.length && HOJE>=DIAS[0] && HOJE<=DIAS[DIAS.length-1];
+  const diasVisiveis=noFestival?DIAS.filter(d=>d>=HOJE):DIAS;
+  dSel.innerHTML = `<option value="">${noFestival?"De hoje em diante":"Qualquer dia"}</option>` + diasVisiveis.map(d=>`<option value="${d}">${d===HOJE?"Hoje · ":d===AMANHA?"Amanhã · ":""}${esc(diaCurto(d))}</option>`).join("");
   const cSel=document.getElementById("f-cinema");
   cSel.innerHTML = `<option value="">Todos os cinemas</option>` + CINEMAS.map(c=>`<option value="${esc(c)}">${esc(c)}</option>`).join("");
   const festCnt={};
@@ -1257,7 +1300,7 @@ function filmesFiltrados(){
     }
     if(filters.dia || filters.cinema){
       const ss=SESS_BY_FILME.get(f.id)||[];
-      if(!ss.some(s=>(!filters.dia||s.data===filters.dia)&&(!filters.cinema||s.cinema===filters.cinema))) return false;
+      if(!ss.some(s=>!passou(s)&&(!filters.dia||s.data===filters.dia)&&(!filters.cinema||s.cinema===filters.cinema))) return false;
     }
     return true;
   });
@@ -1268,6 +1311,7 @@ function filmesFiltrados(){
     for(const s of (SESS_BY_FILME.get(f.id)||[])){
       if(filters.dia && s.data!==filters.dia) continue;
       if(filters.cinema && s.cinema!==filters.cinema) continue;
+      if(passou(s)) continue;
       const k=s.data+s.hora;
       if(m===null||k<m) m=k;
     }
@@ -1395,8 +1439,9 @@ function openModal(id, keepScroll){
           <div class="sess-day-h">${esc(diaLabel(d))}</div>
           ${porDia[d].map(s=>{
             const on=agenda.has(s.sessao_id);
-            const confs=on?[]:conflitos(s);
-            return `<div class="sess-row">
+            const foi=passou(s);
+            const confs=on||foi?[]:conflitos(s);
+            return `<div class="sess-row${foi?" passou":""}">
               <span class="hora">${esc(s.hora)}</span>
               <span class="local"><b>${esc(s.cinema)}</b> · ${esc(s.sala)}${s.legendas?` · leg. ${esc(s.legendas)}`:""}
                 ${confs.length?`<span class="warn"> ⚠ choca com ${esc(confs[0].titulo)}</span>`:""}
@@ -1404,7 +1449,7 @@ function openModal(id, keepScroll){
               ${s.link_compra?`<a class="icon-btn" title="Comprar ingresso" href="${esc(s.link_compra)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">🎟</a>`:""}
               ${on?`<a class="icon-btn g" title="Adicionar ao Google Agenda" href="${esc(linkGoogle(s))}" target="_blank" rel="noopener" onclick="event.stopPropagation();medir('google-agenda')">G</a>
               <button class="icon-btn" title="Baixar esta sessão em .ics" onclick="exportSessaoICS('${s.sessao_id}')">📅</button>`:""}
-              <button class="sess-add${on?" on":""}" onclick="toggleSessao('${s.sessao_id}')">${on?"✓ NA AGENDA":"+ AGENDA"}</button>
+              ${foi&&!on?`<span class="sess-passou">já passou</span>`:`<button class="sess-add${on?" on":""}" onclick="toggleSessao('${s.sessao_id}')">${on?"✓ NA AGENDA":"+ AGENDA"}</button>`}
             </div>`;
           }).join("")}
         </div>`).join("") || `<p style="color:var(--dim)">Sem sessões cadastradas.</p>`}
@@ -1471,9 +1516,10 @@ function calBody(){
             ${ss.map(s=>{
               const on=agenda.has(s.sessao_id);
               const confs=conflitos(s);
-              const conf=!on&&confs.length;
+              const foi=!on&&passou(s);
+              const conf=!on&&!foi&&confs.length;
               const d=dObj(s.data);
-              return `<button class="side-chip${on?" on":conf?" conf":""}"
+              return `<button class="side-chip${on?" on":foi?" passou":conf?" conf":""}"${foi?" disabled":""}
                 title="${esc(s.cinema)} · ${esc(s.sala)}${conf?` — ⚠ choca com ${esc(confs[0].titulo)}`:""}"
                 onclick="toggleSessao('${s.sessao_id}')">
                 <span class="c1">${on?"✓ ":conf?"⚠ ":""}${DOW3[d.getDay()]} ${pad(d.getDate())}/${pad(d.getMonth()+1)} · ${esc(s.hora)}</span>
@@ -1676,7 +1722,7 @@ const saveRestr=()=>{
 };
 const chaveCel=(d,f)=>`${d}|${f}`;
 function liberada(s){
-  if(!s || cinOff.has(s.cinema)) return false;
+  if(!s || cinOff.has(s.cinema) || passou(s)) return false;
   const ini=mins(s.hora), fim=ini+durMin(s.duracao);
   if(!Number.isFinite(ini)||ini<600||fim>1440) return false;
   for(let i=0;i<FAIXAS.length;i++){
@@ -2296,6 +2342,8 @@ async function abrirInstalar(){
     corpo=`<ol><li>Toque em <b>Compartilhar</b> ${IC_COMPARTILHAR} na barra do Safari.</li>
       <li>Role a lista e toque em <b>Adicionar à Tela de Início</b>.</li>
       <li>Toque em <b>Adicionar</b>.</li></ol>
+      <p class="dica">No iPhone o app instalado começa <b>vazio</b>: se já montou agenda aqui, toque antes em
+      <b>📤 Compartilhar</b>, mande o link para você e abra esse link dentro do app.</p>
       <p class="dica">Não aparece “Adicionar à Tela de Início”? Você deve estar no navegador de outro app:
       toque em <b>Abrir no Safari</b> (a bússola) e repita.</p>`;
   }else{

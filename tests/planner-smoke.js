@@ -39,7 +39,7 @@ function boot(storageRaw = {}) {
   const context = {
     console, performance, URL, URLSearchParams, Blob, TextEncoder, Date,
     setTimeout() {}, clearTimeout() {}, confirm() { return true; }, prompt() {},
-    location: { origin: "http://local", pathname: "/", protocol: "file:", hash: "", search: "" },
+    location: { origin: "http://local", pathname: "/", protocol: "file:", hash: "", search: "?agora=2025-10-01T00:00" }, /* modo festival: roda antes das datas de teste */
     history: { replaceState() {} }, navigator: {},
     localStorage: {
       getItem(key) { return local.has(key) ? local.get(key) : null; },
