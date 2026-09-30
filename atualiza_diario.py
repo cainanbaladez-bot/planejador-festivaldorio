@@ -14,9 +14,9 @@ Travas (qualquer uma para tudo e devolve os dados de antes):
   · o teste automático (tests/planner-smoke.js) não passa.
 Se nada mudou no site do festival, não faz build nem commit.
 
-PUBLICAR = False: commita, mas o push fica com o Cainan (GitHub Desktop → Push origin).
-Com True, publica sozinho (o push funciona pelo terminal desde 29/09/2026: credential
-helper "store").
+PUBLICAR = True (desde 29/09/2026, a pedido do Cainan): publica sozinho — o push funciona
+pelo terminal (credential helper "store"). Com False, só commita e o push fica no GitHub
+Desktop (Push origin).
 
 Log: data/atualizacao.log (fora do git). Rodar à mão: py -3.10 atualiza_diario.py
 """
