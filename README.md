@@ -87,8 +87,8 @@ raspa → confere → enriquece → sobe o `VERSAO` do sw.js → build → teste
 - **Travas:** raspagem que falha, grade fechada, queda de mais de 10% dos filmes ou 20% das
   sessões, ou teste que não passa → desfaz tudo e não publica nada. Sem mudança no site do
   festival → não faz commit.
-- **Publicar:** `PUBLICAR = False` no topo do script — ele commita e o push fica no GitHub
-  Desktop. Com `True` publica sozinho (o push pelo terminal funciona desde 29/09/2026).
+- **Publica sozinho** (`PUBLICAR = True` desde 29/09/2026 — o push pelo terminal funciona).
+  Para voltar ao push manual pelo GitHub Desktop, trocar para `False` no topo do script.
 - **Log:** `data/atualizacao.log` (fora do git). Ver a tarefa: Agendador de Tarefas do Windows.
 - 1ª rodada (29/09, 23h09): **343 filmes (+30, a mostra nova "Cinema Circulação"), 985
   sessões**, 61 novas ou remarcadas. Cinema novo Areninha Renato Russo → Zona Norte.

@@ -28,7 +28,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-PUBLICAR = False
+PUBLICAR = True
 
 BASE = Path(__file__).parent
 DATA = BASE / "data"
