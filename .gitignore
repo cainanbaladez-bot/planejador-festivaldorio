@@ -13,3 +13,6 @@ __pycache__/
 *.pyc
 .DS_Store
 Thumbs.db
+
+# cópia de segurança temporária do atualiza_diario.py
+data/_antes_da_atualizacao/
