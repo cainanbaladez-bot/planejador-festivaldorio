@@ -78,6 +78,21 @@ dia/hora/sala — antes o app apagava a sessão da agenda calado. Agora:
   por link de agenda. Eventos `atualizou-sozinho` / `atualizou-barra`. Testado trocando o
   VERSAO do sw.js com a página aberta: as duas situações se comportam como descrito.
 
+## Atualização diária automática (desde 30/09/2026)
+
+Tarefa do Windows **PlanejadorRio-Atualiza**: todo dia às 7h (ou assim que o PC ligar, se
+estava desligado), de 30/09 a 15/10 — termina sozinha em 16/10. Roda `atualiza_diario.py`:
+raspa → confere → enriquece → sobe o `VERSAO` do sw.js → build → teste → commit.
+
+- **Travas:** raspagem que falha, grade fechada, queda de mais de 10% dos filmes ou 20% das
+  sessões, ou teste que não passa → desfaz tudo e não publica nada. Sem mudança no site do
+  festival → não faz commit.
+- **Publicar:** `PUBLICAR = False` no topo do script — ele commita e o push fica no GitHub
+  Desktop. Com `True` publica sozinho (o push pelo terminal funciona desde 29/09/2026).
+- **Log:** `data/atualizacao.log` (fora do git). Ver a tarefa: Agendador de Tarefas do Windows.
+- 1ª rodada (29/09, 23h09): **343 filmes (+30, a mostra nova "Cinema Circulação"), 985
+  sessões**, 61 novas ou remarcadas. Cinema novo Areninha Renato Russo → Zona Norte.
+
 ## Pacote de navegação (29/09/2026)
 
 - **★ Nota do Letterboxd + 🏆 festivais/prêmios** — `enrich_filmes.py`, copiado de SP (mesmo
