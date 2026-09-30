@@ -54,7 +54,7 @@ REGIOES_RIO = [
     ("norte", "Zona Norte", [("penha", "Penha"), ("bras de pina", "Penha"), ("nova brasilia", "Complexo do Alemão"),
                              ("alemao", "Complexo do Alemão"), ("tijuca", "Tijuca"), ("maracana", "Maracanã"),
                              ("vila isabel", "Vila Isabel"), ("meier", "Méier"), ("madureira", "Madureira"),
-                             ("ilha do governador", "Ilha do Governador")]),
+                             ("ilha do governador", "Ilha do Governador"), ("cocota", "Ilha do Governador"), ("renato russo", "Ilha do Governador")]),
     ("oeste", "Barra / Zona Oeste", [("realengo", "Realengo"), ("barra", "Barra"), ("recreio", "Recreio"),
                                      ("jacarepagua", "Jacarepaguá"), ("campo grande", "Campo Grande"),
                                      ("bangu", "Bangu"), ("americas", "Barra")]),
