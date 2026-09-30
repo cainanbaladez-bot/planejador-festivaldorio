@@ -26,6 +26,7 @@ import re
 import shutil
 import subprocess
 import sys
+import tempfile
 from pathlib import Path
 
 PUBLICAR = True
@@ -35,6 +36,10 @@ DATA = BASE / "data"
 LOG = DATA / "atualizacao.log"
 ANO = 2026
 ARQS = [DATA / f"rio_{ANO}_{n}.json" for n in ("filmes", "sessoes", "meta", "enriquecimento", "historico")]
+ARQS += [DATA / "letterboxd_cache.json", BASE / "docs" / "index.html",
+         BASE / "docs" / "sw.js", BASE / "planejador.html"]
+VERSIONADOS = [str(p.relative_to(BASE)) for p in ARQS if p.name != "planejador.html"]
+PENDENTE = DATA / "_push_pendente.json"
 PY = ["py", "-3.10"]          # a tarefa chama com pyw (sem janela); os passos, com py
 SEM_JANELA = getattr(subprocess, "CREATE_NO_WINDOW", 0)
 
@@ -62,20 +67,66 @@ def carrega(nome):
     return json.loads(p.read_text(encoding="utf-8")) if p.exists() else None
 
 
+def validar(filmes, sessoes):
+    import re as _re
+    if not isinstance(filmes, list) or not isinstance(sessoes, list) or not filmes or not sessoes:
+        raise ValueError("catálogo ou sessões vazios")
+    ids = {f["id"] for f in filmes}
+    if len(ids) != len(filmes) or len({s["sessao_id"] for s in sessoes}) != len(sessoes):
+        raise ValueError("IDs duplicados")
+    for s in sessoes:
+        if s["filme_id"] not in ids:
+            raise ValueError("sessão sem filme")
+        dia = dt.date.fromisoformat(s["data"])
+        if dia.year != ANO:
+            raise ValueError("sessão fora da edição")
+        if not _re.fullmatch(r"(?:[01]\d|2[0-3]):[0-5]\d", s["hora"]):
+            raise ValueError("hora inválida")
+        dur = _re.fullmatch(r"(\d+)\s*min\.?", s.get("duracao", ""))
+        if not dur or not 1 <= int(dur.group(1)) <= 600:
+            raise ValueError("duração inválida")
+    return True
+
+
 def main():
+    cod, branch = roda(["git", "branch", "--show-current"])
+    if cod or (branch.strip() != "main" and "--dry-run" not in sys.argv):
+        log("PAROU: atualização automática exige a branch main")
+        return 1
+    cod, estado = roda(["git", "status", "--porcelain", "--untracked-files=normal"])
+    if cod or estado.strip():
+        log("PAROU: checkout contém alterações; trabalho manual preservado")
+        return 1
+    if PENDENTE.exists():
+        marca = json.loads(PENDENTE.read_text(encoding="utf-8"))
+        cod, head = roda(["git", "rev-parse", "HEAD"])
+        if cod or head.strip() != marca.get("sha"):
+            log("PAROU: push pendente pertence a outro commit; revisão manual necessária")
+            return 1
+        cod, saida = roda(["git", "push", "origin", "main"], timeout=300)
+        if cod:
+            log("push pendente ainda falhou: " + saida.strip()[-200:])
+            return 1
+        PENDENTE.unlink()
+        log("push pendente concluído")
     backup = DATA / "_antes_da_atualizacao"
     backup.mkdir(exist_ok=True)
     for a in ARQS:
+        b = backup / a.name
         if a.exists():
-            shutil.copy2(a, backup / a.name)
+            shutil.copy2(a, b)
+        elif b.exists():
+            b.unlink()
 
-    def desfaz(motivo):
+    def desfaz(motivo, status=1):
         for a in ARQS:
             b = backup / a.name
             if b.exists():
                 shutil.copy2(b, a)
-        log(f"PAROU: {motivo} — dados de antes restaurados, nada publicado")
-        return 1
+            elif a.exists():
+                a.unlink()
+        log(f"{'PAROU' if status else 'VERIFICADO'}: {motivo} — dados de antes restaurados, nada publicado")
+        return status
 
     filmes0, sessoes0 = carrega("filmes") or [], carrega("sessoes") or []
 
@@ -88,6 +139,10 @@ def main():
     if len(filmes) < 0.9 * len(filmes0) or len(sessoes) < 0.8 * len(sessoes0):
         return desfaz(f"raspagem incompleta: {len(filmes0)}→{len(filmes)} filmes, "
                       f"{len(sessoes0)}→{len(sessoes)} sessões")
+    try:
+        validar(filmes, sessoes)
+    except (ValueError, KeyError, TypeError) as exc:
+        return desfaz("dados inconsistentes: " + str(exc))
 
     chave = lambda s: (s["sessao_id"], s["data"], s["hora"], s["sala"])
     mudou_grade = sorted(map(chave, sessoes)) != sorted(map(chave, sessoes0))
@@ -110,18 +165,19 @@ def main():
     if not m:
         return desfaz("não achei o VERSAO no docs/sw.js")
     nova = f"rio-v{int(m.group(1)) + 1}"
-    sw_antes = t
     sw.write_text(t.replace(m.group(0), f'const VERSAO = "{nova}";'), encoding="utf-8")
 
     cod, saida = roda(PY + ["build_planejador.py"])
     if cod != 0:
-        sw.write_text(sw_antes, encoding="utf-8")
         return desfaz("o build falhou: " + saida.strip()[-200:])
+    if any(m in (BASE / "docs" / "index.html").read_text(encoding="utf-8")
+           for m in ("/*__FILMES__*/[]", "/*__SESSOES__*/[]", "__ANO__")):
+        return desfaz("o build deixou marcas não substituídas")
     cod, saida = roda(["node", "tests/planner-smoke.js"])
     if cod != 0:
-        sw.write_text(sw_antes, encoding="utf-8")
-        roda(["git", "checkout", "--", "docs/index.html"])
         return desfaz("o teste falhou: " + saida.strip()[-300:])
+    if "--dry-run" in sys.argv:
+        return desfaz(f"dry-run: {len(filmes)} filmes, {len(sessoes)} sessões; testes passaram", 0)
 
     novas = len({s["sessao_id"] for s in sessoes} - {s["sessao_id"] for s in sessoes0})
     sumiram = len({s["sessao_id"] for s in sessoes0} - {s["sessao_id"] for s in sessoes})
@@ -129,25 +185,52 @@ def main():
               f"{novas} sessões novas ou remarcadas, {sumiram} sumiram ou mudaram")
     hoje = dt.date.today().strftime("%d/%m")
     msg = (f"Programação de {hoje} (atualização automática)\n\n{resumo}.\n"
-           f"Service worker {nova}.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\n")
-    roda(["git", "add", "-A"])
+           f"Service worker {nova}.\n")
+    cod, estado = roda(["git", "status", "--porcelain", "--untracked-files=normal"])
+    alterados = {linha[3:].replace("\\", "/") for linha in estado.splitlines() if len(linha) >= 4}
+    if cod or not alterados.issubset(set(VERSIONADOS)):
+        return desfaz("arquivos inesperados mudaram durante a atualização")
+    cod, saida = roda(["git", "add", "--", *VERSIONADOS])
+    if cod:
+        return desfaz("git add falhou: " + saida.strip()[-200:])
     cod, saida = roda(["git", "-c", "core.safecrlf=false", "commit", "-q", "-m", msg])
     if cod != 0:
-        log("commit falhou: " + saida.strip()[-200:])
-        return 1
+        roda(["git", "restore", "--staged", "--", *VERSIONADOS])
+        return desfaz("commit falhou: " + saida.strip()[-200:])
     log(f"commit feito — {resumo} — {nova}")
 
     if PUBLICAR:
         cod, saida = roda(["git", "push", "origin", "main"], timeout=300)
         log("publicado (push ok)" if cod == 0 else "push FALHOU: " + saida.strip()[-200:])
+        if cod:
+            _, head = roda(["git", "rev-parse", "HEAD"])
+            PENDENTE.write_text(json.dumps({"sha": head.strip()}), encoding="utf-8")
+            return 1
     else:
         log("pronto para publicar: falta o Push origin no GitHub Desktop")
     return 0
 
 
 if __name__ == "__main__":
+    import msvcrt
+    trava = Path(tempfile.gettempdir()) / "planejador-rio-atualiza.lock"
+    arquivo = trava.open("a+b")
+    arquivo.seek(0)
+    if not arquivo.read(1):
+        arquivo.write(b"1")
+        arquivo.flush()
+    arquivo.seek(0)
+    try:
+        msvcrt.locking(arquivo.fileno(), msvcrt.LK_NBLCK, 1)
+    except OSError:
+        log("PAROU: outra atualização está em andamento")
+        sys.exit(1)
     try:
         sys.exit(main())
     except Exception as e:  # a tarefa roda sem console: tudo que der errado vai para o log
         log(f"ERRO inesperado: {e!r}")
         sys.exit(1)
+    finally:
+        arquivo.seek(0)
+        msvcrt.locking(arquivo.fileno(), msvcrt.LK_UNLCK, 1)
+        arquivo.close()

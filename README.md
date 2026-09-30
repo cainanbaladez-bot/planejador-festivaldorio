@@ -9,7 +9,7 @@ regiões de cinema).
 > **Projeto independente.** Não é um site oficial do Festival do Rio. Horários e ingressos devem
 > ser confirmados em [festivaldorio.com.br](https://www.festivaldorio.com.br).
 
-## Estado (24/09/2026)
+## Estado dos dados
 
 - **Grade publicada em 24/09: 298 filmes, 926 sessões, 1–14 out, 10 cinemas.** O festival está
   soltando a grade **aos poucos** (o total no site foi de 731 a 928 sessões na mesma tarde) — por
@@ -43,7 +43,7 @@ Servidor local: configuração `planejador-rio` (porta 8791) no `launch.json` do
 | `scrape_rio.py` | Raspador. O site é um app **Inertia.js**: toda página traz o JSON completo no atributo `data-page`. Lista em `/br/filmes?page=N` (9 por página); ficha e sessões em `/br/filmes/<slug>` (`props.pelicula` + `pelicula.programacoesAsJson`). Edições passadas em `/br/edicoes-anteriores/<ano>/filmes`. |
 | `build_planejador.py` | Injeta dados, cores das mostras e regiões no template. As **regiões** saem de palavras do nome/endereço de cada cinema (`REGIOES_RIO`, a ordem importa: Niterói antes do Centro por causa da "Av. Visconde do Rio Branco"). |
 | `planejador.template.html` | Template copiado de SP, com os textos trocados por marcas `__ANO__`, `__SUB__`, `__BETA__`, `__MES__`, `/*__CORES__*/`, `/*__REGIOES__*/` e o estado `SEM_HORARIOS`. |
-| `docs/` | O que o GitHub Pages publica (PWA: manifesto, `sw.js`, ícones — ainda os mesmos de SP). **Ao republicar, suba o `VERSAO` em `docs/sw.js`** (hoje `rio-v2`), senão quem instalou fica com o cache velho. |
+| `docs/` | O que o GitHub Pages publica (PWA: manifesto, `sw.js`, ícones). **Ao republicar, suba o `VERSAO` em `docs/sw.js`** (nesta branch, `rio-v11`), senão quem instalou fica com o cache velho. |
 | `data/` | Dados raspados e logs. |
 
 ## Atualização de 28/09/2026 e sessões remarcadas
@@ -54,14 +54,13 @@ que ganharam páginas próprias), **remarcou 21 sessões** (dia, hora ou sala) e
 todas de 13 e 14/10). Cinema novo: Armazém da Utopia (Av. Rodrigues Alves → região Centro).
 
 **Agenda que o festival mudou.** A agenda guarda o id da sessão, e o id muda quando muda
-dia/hora/sala — antes o app apagava a sessão da agenda calado. Agora:
-- `data/rio_<ano>_historico.json` guarda **toda sessão já publicada** (versionado; semeado em
-  28/09 com o que estava no ar desde 24/09). A cada build, a sessão que sumiu é pareada com uma
-  sessão **nova do mesmo filme** na mesma rodada (ordem cronológica) → "remarcada"; sem par →
-  "tirada". Vai para o app como `MUDOU` (id antigo → filme, texto da sessão antiga, id novo).
-- O app troca a remarcada sozinho, tira a cancelada, e mostra na Minha Agenda um aviso com o
-  antes → depois e o link para as outras sessões do filme; toast ao abrir; evento
-  `rio/agenda-mudou`. O aviso fica guardado até a pessoa tocar em "Ok, entendi".
+dia/hora/sala. Nesta versão, a sessão ausente vira uma pendência persistente:
+- `data/rio_<ano>_historico.json` guarda as sessões já publicadas. O build oferece as sessões
+  atuais do mesmo filme como **candidatas**, sem afirmar que uma delas é a remarcação oficial.
+- O app mantém o compromisso ausente visível na Minha Agenda até a pessoa escolher outra sessão
+  ou removê-lo. Essas ações podem ser desfeitas. Links e backups também preservam pendências.
+- Agendas que versões antigas já trocaram automaticamente não podem ser reconstruídas com certeza;
+  os avisos antigos continuam visíveis quando salvos no navegador.
 - **Nunca apagar o histórico** entre uma raspagem e outra — é ele que lembra as sessões antigas.
 
 ### 📤 Compartilhar e 🔄 versão nova sem atraso (29/09/2026)
@@ -90,6 +89,10 @@ raspa → confere → enriquece → sobe o `VERSAO` do sw.js → build → teste
 - **Publica sozinho** (`PUBLICAR = True` desde 29/09/2026 — o push pelo terminal funciona).
   Para voltar ao push manual pelo GitHub Desktop, trocar para `False` no topo do script.
 - **Log:** `data/atualizacao.log` (fora do git). Ver a tarefa: Agendador de Tarefas do Windows.
+- **Proteções nesta branch:** exige `main` e árvore limpa, trava uma segunda execução, valida os
+  dados, adiciona ao commit só arquivos esperados e sinaliza push pendente para nova tentativa.
+  O modo `--dry-run` restaura os arquivos depois da validação; o isolamento completo do ensaio
+  e a recuperação de interrupção abrupta ainda precisam de implementação e teste.
 - 1ª rodada (29/09, 23h09): **343 filmes (+30, a mostra nova "Cinema Circulação"), 985
   sessões**, 61 novas ou remarcadas. Cinema novo Areninha Renato Russo → Zona Norte.
 

@@ -126,7 +126,11 @@ if corrente:
         s = atuais[i]
         hist[i] = {"f": s["filme_id"], "t": fmt(s), "o": s["data"] + s["hora"]}
     HIST.write_text(json.dumps(hist, ensure_ascii=False, indent=0), encoding="utf-8")
-    MUDOU = {i: {"f": h["f"], "t": h["t"], "p": h["p"]} for i, h in hist.items() if "p" in h}
+    # A associação cronológica legada é apenas uma pista. Uma sessão nova do
+    # mesmo filme não comprova que a antiga foi remarcada.
+    MUDOU = {i: {"f": h["f"], "t": h["t"],
+                 "c": [s["sessao_id"] for s in sessoes if s["filme_id"] == h["f"]]}
+             for i, h in hist.items() if i not in atuais}
 for s in sessoes:
     s["secao"] = sec_por_filme.get(s["filme_id"], s.get("secao", ""))
 

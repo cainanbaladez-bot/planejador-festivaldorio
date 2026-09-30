@@ -22,7 +22,7 @@ function testTemplateRedirect() {
     "abrir o template deve encaminhar para o aplicativo gerado");
 }
 
-function boot(storageRaw = {}) {
+function boot(storageRaw = {}, storageBroken = false) {
   const html = fs.readFileSync("docs/index.html", "utf8");
   const scripts = [...html.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/g)]
     .map(match => match[1]).filter(Boolean);
@@ -42,8 +42,8 @@ function boot(storageRaw = {}) {
     location: { origin: "http://local", pathname: "/", protocol: "file:", hash: "", search: "?agora=2025-10-01T00:00" }, /* modo festival: roda antes das datas de teste */
     history: { replaceState() {} }, navigator: {},
     localStorage: {
-      getItem(key) { return local.has(key) ? local.get(key) : null; },
-      setItem(key, value) { local.set(key, String(value)); },
+      getItem(key) { if(storageBroken) throw Error("storage blocked"); return local.has(key) ? local.get(key) : null; },
+      setItem(key, value) { if(storageBroken) throw Error("storage blocked"); local.set(key, String(value)); },
     },
     addEventListener() {},
     document: {
@@ -61,6 +61,34 @@ function boot(storageRaw = {}) {
 
 const app = boot();
 testTemplateRedirect();
+const oldId=vm.runInContext("Object.keys(MUDOU)[0]",app);
+assert(oldId,"a fixture de 2026 precisa incluir uma sessão removida");
+const pendApp=boot({rio2026_agenda:JSON.stringify([oldId])});
+assert.equal(vm.runInContext("agenda.size",pendApp),0,"sessão antiga não deve ser trocada automaticamente");
+assert.equal(vm.runInContext(`pendencias.has(${JSON.stringify(oldId)})`,pendApp),true,
+  "sessão antiga deve permanecer como pendência");
+assert.equal(vm.runInContext("pendencias.size",boot({
+  rio2026_pendencias:JSON.stringify([{id:oldId}]),rio2026_agenda:JSON.stringify([oldId])
+})),1,"recarregar não deve duplicar pendências");
+(async()=>{
+app.setTimeout=fn=>fn();
+await vm.runInContext(`
+  const s={sessao_id:"teste",filme_id:FILMES[0].id,titulo:"Virada",data:"2026-10-31",
+    hora:"23:30",duracao:"120 min.",cinema:"Cinema",sala:"1"};
+  globalThis.__ics=icsEvento(s,1).join("\\r\\n");
+`,app);
+assert(app.__ics.includes("DTEND;TZID=America/Sao_Paulo:20261101T013000"),
+  "ICS deve avançar o dia após a meia-noite");
+vm.runInContext(`
+  const virada={sessao_id:"fim",filme_id:FILMES[0].id,titulo:"Fim de ano",data:"2026-12-31",
+    hora:"23:30",duracao:"120 min.",cinema:"Cinema",sala:"1"};
+  globalThis.__icsAno=icsEvento(virada,1).join("\\r\\n");
+  globalThis.__googleAno=new URL(linkGoogle(virada)).searchParams.get("dates");
+`,app);
+assert(app.__icsAno.includes("DTEND;TZID=America/Sao_Paulo:20270101T013000"),
+  "ICS deve avançar o ano após a meia-noite");
+assert.equal(app.__googleAno,"20261231T233000/20270101T013000",
+  "Google Agenda deve avançar o dia e o ano");
 vm.runInContext(`
   watch=new Map([[FILMES[0].id,1],[FILMES[1].id,2],[FILMES[2].id,3]]);
   const compartilhado=montarLink();
@@ -84,6 +112,7 @@ vm.runInContext(`
   const trocaSala=[{s:a,prio:1},{s:b,prio:2}];
   globalThis.__deslocamentoOk=cmpScore(scoreAgenda(mesmaSala,[],"trocas"),scoreAgenda(trocaSala,[],"trocas"))>0;
   globalThis.__objetivosOk=["max","prio","trocas","dias","espera","nota"].every(id=>OBJETIVOS.some(x=>x.id===id));
+  globalThis.__comparacaoOk=typeof compararAlternativas==="function" && typeof escolherAlternativa==="function";
 `, app);
 
 assert.equal(app.__linkOk, true, "o link deve preservar os três níveis");
@@ -94,8 +123,28 @@ assert.equal(app.__maxOk, true, "máximo de filmes deve favorecer dois filmes");
 assert.equal(app.__prioOk, true, "prioridades deve preservar o favorito");
 assert.equal(app.__deslocamentoOk, true, "menor deslocamento deve favorecer menos trocas de cinema");
 assert.equal(app.__objetivosOk, true, "os seis objetivos devem estar disponíveis");
+assert.equal(app.__comparacaoOk, true, "comparação de alternativas deve estar disponível");
+vm.runInContext(`
+  watch=new Map(FILMES.slice(0,5).map((f,i)=>[f.id,(i%3)+1]));
+  const fixa=SESSOES.find(s=>s.filme_id===FILMES[0].id);
+  agenda=new Set([fixa.sessao_id]); fixadas=new Set([fixa.sessao_id]);
+  manterAgenda=false; planPrefs.manter=false;
+  proposta=encaixar("max",500);
+`,app);
+await vm.runInContext("compararAlternativas()",app);
+vm.runInContext(`
+  globalThis.__fixaOk=alternativas.length>=1&&alternativas.every(p=>p.base.some(s=>s.sessao_id===fixa.sessao_id));
+  globalThis.__unicasOk=new Set(alternativas.map(p=>[...p.base.map(s=>s.sessao_id),...p.sel.map(x=>x.s.sessao_id)].sort().join("|"))).size===alternativas.length;
+`,app);
+assert.equal(app.__fixaOk,true,"todas as alternativas devem preservar a sessão fixada");
+assert.equal(app.__unicasOk,true,"alternativas idênticas devem ser deduplicadas");
 
-assert.doesNotThrow(() => boot({ mostra49_agenda: "json inválido", mostra49_watch3: "[" }),
+assert.doesNotThrow(() => boot({ rio2026_agenda: "json inválido", rio2026_watch3: "[" }),
   "armazenamento corrompido não deve impedir o app de abrir");
+assert.doesNotThrow(() => boot({rio2026_watch:JSON.stringify({erro:true}),
+  rio2026_agenda:JSON.stringify({erro:true}),rio2026_pendencias:JSON.stringify({erro:true})}),
+  "tipos de armazenamento incorretos não devem impedir a abertura");
+assert.doesNotThrow(() => boot({},true),"storage bloqueado não deve impedir a abertura");
 
-console.log("planner smoke: 10 casos passaram");
+console.log("planner smoke: 21 casos passaram");
+})().catch(e=>{ console.error(e); process.exitCode=1; });
