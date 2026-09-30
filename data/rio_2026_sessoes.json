@@ -12832,6 +12832,22 @@
   "link_compra": ""
  },
  {
+  "sessao_id": "1518697",
+  "filme_id": "6804624",
+  "filme_slug": "if-i-go-will-they-miss-me",
+  "titulo": "Se Eu Partir, Vão Sentir Minha Falta?",
+  "data": "2026-10-10",
+  "hora": "21:00",
+  "sala": "Estação Claro Rio 4",
+  "cinema": "Estação Claro Rio",
+  "endereco_cinema": "Rua Voluntários da Pátria, 35",
+  "idioma": "",
+  "legendas": "",
+  "secao": "Expectativa",
+  "duracao": "91 min.",
+  "link_compra": ""
+ },
+ {
   "sessao_id": "3888383",
   "filme_id": "5807205",
   "filme_slug": "seducao",
