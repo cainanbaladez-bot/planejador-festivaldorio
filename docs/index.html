@@ -612,6 +612,7 @@ footer{
 .rodape b{color:var(--muted);font-weight:600}
 .rodape a{color:var(--muted);text-decoration:underline;text-underline-offset:2px;overflow-wrap:anywhere}
 .rodape a:hover{color:var(--amber)}
+.rodape .feedback{font-size:12px;color:var(--dim);margin-top:14px}
 @media (max-width:640px){ .rodape{padding:18px 14px 34px} }
 
 /* ─── disponibilidade ─── */
@@ -975,6 +976,9 @@ footer{
   outro aparelho, use <b>📤 Compartilhar</b>.</p>
   <p id="rodape-instalar" hidden>📲 <a href="#" onclick="abrirInstalar();return false">Instalar no celular</a>
   — o planejador vira um ícone na tela e abre mesmo sem internet.</p>
+  <p class="feedback">Encontrou um erro ou tem uma ideia?
+    <a href="https://github.com/cainanbaladez-bot/planejador-festivaldorio/issues/new/choose" target="_blank" rel="noopener">Conte pelo GitHub</a>.
+    Precisa de uma conta; a mensagem será pública.</p>
 </footer>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>

@@ -1,0 +1,31 @@
+name: Reportar problema
+description: Avise se algo no planejador não funcionou como esperado
+title: "[Problema] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Obrigado por avisar. Esta mensagem será pública. Não inclua dados pessoais nem o link da sua agenda.
+  - type: textarea
+    id: ocorrido
+    attributes:
+      label: O que aconteceu?
+      description: Conte o que você esperava e o que apareceu.
+      placeholder: "Ex.: marquei um filme, mas ele não apareceu na Minha Agenda."
+    validations:
+      required: true
+  - type: textarea
+    id: passos
+    attributes:
+      label: Como reproduzir?
+      description: Se puder, diga os passos e o filme ou sessão envolvidos.
+      placeholder: "1. Abri... 2. Toquei... 3. Apareceu..."
+    validations:
+      required: false
+  - type: input
+    id: ambiente
+    attributes:
+      label: Navegador e aparelho
+      placeholder: "Ex.: Chrome no Android, Safari no iPhone"
+    validations:
+      required: false

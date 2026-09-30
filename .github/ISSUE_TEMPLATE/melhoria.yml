@@ -1,0 +1,23 @@
+name: Sugerir melhoria
+description: Conte uma ideia para melhorar a escolha de filmes e sessões
+title: "[Melhoria] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Obrigado pela ideia. Esta mensagem será pública. Não inclua dados pessoais nem o link da sua agenda.
+  - type: textarea
+    id: necessidade
+    attributes:
+      label: O que você gostaria de conseguir fazer?
+      description: Conte a situação e por que a melhoria ajudaria.
+      placeholder: "Ex.: queria comparar agendas com menos deslocamento."
+    validations:
+      required: true
+  - type: textarea
+    id: sugestao
+    attributes:
+      label: Como você imagina isso funcionando?
+      description: Opcional — a necessidade já ajuda muito.
+    validations:
+      required: false
