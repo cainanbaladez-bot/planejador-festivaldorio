@@ -35,7 +35,8 @@ DATA = BASE / "data"
 LOG = DATA / "atualizacao.log"
 ANO = 2026
 ARQS = [DATA / f"rio_{ANO}_{n}.json" for n in ("filmes", "sessoes", "meta", "enriquecimento", "historico")]
-PY = [sys.executable]
+PY = ["py", "-3.10"]          # a tarefa chama com pyw (sem janela); os passos, com py
+SEM_JANELA = getattr(subprocess, "CREATE_NO_WINDOW", 0)
 
 
 def log(msg):
@@ -51,7 +52,8 @@ def log(msg):
 def roda(cmd, timeout=1800):
     r = subprocess.run(cmd, cwd=BASE, capture_output=True, text=True, encoding="utf-8",
                        errors="replace", timeout=timeout,
-                       env={**__import__("os").environ, "PYTHONIOENCODING": "utf-8"})
+                       env={**__import__("os").environ, "PYTHONIOENCODING": "utf-8"},
+                       creationflags=SEM_JANELA)
     return r.returncode, (r.stdout or "") + (r.stderr or "")
 
 

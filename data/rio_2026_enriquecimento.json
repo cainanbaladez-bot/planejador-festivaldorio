@@ -1,4 +1,20 @@
 {
+ "9978076": {
+  "festivais": [],
+  "premiado": false,
+  "premio_txt": "",
+  "lb_nota": 2.32,
+  "lb_votos": 62838,
+  "lb_url": "https://letterboxd.com/film/salverosa/"
+ },
+ "3311999": {
+  "festivais": [],
+  "premiado": false,
+  "premio_txt": "",
+  "lb_nota": 3.15,
+  "lb_votos": 3188,
+  "lb_url": "https://letterboxd.com/film/descontrole-2025/"
+ },
  "1303040": {
   "festivais": [],
   "premiado": false,
@@ -111,6 +127,14 @@
   "lb_nota": null,
   "lb_votos": null,
   "lb_url": "https://letterboxd.com/film/the-extraordinary-life-of-vera-valdez/"
+ },
+ "7333592": {
+  "festivais": [],
+  "premiado": false,
+  "premio_txt": "",
+  "lb_nota": 3.8,
+  "lb_votos": 894,
+  "lb_url": "https://letterboxd.com/film/the-fabulous-time-machine/"
  },
  "7687237": {
   "festivais": [
@@ -249,6 +273,14 @@
   "lb_votos": null,
   "lb_url": "https://letterboxd.com/film/la-visite-de-la-vieille-dame/"
  },
+ "4327478": {
+  "festivais": [],
+  "premiado": false,
+  "premio_txt": "",
+  "lb_nota": 3.01,
+  "lb_votos": 1342,
+  "lb_url": "https://letterboxd.com/film/special-agents/"
+ },
  "7772473": {
   "festivais": [],
   "premiado": false,
@@ -343,6 +375,14 @@
   "lb_votos": null,
   "lb_url": "https://letterboxd.com/film/amora-2025/"
  },
+ "1115016": {
+  "festivais": [],
+  "premiado": false,
+  "premio_txt": "",
+  "lb_nota": 3.63,
+  "lb_votos": 279,
+  "lb_url": "https://letterboxd.com/film/anatomy-of-chaos/"
+ },
  "1081025": {
   "festivais": [
    "Nova York"
@@ -363,6 +403,14 @@
   "lb_votos": null,
   "lb_url": "https://letterboxd.com/film/before-the-war-2026/"
  },
+ "5181778": {
+  "festivais": [],
+  "premiado": false,
+  "premio_txt": "",
+  "lb_nota": null,
+  "lb_votos": null,
+  "lb_url": "https://letterboxd.com/film/antigona-442-ac/"
+ },
  "3063998": {
   "festivais": [
    "Cannes"
@@ -380,6 +428,14 @@
   "lb_nota": null,
   "lb_votos": null,
   "lb_url": "https://letterboxd.com/film/ten-reasons-to-die-after-you/"
+ },
+ "9393523": {
+  "festivais": [],
+  "premiado": false,
+  "premio_txt": "",
+  "lb_nota": null,
+  "lb_votos": null,
+  "lb_url": "https://letterboxd.com/film/as-dores-do-mundo-hyldon/"
  },
  "5668878": {
   "festivais": [],
@@ -919,6 +975,14 @@
   "lb_votos": null,
   "lb_url": "https://letterboxd.com/film/esperanca-2026/"
  },
+ "6569716": {
+  "festivais": [],
+  "premiado": false,
+  "premio_txt": "",
+  "lb_nota": 3.67,
+  "lb_votos": 1337,
+  "lb_url": "https://letterboxd.com/film/my-grandfather-is-a-nihonjin/"
+ },
  "4819094": {
   "festivais": [],
   "premiado": false,
@@ -1134,6 +1198,14 @@
   "lb_votos": null,
   "lb_url": "https://letterboxd.com/film/holy-wood-dust/"
  },
+ "8127417": {
+  "festivais": [],
+  "premiado": false,
+  "premio_txt": "",
+  "lb_nota": 4.06,
+  "lb_votos": 179146,
+  "lb_url": "https://letterboxd.com/film/latin-blood-the-ballad-of-ney-matogrosso/"
+ },
  "7627122": {
   "festivais": [
    "Cannes"
@@ -1279,6 +1351,14 @@
   "lb_votos": null,
   "lb_url": "https://letterboxd.com/film/justino-behind-the-kingdom/"
  },
+ "6845541": {
+  "festivais": [],
+  "premiado": false,
+  "premio_txt": "",
+  "lb_nota": 3.51,
+  "lb_votos": 5207,
+  "lb_url": "https://letterboxd.com/film/white-house-2024/"
+ },
  "3763077": {
   "festivais": [
    "Cannes"
@@ -1383,6 +1463,14 @@
   "lb_votos": 208,
   "lb_url": "https://letterboxd.com/film/london-2026-1/"
  },
+ "7478280": {
+  "festivais": [],
+  "premiado": false,
+  "premio_txt": "",
+  "lb_nota": 2.77,
+  "lb_votos": 656,
+  "lb_url": "https://letterboxd.com/film/love-kills-2025/"
+ },
  "5783271": {
   "festivais": [
    "Cannes"
@@ -1420,6 +1508,22 @@
   "lb_nota": null,
   "lb_votos": null,
   "lb_url": "https://letterboxd.com/film/malick/"
+ },
+ "1832456": {
+  "festivais": [],
+  "premiado": false,
+  "premio_txt": "",
+  "lb_nota": 3.89,
+  "lb_votos": 12354,
+  "lb_url": "https://letterboxd.com/film/malu-2024/"
+ },
+ "4484282": {
+  "festivais": [],
+  "premiado": false,
+  "premio_txt": "",
+  "lb_nota": 4.09,
+  "lb_votos": 23036,
+  "lb_url": "https://letterboxd.com/film/manas/"
  },
  "4566022": {
   "festivais": [],
@@ -1523,6 +1627,14 @@
   "lb_votos": 1510,
   "lb_url": "https://letterboxd.com/film/arrested-memory/"
  },
+ "6532611": {
+  "festivais": [],
+  "premiado": false,
+  "premio_txt": "",
+  "lb_nota": 3.39,
+  "lb_votos": 2023,
+  "lb_url": "https://letterboxd.com/film/milton-bituca-nascimento/"
+ },
  "8051295": {
   "festivais": [],
   "premiado": false,
@@ -1590,6 +1702,14 @@
   "lb_nota": null,
   "lb_votos": null,
   "lb_url": "https://letterboxd.com/film/mr-wonderful-1/"
+ },
+ "5063246": {
+  "festivais": [],
+  "premiado": false,
+  "premio_txt": "",
+  "lb_nota": 3.53,
+  "lb_votos": 9095,
+  "lb_url": "https://letterboxd.com/film/mussum-o-filmis/"
  },
  "6961003": {
   "festivais": [],
@@ -1724,6 +1844,14 @@
   "lb_nota": null,
   "lb_votos": null,
   "lb_url": "https://letterboxd.com/film/luizas-desert/"
+ },
+ "9345898": {
+  "festivais": [],
+  "premiado": false,
+  "premio_txt": "",
+  "lb_nota": 3.16,
+  "lb_votos": 412,
+  "lb_url": "https://letterboxd.com/film/pilars-diary-in-the-amazon/"
  },
  "9294605": {
   "festivais": [
@@ -1863,6 +1991,22 @@
   "lb_votos": 1046,
   "lb_url": "https://letterboxd.com/film/the-river-train/"
  },
+ "1873128": {
+  "festivais": [],
+  "premiado": false,
+  "premio_txt": "",
+  "lb_nota": 3.72,
+  "lb_votos": 70199,
+  "lb_url": "https://letterboxd.com/film/the-blue-trail/"
+ },
+ "5589623": {
+  "festivais": [],
+  "premiado": false,
+  "premio_txt": "",
+  "lb_nota": 3.59,
+  "lb_votos": 988,
+  "lb_url": "https://letterboxd.com/film/o-ultimo-episodio/"
+ },
  "2332422": {
   "festivais": [],
   "premiado": true,
@@ -1922,6 +2066,14 @@
   "lb_nota": null,
   "lb_votos": null,
   "lb_url": "https://letterboxd.com/film/os-beatos/"
+ },
+ "3709826": {
+  "festivais": [],
+  "premiado": false,
+  "premio_txt": "",
+  "lb_nota": 3.67,
+  "lb_votos": 9163,
+  "lb_url": "https://letterboxd.com/film/carnival-is-over/"
  },
  "7097729": {
   "festivais": [
@@ -2032,6 +2184,14 @@
   "lb_nota": 3.24,
   "lb_votos": 2008,
   "lb_url": "https://letterboxd.com/film/pepita-the-gunslinger/"
+ },
+ "5484051": {
+  "festivais": [],
+  "premiado": false,
+  "premio_txt": "",
+  "lb_nota": 3.28,
+  "lb_votos": 1185,
+  "lb_url": "https://letterboxd.com/film/little-creatures/"
  },
  "6641308": {
   "festivais": [
@@ -2161,6 +2321,14 @@
   "lb_votos": null,
   "lb_url": "https://letterboxd.com/film/dear-ajayi/"
  },
+ "7911453": {
+  "festivais": [],
+  "premiado": false,
+  "premio_txt": "",
+  "lb_nota": 3.25,
+  "lb_votos": 77098,
+  "lb_url": "https://letterboxd.com/film/here-the-whole-time/"
+ },
  "8578314": {
   "festivais": [
    "Berlim"
@@ -2196,6 +2364,22 @@
   "lb_nota": null,
   "lb_votos": null,
   "lb_url": "https://letterboxd.com/film/reveal-2026/"
+ },
+ "3251730": {
+  "festivais": [],
+  "premiado": false,
+  "premio_txt": "",
+  "lb_nota": null,
+  "lb_votos": null,
+  "lb_url": "https://letterboxd.com/film/rio-de-clarice/"
+ },
+ "1557280": {
+  "festivais": [],
+  "premiado": false,
+  "premio_txt": "",
+  "lb_nota": 3.93,
+  "lb_votos": 7288,
+  "lb_url": "https://letterboxd.com/film/ritas/"
  },
  "4519857": {
   "festivais": [
@@ -2331,6 +2515,14 @@
   "lb_votos": 51196,
   "lb_url": "https://letterboxd.com/film/her-private-hell-2026/"
  },
+ "7282448": {
+  "festivais": [],
+  "premiado": false,
+  "premio_txt": "",
+  "lb_nota": 3.12,
+  "lb_votos": 276,
+  "lb_url": "https://letterboxd.com/film/sexa/"
+ },
  "2765487": {
   "festivais": [
    "Cannes"
@@ -2434,6 +2626,14 @@
   "lb_nota": 3.3,
   "lb_votos": 1340,
   "lb_url": "https://letterboxd.com/film/mr-nelson-did-you-kill-people/"
+ },
+ "9699328": {
+  "festivais": [],
+  "premiado": false,
+  "premio_txt": "",
+  "lb_nota": null,
+  "lb_votos": null,
+  "lb_url": "https://letterboxd.com/film/taina-e-os-guardioes-da-amazonia-em-busca/"
  },
  "9632412": {
   "festivais": [],
@@ -2557,6 +2757,14 @@
   "lb_votos": 854,
   "lb_url": "https://letterboxd.com/film/all-the-lovers-in-the-night/"
  },
+ "7740850": {
+  "festivais": [],
+  "premiado": false,
+  "premio_txt": "",
+  "lb_nota": null,
+  "lb_votos": null,
+  "lb_url": null
+ },
  "3094993": {
   "festivais": [
    "Berlim"
@@ -2658,6 +2866,14 @@
   "lb_votos": 1054,
   "lb_url": "https://letterboxd.com/film/a-good-little-soldier/"
  },
+ "9767294": {
+  "festivais": [],
+  "premiado": false,
+  "premio_txt": "",
+  "lb_nota": 2.73,
+  "lb_votos": 1676,
+  "lb_url": "https://letterboxd.com/film/um-tio-quase-perfeito-2/"
+ },
  "7865882": {
   "festivais": [
    "Sundance"
@@ -2685,6 +2901,14 @@
   "lb_nota": null,
   "lb_votos": null,
   "lb_url": "https://letterboxd.com/film/a-mass-for-dom-angelico/"
+ },
+ "6790497": {
+  "festivais": [],
+  "premiado": false,
+  "premio_txt": "",
+  "lb_nota": 2.99,
+  "lb_votos": 20896,
+  "lb_url": "https://letterboxd.com/film/old-bandits/"
  },
  "6909391": {
   "festivais": [],
@@ -2723,6 +2947,14 @@
   "lb_votos": null,
   "lb_url": "https://letterboxd.com/film/kissing-bug-2024/"
  },
+ "5912456": {
+  "festivais": [],
+  "premiado": false,
+  "premio_txt": "",
+  "lb_nota": 3.72,
+  "lb_votos": 70299,
+  "lb_url": "https://letterboxd.com/film/vitoria-2025/"
+ },
  "5395513": {
   "festivais": [],
   "premiado": false,
@@ -2756,6 +2988,14 @@
   "lb_nota": null,
   "lb_votos": null,
   "lb_url": "https://letterboxd.com/film/voices-inside-your-head/"
+ },
+ "6123851": {
+  "festivais": [],
+  "premiado": false,
+  "premio_txt": "",
+  "lb_nota": 3.55,
+  "lb_votos": 3212,
+  "lb_url": "https://letterboxd.com/film/xica-1976/"
  },
  "2258377": {
   "festivais": [

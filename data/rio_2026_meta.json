@@ -1,22 +1,26 @@
 {
  "ano": 2026,
- "raspado_em": "2026-09-28T22:19:26",
- "filmes": 313,
- "sessoes": 928,
+ "raspado_em": "2026-09-29T23:08:31",
+ "filmes": 343,
+ "sessoes": 985,
  "programacao_publica": true,
  "primeiro_dia": "2026-10-01",
  "ultimo_dia": "2026-10-14",
  "cinemas": [
-  "Armazém da Utopia",
+  "Areninha Carioca Renato Russo",
   "Centro Cultural FGV",
   "Centro Cultural da Justiça Federal - CCJF - Cinema",
+  "Centro Cultural da Justiça Federal - CCJF - Teatro",
   "Cine Odeon - CCLSR",
   "Cine Santa Teresa",
   "CineCarioca José Wilker",
+  "CineCarioca Nova Brasília",
+  "CineCarioca Penha",
   "Cinesystem Belas Artes Botafogo",
   "Estação Claro Gávea",
   "Estação Claro Rio",
   "Kinoplex São Luiz",
+  "Parque Realengo Susana Naspolini",
   "Reserva Cultural Niterói"
  ]
 }
