@@ -125,8 +125,11 @@ assert.equal(app.__deslocamentoOk, true, "menor deslocamento deve favorecer meno
 assert.equal(app.__objetivosOk, true, "os seis objetivos devem estar disponíveis");
 assert.equal(app.__comparacaoOk, true, "comparação de alternativas deve estar disponível");
 vm.runInContext(`
-  watch=new Map(FILMES.slice(0,5).map((f,i)=>[f.id,(i%3)+1]));
-  const fixa=SESSOES.find(s=>s.filme_id===FILMES[0].id);
+  /* filmes COM sessão: o 1º do catálogo pode não ter (01/10/2026 a raspagem trouxe um
+     sem sessão no topo e o teste quebrou a atualização automática, não o app) */
+  const comSessao=FILMES.filter(f=>SESSOES.some(s=>s.filme_id===f.id));
+  watch=new Map(comSessao.slice(0,5).map((f,i)=>[f.id,(i%3)+1]));
+  const fixa=SESSOES.find(s=>s.filme_id===comSessao[0].id);
   agenda=new Set([fixa.sessao_id]); fixadas=new Set([fixa.sessao_id]);
   manterAgenda=false; planPrefs.manter=false;
   proposta=encaixar("max",500);
