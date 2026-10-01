@@ -173,7 +173,7 @@ def main():
     if cod != 0:
         return desfaz("o build falhou: " + saida.strip()[-200:])
     if any(m in (BASE / "docs" / "index.html").read_text(encoding="utf-8")
-           for m in ("/*__FILMES__*/[]", "/*__SESSOES__*/[]", "__ANO__")):
+           for m in ("/*__FILMES__*/[]", "/*__SESSOES__*/[]", "__ANO__", "__VERSAO__")):
         return desfaz("o build deixou marcas não substituídas")
     cod, saida = roda(["node", "tests/planner-smoke.js"])
     if cod != 0:

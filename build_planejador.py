@@ -182,6 +182,17 @@ else:
             f'confirme horários e ingressos em <a href="https://www.festivaldorio.com.br/br/programacao" '
             f'target="_blank" rel="noopener">festivaldorio.com.br</a>.</p></div>')
 
+# versão no rodapé (01/10/2026): a mesma do docs/sw.js, que é a que está no ar — o
+# atualiza_diario.py sobe o VERSAO antes do build, então o rodapé acompanha sozinho
+if corrente:
+    _m = re.search(r'const VERSAO = "([^"]+)";', (BASE / "docs" / "sw.js").read_text(encoding="utf-8"))
+    _meta = json.loads((DATA / f"rio_{ano}_meta.json").read_text(encoding="utf-8"))
+    _q = datetime.datetime.fromisoformat(_meta["raspado_em"])
+    versao = (f"versão {_m.group(1) if _m else '?'} · programação conferida em "
+              f"{_q:%d/%m} às {_q.hour}h{_q:%M}")
+else:
+    versao = f"build de teste · edição {ano}"
+
 def js(x):
     return json.dumps(x, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
 
@@ -189,7 +200,7 @@ html = TEMPLATE.read_text(encoding="utf-8")
 for marca, valor in (("/*__FILMES__*/[]", js(enxuga(filmes, CAMPOS_FILME))),
                      ("/*__SESSOES__*/[]", js(enxuga(sessoes, CAMPOS_SESSAO))),
                      ("/*__CORES__*/{}", js(cores)), ("/*__MUDOU__*/{}", js(MUDOU)), ("/*__REGIOES__*/[]", js(regioes)),
-                     ("__BETA__", beta), ("__SUB__", sub), ("__MES__", mes), ("__ANO__", str(ano))):
+                     ("__BETA__", beta), ("__SUB__", sub), ("__MES__", mes), ("__ANO__", str(ano)), ("__VERSAO__", versao)):
     assert marca in html, f"marca {marca} sumiu do template"
     html = html.replace(marca, valor)
 SAIDA.write_text(html, encoding="utf-8")
