@@ -189,7 +189,9 @@ def main():
     cod, estado = roda(["git", "status", "--porcelain", "--untracked-files=normal"])
     alterados = {linha[3:].replace("\\", "/") for linha in estado.splitlines() if len(linha) >= 4}
     if cod or not alterados.issubset(set(VERSIONADOS)):
-        return desfaz("arquivos inesperados mudaram durante a atualização")
+        # diz quais — em 01/10/2026 parou sem dizer e não deu para saber o porquê
+        fora = sorted(alterados - set(VERSIONADOS))
+        return desfaz("arquivos inesperados mudaram durante a atualização: " + ", ".join(fora)[:300])
     cod, saida = roda(["git", "add", "--", *VERSIONADOS])
     if cod:
         return desfaz("git add falhou: " + saida.strip()[-200:])
