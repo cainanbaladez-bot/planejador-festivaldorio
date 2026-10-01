@@ -38,7 +38,9 @@ ANO = 2026
 ARQS = [DATA / f"rio_{ANO}_{n}.json" for n in ("filmes", "sessoes", "meta", "enriquecimento", "historico")]
 ARQS += [DATA / "letterboxd_cache.json", BASE / "docs" / "index.html",
          BASE / "docs" / "sw.js", BASE / "planejador.html"]
-VERSIONADOS = [str(p.relative_to(BASE)) for p in ARQS if p.name != "planejador.html"]
+# as_posix(): o git devolve "data/x.json"; str() no Windows dá "data\x.json" e a trava
+# rejeitava toda atualização com mudança (bug achado em 01/10/2026)
+VERSIONADOS = [p.relative_to(BASE).as_posix() for p in ARQS if p.name != "planejador.html"]
 PENDENTE = DATA / "_push_pendente.json"
 PY = ["py", "-3.10"]          # a tarefa chama com pyw (sem janela); os passos, com py
 SEM_JANELA = getattr(subprocess, "CREATE_NO_WINDOW", 0)
