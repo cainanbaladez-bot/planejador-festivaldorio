@@ -24,7 +24,7 @@
   "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/large2/salvero_f01cor_2026118681.jpg",
   "trailer": "",
   "link_compra": "",
-  "n_sessoes": "2"
+  "n_sessoes": "0"
  },
  {
   "id": "3311999",
@@ -51,7 +51,7 @@
   "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/large2/descon_f01cor_2026118654.jpg",
   "trailer": "",
   "link_compra": "",
-  "n_sessoes": "2"
+  "n_sessoes": "1"
  },
  {
   "id": "1303040",
@@ -159,7 +159,7 @@
   "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/medium2/3x4_p01cor_2026117081.jpg",
   "trailer": "",
   "link_compra": "",
-  "n_sessoes": "4"
+  "n_sessoes": "0"
  },
  {
   "id": "5719801",
@@ -186,7 +186,7 @@
   "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/medium2/9temple_p01cor_2026117410.jpg",
   "trailer": "",
   "link_compra": "",
-  "n_sessoes": "4"
+  "n_sessoes": "3"
  },
  {
   "id": "3450218",
@@ -453,7 +453,7 @@
   "musica": "",
   "producao": "Les Films Du Poisson",
   "distribuicao": "",
-  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/large2/lagradi_f01cor_2026117452.jpg",
+  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/medium2/lagradi_p01cor_2026117452.jpg",
   "trailer": "https://youtu.be/U0kCAMsvcIU?si=t5yT2JnF6zwfbOrT",
   "link_compra": "",
   "n_sessoes": "3"
@@ -564,7 +564,7 @@
   "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/medium2/motherwi_p01cor_2026116342.jpg",
   "trailer": "",
   "link_compra": "",
-  "n_sessoes": "4"
+  "n_sessoes": "5"
  },
  {
   "id": "3636177",
@@ -831,7 +831,7 @@
   "musica": "",
   "producao": "",
   "distribuicao": "",
-  "imagem": "",
+  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/medium2/avisita_p01cor_2026118615.jpg",
   "trailer": "",
   "link_compra": "",
   "n_sessoes": "2"
@@ -954,7 +954,7 @@
   "genero": "Documentário",
   "pais": "Brasil",
   "ano": "2025",
-  "duracao": "114 min.",
+  "duracao": "74 min.",
   "secao": "Première Brasil: Competição de Longas-metragens Documentário",
   "mostra": "Première Brasil",
   "classificacao": "",
@@ -966,7 +966,7 @@
   "musica": "",
   "producao": "Inquietude",
   "distribuicao": "",
-  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/large2/alucina_f04cor_2026117508.jpg",
+  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/medium2/alucina_p01cor_2026117508.jpg",
   "trailer": "",
   "link_compra": "",
   "n_sessoes": "4"
@@ -1023,7 +1023,7 @@
   "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/medium2/amazoman_p01cor_2026116346.jpg",
   "trailer": "https://youtu.be/LbYDDDpdG8s?si=iByxntBnvMsbMH_C",
   "link_compra": "",
-  "n_sessoes": "1"
+  "n_sessoes": "2"
  },
  {
   "id": "9485650",
@@ -1158,7 +1158,7 @@
   "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/medium2/amora_p01cor_2026118515.jpg",
   "trailer": "",
   "link_compra": "",
-  "n_sessoes": "1"
+  "n_sessoes": "2"
  },
  {
   "id": "1115016",
@@ -1293,7 +1293,7 @@
   "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/medium2/lesenfa_p01cor_2026116332.jpg",
   "trailer": "",
   "link_compra": "",
-  "n_sessoes": "4"
+  "n_sessoes": "5"
  },
  {
   "id": "5261040",
@@ -1398,7 +1398,7 @@
   "musica": "",
   "producao": "Asmara Films, Tessalit Productions, Agora Films, Rai Cinema",
   "distribuicao": "",
-  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/large2/jannah_f03cor_2026118504.jpg",
+  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/medium2/jannah_p01cor_2026118504.jpg",
   "trailer": "",
   "link_compra": "",
   "n_sessoes": "3"
@@ -1455,7 +1455,7 @@
   "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/large2/unknown_f01cor_2026117694.jpg",
   "trailer": "",
   "link_compra": "",
-  "n_sessoes": "2"
+  "n_sessoes": "3"
  },
  {
   "id": "8000649",
@@ -1668,7 +1668,7 @@
   "musica": "Ernst Reijseger",
   "producao": "Gateway To Orkney, Providence Road Entertainment",
   "distribuicao": "",
-  "imagem": "",
+  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/medium2/bucking_p01cor_2026118263.jpg",
   "trailer": "",
   "link_compra": "",
   "n_sessoes": "3"
@@ -1803,7 +1803,7 @@
   "musica": "",
   "producao": "",
   "distribuicao": "",
-  "imagem": "",
+  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/medium2/captulo_p01cor_2026118733.jpg",
   "trailer": "",
   "link_compra": "",
   "n_sessoes": "3"
@@ -1965,7 +1965,7 @@
   "musica": "Marvin Miller",
   "producao": "Liman Film, If... Productions, Haut Et Court",
   "distribuicao": "",
-  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/large2/yellowl_f01cor_2026116376.jpg",
+  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/medium2/yellowl_p01cor_2026116376.jpg",
   "trailer": "https://youtu.be/MCJ-6qV3O-4?si=4lQ0iA7G3zP1SIQ5",
   "link_compra": "",
   "n_sessoes": "3"
@@ -1992,7 +1992,7 @@
   "musica": "Max Richter",
   "producao": "Raefilm Studios, Seven Springs Pictures",
   "distribuicao": "",
-  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/large2/falling_f01cor_2026118477.jpg",
+  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/medium2/falling_p01cor_2026118477.jpg",
   "trailer": "https://youtu.be/mu7ScC5cMeQ?si=8iCtXhi5wy_TeftU",
   "link_compra": "",
   "n_sessoes": "3"
@@ -2022,7 +2022,7 @@
   "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/medium2/cassowar_p01cor_2026118557.jpg",
   "trailer": "https://youtu.be/nA_gab_OrO4?si=zrDpS8_35TZKCQcP",
   "link_compra": "",
-  "n_sessoes": "2"
+  "n_sessoes": "3"
  },
  {
   "id": "1329688",
@@ -2049,7 +2049,7 @@
   "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/medium2/wildhor_p01cor_2026118342.jpg",
   "trailer": "https://youtu.be/sz2ewdmRwx4?si=gePF9UzM0BJ2v9zj",
   "link_compra": "",
-  "n_sessoes": "4"
+  "n_sessoes": "5"
  },
  {
   "id": "4649621",
@@ -2154,10 +2154,10 @@
   "musica": "Holger Münzer",
   "producao": "Sender Freies Berlin, Hessian Broadcasting Corporation, Rosa Von Praunheim Film Production",
   "distribuicao": "",
-  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/large2/cityof_f01cor_2026118631.jpg",
+  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/medium2/cityof_p01cor_2026118631.jpg",
   "trailer": "",
   "link_compra": "",
-  "n_sessoes": "2"
+  "n_sessoes": "3"
  },
  {
   "id": "9662827",
@@ -2451,7 +2451,7 @@
   "musica": "Valentin Hadjadj",
   "producao": "The Reunion, Versus Productions, Lumen, Topkapi Films",
   "distribuicao": "",
-  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/large2/coward_f01cor_2026117756.jpg",
+  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/medium2/coward_p01cor_2026117756.jpg",
   "trailer": "https://youtu.be/gVChwLerijg?si=vE3NaHxLBxzrOIPU",
   "link_compra": "",
   "n_sessoes": "3"
@@ -2505,10 +2505,10 @@
   "musica": "",
   "producao": "Phenomen Berlin",
   "distribuicao": "",
-  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/large2/dau_f01cor_2026118481.jpg",
+  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/medium2/dau_p01cor_2026118481.jpg",
   "trailer": "https://youtu.be/_C6eMY_cu1M?si=aGr8ubsnRcrGOsxV",
   "link_compra": "",
-  "n_sessoes": "2"
+  "n_sessoes": "3"
  },
  {
   "id": "5288362",
@@ -2670,7 +2670,7 @@
   "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/medium2/thedisc_p01cor_2026118400.jpg",
   "trailer": "",
   "link_compra": "",
-  "n_sessoes": "2"
+  "n_sessoes": "3"
  },
  {
   "id": "5974483",
@@ -2937,7 +2937,7 @@
   "musica": "Swindle",
   "producao": "Rogue State, Sky, Film 4, Joi Productions, Snlda, Bfi",
   "distribuicao": "",
-  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/large2/animol_f01cor_2026116391.jpg",
+  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/medium2/animol_p01cor_2026116391.jpg",
   "trailer": "https://youtu.be/iKYnCDqshKY?si=0fValgmx0Yo6n7SZ",
   "link_compra": "",
   "n_sessoes": "3"
@@ -3045,7 +3045,7 @@
   "musica": "Stephen Rennicks",
   "producao": "Tempo Productions, One Story High",
   "distribuicao": "",
-  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/large2/iswear_f03cor_2026118580.jpg",
+  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/medium2/iswear_p01cor_2026118580.jpg",
   "trailer": "https://youtu.be/10ynpduiRpM?si=vynHKoZP_K6bKRnN",
   "link_compra": "",
   "n_sessoes": "3"
@@ -3057,7 +3057,7 @@
   "titulo": "Euforia",
   "titulo_original": "Euphoria",
   "sinopse": "Em uma Nova York distópica à beira do colapso, personagens e animais surreais conduzem uma viagem hipnótica pelo capitalismo e pela ganância humana. Realizado ao longo de seis anos, reunindo dois mil anos de ideias, de Platão e Karl Marx a bell hooks, Snoop Dogg e Cardi B, este filme visualmente arrebatador questiona por que um sistema econômico reconhecidamente destrutivo continua tão sedutor e aparentemente sem alternativa. Com Giancarlo Esposito e a voz de Cate Blanchett.",
-  "genero": "Documentário",
+  "genero": "Ficção",
   "pais": "Alemanha + 3 países",
   "ano": "2026",
   "duracao": "91 min.",
@@ -3099,7 +3099,7 @@
   "musica": "Will Bates",
   "producao": "Jigsaw Productions",
   "distribuicao": "",
-  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/large2/knifet_f01cor_2026116502.jpg",
+  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/medium2/knifet_p01cor_2026116502.jpg",
   "trailer": "",
   "link_compra": "",
   "n_sessoes": "3"
@@ -3129,7 +3129,7 @@
   "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/medium2/feitopi_p01cor_2026118584.jpg",
   "trailer": "https://www.youtube.com/watch?v=F8tFWtLvL64&feature=youtu.be",
   "link_compra": "",
-  "n_sessoes": "5"
+  "n_sessoes": "6"
  },
  {
   "id": "3907659",
@@ -3183,7 +3183,7 @@
   "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/medium2/childof_p01cor_2026118525.jpg",
   "trailer": "https://youtu.be/EQJTfCDEmFE?si=0AGqdqYNoi9Y84me",
   "link_compra": "",
-  "n_sessoes": "2"
+  "n_sessoes": "3"
  },
  {
   "id": "4917816",
@@ -3423,10 +3423,10 @@
   "musica": "Arthur Joly",
   "producao": "Nausika Films, Rt Features",
   "distribuicao": "",
-  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/large2/wolves_f01cor_2026118402.jpg",
+  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/medium2/wolves_p01cor_2026118402.jpg",
   "trailer": "https://youtu.be/Lu_n3RtVFwI?si=fIDDpSqDirjR7fnE",
   "link_compra": "",
-  "n_sessoes": "2"
+  "n_sessoes": "3"
  },
  {
   "id": "9613265",
@@ -3504,7 +3504,7 @@
   "musica": "Christine Ott, Mathieu Gabry",
   "producao": "Sluizer Film Productions, Diversion, 13 Little Pictures, Nord-Ouest Films",
   "distribuicao": "",
-  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/large2/theburn_f03cor_2026118465.jpg",
+  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/medium2/theburn_p01cor_2026118465.jpg",
   "trailer": "https://youtu.be/_5B6mvwlh5c?si=Z_22TflQrz7iLXfm",
   "link_compra": "",
   "n_sessoes": "3"
@@ -3534,7 +3534,7 @@
   "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/medium2/glaxo_p01cor_2026118401.jpg",
   "trailer": "https://youtu.be/jHuJWJNIx4w?si=6UehdyB8dufsjYDd",
   "link_compra": "",
-  "n_sessoes": "2"
+  "n_sessoes": "3"
  },
  {
   "id": "1190830",
@@ -3693,10 +3693,10 @@
   "musica": "Adrian Berenguer",
   "producao": "Be Water Film, Solaria Film, Rai Cinema",
   "distribuicao": "",
-  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/large2/trillion_f01cor_2026118421.jpg",
+  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/medium2/trillion_p01cor_2026118421.jpg",
   "trailer": "",
   "link_compra": "",
-  "n_sessoes": "2"
+  "n_sessoes": "3"
  },
  {
   "id": "8127417",
@@ -3801,7 +3801,7 @@
   "musica": "Burak Özdemir",
   "producao": "Razor Film, Zdf",
   "distribuicao": "",
-  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/large2/identitt_f01cor_2026118619.jpg",
+  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/medium2/identitt_p01cor_2026118619.jpg",
   "trailer": "",
   "link_compra": "",
   "n_sessoes": "3"
@@ -3858,7 +3858,7 @@
   "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/medium2/inwaves_p01cor_2026117522.jpg",
   "trailer": "",
   "link_compra": "",
-  "n_sessoes": "2"
+  "n_sessoes": "3"
  },
  {
   "id": "4235653",
@@ -4044,10 +4044,10 @@
   "musica": "James William Blades",
   "producao": "",
   "distribuicao": "",
-  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/large2/jean-mic_f01cor_2026118454.jpg",
+  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/medium2/jean-mic_p01cor_2026118454.jpg",
   "trailer": "",
   "link_compra": "",
-  "n_sessoes": "2"
+  "n_sessoes": "3"
  },
  {
   "id": "2376243",
@@ -4125,7 +4125,7 @@
   "musica": "Miles Ross",
   "producao": "Kaplan Morrison, Yintai Entertainment, Free Association, Spark Features",
   "distribuicao": "",
-  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/large2/josephin_f01cor_2026116353.jpg",
+  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/medium2/josephin_p01cor_2026116353.jpg",
   "trailer": "https://youtu.be/VaoGuaA-LCQ?si=PvPRp8TV2XasdU1v",
   "link_compra": "",
   "n_sessoes": "3"
@@ -4287,7 +4287,7 @@
   "musica": "Abdullah Siddiqui",
   "producao": "Khoosat Films",
   "distribuicao": "",
-  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/large2/lali_f01cor_2026116438.jpg",
+  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/medium2/lali_p01cor_2026116438.jpg",
   "trailer": "",
   "link_compra": "",
   "n_sessoes": "5"
@@ -4344,7 +4344,7 @@
   "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/medium2/laundry_p01cor_2026118526.jpg",
   "trailer": "https://youtu.be/uAlSnWgKH4c?si=OUgAngiOkes3v3ej",
   "link_compra": "",
-  "n_sessoes": "2"
+  "n_sessoes": "3"
  },
  {
   "id": "2680299",
@@ -4746,7 +4746,7 @@
   "musica": "",
   "producao": "Ayizan Productions, Sanosi Productions, Stenola Productions, Bidibul Productions, Metafilms",
   "distribuicao": "",
-  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/large2/marymag_f01cor_2026117485.jpg",
+  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/medium2/marymag_p01cor_2026117485.jpg",
   "trailer": "https://youtu.be/7iN2W0iPTxk?si=9mJSMgx3dCFhiEau",
   "link_compra": "",
   "n_sessoes": "3"
@@ -4779,10 +4779,10 @@
   "n_sessoes": "1"
  },
  {
-  "id": "9635059",
-  "slug": "mario-carneiro-gravura-feita-de-luz",
-  "url_pagina": "https://www.festivaldorio.com.br/br/filmes/mario-carneiro-gravura-feita-de-luz",
-  "titulo": "Mario Carneiro - Gravura Feita de Luz",
+  "id": "3061922",
+  "slug": "mario-carneiro-gravura-feita-com-luz",
+  "url_pagina": "https://www.festivaldorio.com.br/br/filmes/mario-carneiro-gravura-feita-com-luz",
+  "titulo": "Mario Carneiro - Gravura Feita com Luz",
   "titulo_original": "Mario Carneiro: Cinema is Printmaking with Light",
   "sinopse": "Artista plástico, cineasta e um dos principais diretores de fotografia do Cinema Novo, Mário Carneiro está no centro deste retrato. A montagem aproxima sequências dos filmes que dirigiu ou fotografou de sua obra como pintor expressionista e gravador, revelando o diálogo entre cinema e artes plásticas em seu trabalho. Com humor, ele conduz o público pelos caminhos de sua formação e compartilha seu processo criativo e as escolhas estéticas que marcaram sua trajetória.",
   "genero": "Documentário",
@@ -5529,10 +5529,10 @@
   "musica": "Noyan Coşarer",
   "producao": "Ferit Karahan Films",
   "distribuicao": "",
-  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/large2/djinnwe_f01cor_2026118472.jpg",
+  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/medium2/djinnwe_p01cor_2026118472.jpg",
   "trailer": "https://youtu.be/-p6BW2ftcoM?si=AFVWq9lwT99Hit2h",
   "link_compra": "",
-  "n_sessoes": "2"
+  "n_sessoes": "3"
  },
  {
   "id": "4054453",
@@ -5556,7 +5556,7 @@
   "musica": "",
   "producao": "Quad",
   "distribuicao": "",
-  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/large2/womenon_f01cor_2026118018.jpg",
+  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/medium2/womenon_p01cor_2026118018.jpg",
   "trailer": "https://youtu.be/Vbzp6hfaDI4?si=BFh5IGQ_QGLwL8tZ",
   "link_compra": "",
   "n_sessoes": "3"
@@ -5569,7 +5569,7 @@
   "titulo_original": "The Smell of Apples",
   "sinopse": "Na África do Sul de 1974, em pleno apartheid, Marnus, de 11 anos, leva uma vida protegida no universo privilegiado de sua família branca. Durante as férias de verão, uma acusação aparentemente banal desencadeia acontecimentos que abalam a imagem idealizada de seu pai e expõem a violência sob a fachada de normalidade. Adaptado do romance de Mark Behr, o drama acompanha o despertar doloroso de um menino para as contradições do mundo que o formou. Estreia mundial na competição Platform do Festival de Toronto 2026.",
   "genero": "Ficção",
-  "pais": "Chile + 2 países",
+  "pais": "África do Sul + 2 países",
   "ano": "2026",
   "duracao": "104 min.",
   "secao": "Panorama Mundial",
@@ -5583,7 +5583,7 @@
   "musica": "",
   "producao": "Portobello Productions, Cadence, Baldr Film, Quijote Films",
   "distribuicao": "",
-  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/large2/thesmel_f01cor_2026118495.jpg",
+  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/medium2/thesmel_p01cor_2026118495.jpg",
   "trailer": "https://youtu.be/jr7fUSN_Ucg?si=PMrWul1uFuOFpkxm",
   "link_compra": "",
   "n_sessoes": "3"
@@ -6018,7 +6018,7 @@
   "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/medium2/everythi_p01cor_2026116340.jpg",
   "trailer": "https://youtu.be/HmQzjHqCDqU?si=JkrkxMp4bVqBXEdW",
   "link_compra": "",
-  "n_sessoes": "3"
+  "n_sessoes": "4"
  },
  {
   "id": "1340326",
@@ -6288,7 +6288,7 @@
   "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/medium2/culosd_p01cor_2026116495.jpg",
   "trailer": "https://youtu.be/dIAvwVQnT6E?si=siOYBnWI6Eyk3Dhy",
   "link_compra": "",
-  "n_sessoes": "2"
+  "n_sessoes": "3"
  },
  {
   "id": "1810806",
@@ -6393,7 +6393,7 @@
   "musica": "",
   "producao": "Gullane, Fado Filmes, Globo Filmes",
   "distribuicao": "",
-  "imagem": "",
+  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/large2/osenfor_f01cor_2026118674.jpg",
   "trailer": "",
   "link_compra": "",
   "n_sessoes": "1"
@@ -6585,7 +6585,7 @@
   "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/medium2/paradise_p01cor_2026116476.jpg",
   "trailer": "https://youtu.be/9w7KE_U8coM?si=3X_96y255EogbH7f",
   "link_compra": "",
-  "n_sessoes": "4"
+  "n_sessoes": "5"
  },
  {
   "id": "2577181",
@@ -6639,7 +6639,7 @@
   "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/medium2/heartwor_p01cor_2026118563.jpg",
   "trailer": "https://youtu.be/duqgG0tiKQE?si=qxeG8bkrlyhHaCD5",
   "link_compra": "",
-  "n_sessoes": "2"
+  "n_sessoes": "3"
  },
  {
   "id": "7912583",
@@ -6771,7 +6771,7 @@
   "musica": "",
   "producao": "Bananeira Filmes",
   "distribuicao": "",
-  "imagem": "",
+  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/large2/pequenas_f01cor_2026118697.jpg",
   "trailer": "",
   "link_compra": "",
   "n_sessoes": "1"
@@ -6933,7 +6933,7 @@
   "musica": "Isobel Waller-Bridge",
   "producao": "Camelback Productions, Minderoo Pictures, Edith'S Daughter, Embankment Films, Bunya Productions",
   "distribuicao": "",
-  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/large2/primafa_f04cor_2026118621.jpg",
+  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/medium2/primafa_p01cor_2026118621.jpg",
   "trailer": "https://youtu.be/tnhynwj29Ew?si=SUtristPanYfGH-U",
   "link_compra": "",
   "n_sessoes": "3"
@@ -6960,7 +6960,7 @@
   "musica": "Sten Sheripov",
   "producao": "Film Jam, Matka Films",
   "distribuicao": "",
-  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/large2/vesna_f01cor_2026117717.jpg",
+  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/medium2/vesna_p01cor_2026117717.jpg",
   "trailer": "",
   "link_compra": "",
   "n_sessoes": "3"
@@ -6990,7 +6990,7 @@
   "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/medium2/privadas_p01cor_2026117570.jpg",
   "trailer": "",
   "link_compra": "",
-  "n_sessoes": "2"
+  "n_sessoes": "4"
  },
  {
   "id": "6047269",
@@ -7017,7 +7017,7 @@
   "imagem": "",
   "trailer": "",
   "link_compra": "",
-  "n_sessoes": "2"
+  "n_sessoes": "3"
  },
  {
   "id": "7759046",
@@ -7125,7 +7125,7 @@
   "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/medium2/narciso_p01cor_2026116354.jpg",
   "trailer": "https://youtu.be/2Flv4kGVHu8?si=-y2RNkd-UuFXaPgg",
   "link_compra": "",
-  "n_sessoes": "2"
+  "n_sessoes": "3"
  },
  {
   "id": "8858082",
@@ -7176,7 +7176,7 @@
   "musica": "",
   "producao": "Conspiração",
   "distribuicao": "",
-  "imagem": "",
+  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/large2/quinzed_f01cor_2026118652.jpg",
   "trailer": "",
   "link_compra": "",
   "n_sessoes": "1"
@@ -7311,7 +7311,7 @@
   "musica": "",
   "producao": "",
   "distribuicao": "",
-  "imagem": "",
+  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/large2/riodec_f01cor_2026118689.jpg",
   "trailer": "",
   "link_compra": "",
   "n_sessoes": "1"
@@ -7338,7 +7338,7 @@
   "musica": "",
   "producao": "7800 Productions, Biônica Filmes, Claro",
   "distribuicao": "",
-  "imagem": "",
+  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/large2/ritas_f01cor_2026118673.jpg",
   "trailer": "",
   "link_compra": "",
   "n_sessoes": "2"
@@ -7638,7 +7638,7 @@
   "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/medium2/seismes_p01cor_2026117427.jpg",
   "trailer": "https://youtu.be/0TVfzsLg_1o?si=TPeRcyNf53VYXr79",
   "link_compra": "",
-  "n_sessoes": "2"
+  "n_sessoes": "3"
  },
  {
   "id": "3418473",
@@ -7665,7 +7665,7 @@
   "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/medium2/nopain_p01cor_2026118424.jpg",
   "trailer": "https://youtu.be/NruSqSJN8n8?si=m0zLV0Zo4cI6Fc33",
   "link_compra": "",
-  "n_sessoes": "2"
+  "n_sessoes": "3"
  },
  {
   "id": "7731770",
@@ -7770,7 +7770,7 @@
   "musica": "",
   "producao": "Giros Filmes, Audaz Filmes",
   "distribuicao": "",
-  "imagem": "",
+  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/large2/sexa_f01cor_2026118742.jpg",
   "trailer": "",
   "link_compra": "",
   "n_sessoes": "4"
@@ -7851,7 +7851,7 @@
   "musica": "",
   "producao": "Close Up Films",
   "distribuicao": "",
-  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/large2/enjoyyo_f01cor_2026116377.jpg",
+  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/medium2/enjoyyo_p01cor_2026116377.jpg",
   "trailer": "https://youtu.be/90ckaO5lYW0?si=Yn003f-4MUhS85nD",
   "link_compra": "",
   "n_sessoes": "3"
@@ -7989,7 +7989,7 @@
   "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/medium2/soymari_p01cor_2026118491.jpg",
   "trailer": "https://youtu.be/joVhy8Qmo0U?si=OqVFkr98vNf6yrrm",
   "link_compra": "",
-  "n_sessoes": "2"
+  "n_sessoes": "3"
  },
  {
   "id": "1540615",
@@ -8070,7 +8070,7 @@
   "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/medium2/mrnels_p01cor_2026118494.jpg",
   "trailer": "https://youtu.be/48-DDYyaYMY?si=2FpUhhQS8bktS3Iz",
   "link_compra": "",
-  "n_sessoes": "2"
+  "n_sessoes": "3"
  },
  {
   "id": "9699328",
@@ -8094,7 +8094,7 @@
   "musica": "",
   "producao": "Sincrocine Produções Cinematográficas",
   "distribuicao": "",
-  "imagem": "",
+  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/large2/taine_f01cor_2026118680.jpg",
   "trailer": "",
   "link_compra": "",
   "n_sessoes": "4"
@@ -8337,7 +8337,7 @@
   "musica": "Clément Ducol",
   "producao": "Indigo Film",
   "distribuicao": "",
-  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/large2/theecho_f01cor_2026118567.jpg",
+  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/medium2/theecho_p01cor_2026118567.jpg",
   "trailer": "https://youtu.be/4rmdlgJqRRM?si=R6je7neZ0Y_RWwBG",
   "link_compra": "",
   "n_sessoes": "3"
@@ -8475,7 +8475,7 @@
   "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/medium2/allthe_p01cor_2026118291.jpg",
   "trailer": "https://youtu.be/3NAcnenkkFg?si=8rsPUc2WwYjnCORF",
   "link_compra": "",
-  "n_sessoes": "2"
+  "n_sessoes": "3"
  },
  {
   "id": "7740850",
@@ -8499,7 +8499,7 @@
   "musica": "",
   "producao": "Modo Operante Produções",
   "distribuicao": "",
-  "imagem": "",
+  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/large2/torreda_f01cor_2026118691.jpg",
   "trailer": "",
   "link_compra": "",
   "n_sessoes": "1"
@@ -8715,7 +8715,7 @@
   "musica": "",
   "producao": "Nomadic Pictures",
   "distribuicao": "",
-  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/large2/longwin_f01cor_2026118461.jpg",
+  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/medium2/longwin_p01cor_2026118461.jpg",
   "trailer": "",
   "link_compra": "",
   "n_sessoes": "3"
@@ -8823,7 +8823,7 @@
   "musica": "",
   "producao": "Arpoador Audiovisual",
   "distribuicao": "",
-  "imagem": "",
+  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/large2/umtioq_f01cor_2026118727.jpg",
   "trailer": "",
   "link_compra": "",
   "n_sessoes": "3"
@@ -8931,7 +8931,7 @@
   "musica": "",
   "producao": "Conspiração",
   "distribuicao": "",
-  "imagem": "",
+  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/large2/velhosb_f01cor_2026118686.jpg",
   "trailer": "",
   "link_compra": "",
   "n_sessoes": "4"
@@ -8985,7 +8985,7 @@
   "musica": "Franck Lascombes",
   "producao": "Chi-Fou-Mi Productions",
   "distribuicao": "",
-  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/large2/vertigin_f01cor_2026118271.jpg",
+  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/medium2/vertigin_p01cor_2026118271.jpg",
   "trailer": "",
   "link_compra": "",
   "n_sessoes": "3"
@@ -9066,7 +9066,7 @@
   "musica": "",
   "producao": "Conspiração, Mymama Entertainment, Globoplay",
   "distribuicao": "",
-  "imagem": "",
+  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/large2/vitria_f01cor_2026118668.jpg",
   "trailer": "",
   "link_compra": "",
   "n_sessoes": "2"
@@ -9201,7 +9201,7 @@
   "musica": "",
   "producao": "Terra Filmes, Embrafilme",
   "distribuicao": "",
-  "imagem": "",
+  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/large2/xicada_f01cor_2026118659.jpg",
   "trailer": "",
   "link_compra": "",
   "n_sessoes": "2"
