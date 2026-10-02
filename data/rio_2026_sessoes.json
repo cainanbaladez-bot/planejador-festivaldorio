@@ -1,5 +1,37 @@
 [
  {
+  "sessao_id": "6141245",
+  "filme_id": "9978076",
+  "filme_slug": "salverosa",
+  "titulo": "#SalveRosa",
+  "data": "2026-10-07",
+  "hora": "19:00",
+  "sala": "CineCarioca Nova Brasília",
+  "cinema": "CineCarioca Nova Brasília",
+  "endereco_cinema": "Praça Nossa Senhora de Fátima - Rua Nova Brasília, S/N",
+  "idioma": "",
+  "legendas": "gratuito",
+  "secao": "Cinema Circulação",
+  "duracao": "95 min.",
+  "link_compra": ""
+ },
+ {
+  "sessao_id": "6920960",
+  "filme_id": "9978076",
+  "filme_slug": "salverosa",
+  "titulo": "#SalveRosa",
+  "data": "2026-10-08",
+  "hora": "14:00",
+  "sala": "Centro Cultural da Justiça Federal - CCJF - Cinema",
+  "cinema": "Centro Cultural da Justiça Federal - CCJF - Cinema",
+  "endereco_cinema": "",
+  "idioma": "",
+  "legendas": "gratuito",
+  "secao": "Cinema Circulação",
+  "duracao": "95 min.",
+  "link_compra": ""
+ },
+ {
   "sessao_id": "6279638",
   "filme_id": "3311999",
   "filme_slug": "descontrole",
@@ -9,6 +41,22 @@
   "sala": "Centro Cultural da Justiça Federal - CCJF - Teatro",
   "cinema": "Centro Cultural da Justiça Federal - CCJF - Teatro",
   "endereco_cinema": "Av. Rio Branco, 241",
+  "idioma": "",
+  "legendas": "gratuito",
+  "secao": "Cinema Circulação",
+  "duracao": "96 min.",
+  "link_compra": ""
+ },
+ {
+  "sessao_id": "5105713",
+  "filme_id": "3311999",
+  "filme_slug": "descontrole",
+  "titulo": "(Des)controle",
+  "data": "2026-10-09",
+  "hora": "17:00",
+  "sala": "CineCarioca Nova Brasília",
+  "cinema": "CineCarioca Nova Brasília",
+  "endereco_cinema": "Praça Nossa Senhora de Fátima - Rua Nova Brasília, S/N",
   "idioma": "",
   "legendas": "gratuito",
   "secao": "Cinema Circulação",
@@ -144,6 +192,70 @@
   "link_compra": "https://checkout.ingresso.com/?sessionId=87173465&partnership=home"
  },
  {
+  "sessao_id": "1403073",
+  "filme_id": "7449105",
+  "filme_slug": "3x4",
+  "titulo": "3x4",
+  "data": "2026-10-09",
+  "hora": "19:15",
+  "sala": "Estação Claro Gávea 4",
+  "cinema": "Estação Claro Gávea",
+  "endereco_cinema": "Rua Marquês de São Vicente, 52",
+  "idioma": "",
+  "legendas": "com convidados",
+  "secao": "Première Brasil: Curtas em Competição",
+  "duracao": "14 min.",
+  "link_compra": "https://checkout.ingresso.com/?sessionId=87173720&partnership=home"
+ },
+ {
+  "sessao_id": "3987351",
+  "filme_id": "7449105",
+  "filme_slug": "3x4",
+  "titulo": "3x4",
+  "data": "2026-10-09",
+  "hora": "19:15",
+  "sala": "Estação Claro Gávea 5",
+  "cinema": "Estação Claro Gávea",
+  "endereco_cinema": "Rua Marquês de São Vicente, 52",
+  "idioma": "",
+  "legendas": "com convidados",
+  "secao": "Première Brasil: Curtas em Competição",
+  "duracao": "14 min.",
+  "link_compra": ""
+ },
+ {
+  "sessao_id": "8950934",
+  "filme_id": "7449105",
+  "filme_slug": "3x4",
+  "titulo": "3x4",
+  "data": "2026-10-10",
+  "hora": "13:00",
+  "sala": "Cine Odeon - CCLSR",
+  "cinema": "Cine Odeon - CCLSR",
+  "endereco_cinema": "Praça Floriano, 7",
+  "idioma": "",
+  "legendas": "debate, gratuito, gratuito (lugares limitados)",
+  "secao": "Première Brasil: Curtas em Competição",
+  "duracao": "14 min.",
+  "link_compra": "https://checkout.ingresso.com/?sessionId=87203678&partnership=home"
+ },
+ {
+  "sessao_id": "9208276",
+  "filme_id": "7449105",
+  "filme_slug": "3x4",
+  "titulo": "3x4",
+  "data": "2026-10-10",
+  "hora": "19:00",
+  "sala": "Cinesystem Belas Artes Botafogo 1",
+  "cinema": "Cinesystem Belas Artes Botafogo",
+  "endereco_cinema": "Praia de Botafogo, 316",
+  "idioma": "",
+  "legendas": "",
+  "secao": "Première Brasil: Curtas em Competição",
+  "duracao": "14 min.",
+  "link_compra": "https://checkout.ingresso.com/?sessionId=87173713&partnership=home"
+ },
+ {
   "sessao_id": "3972914",
   "filme_id": "5719801",
   "filme_slug": "9-temples-vers-le-ciel",
@@ -190,6 +302,22 @@
   "secao": "Expectativa",
   "duracao": "140 min.",
   "link_compra": "https://checkout.ingresso.com/?sessionId=87162027&partnership=home"
+ },
+ {
+  "sessao_id": "3629744",
+  "filme_id": "5719801",
+  "filme_slug": "9-temples-vers-le-ciel",
+  "titulo": "9 Templos Para o Céu",
+  "data": "2026-10-11",
+  "hora": "21:00",
+  "sala": "Cinesystem Belas Artes Botafogo 5",
+  "cinema": "Cinesystem Belas Artes Botafogo",
+  "endereco_cinema": "Praia de Botafogo, 316",
+  "idioma": "",
+  "legendas": "",
+  "secao": "Expectativa",
+  "duracao": "140 min.",
+  "link_compra": "https://checkout.ingresso.com/?sessionId=87173714&partnership=home"
  },
  {
   "sessao_id": "3407409",
@@ -8314,7 +8442,7 @@
   "cinema": "Estação Claro Rio",
   "endereco_cinema": "Rua Voluntários da Pátria, 35",
   "idioma": "",
-  "legendas": "special",
+  "legendas": "",
   "secao": "Expectativa",
   "duracao": "103 min.",
   "link_compra": ""
@@ -11328,12 +11456,12 @@
   "link_compra": "https://checkout.ingresso.com/?sessionId=87174071&partnership=home"
  },
  {
-  "sessao_id": "8491230",
+  "sessao_id": "9472214",
   "filme_id": "8312767",
   "filme_slug": "overman",
   "titulo": "Overman",
   "data": "2026-10-11",
-  "hora": "16:15",
+  "hora": "16:30",
   "sala": "Estação Claro Rio 3",
   "cinema": "Estação Claro Rio",
   "endereco_cinema": "Rua Voluntários da Pátria, 35",
@@ -11341,7 +11469,7 @@
   "legendas": "",
   "secao": "Première Brasil: Midnight Movies",
   "duracao": "82 min.",
-  "link_compra": ""
+  "link_compra": "https://checkout.ingresso.com/?sessionId=87174087&partnership=home"
  },
  {
   "sessao_id": "2112742",
@@ -12096,22 +12224,6 @@
   "link_compra": "https://checkout.ingresso.com/?sessionId=87174121&partnership=home"
  },
  {
-  "sessao_id": "6941785",
-  "filme_id": "7405998",
-  "filme_slug": "privadas-de-suas-vidas",
-  "titulo": "Privadas de Suas Vidas",
-  "data": "2026-10-05",
-  "hora": "21:00",
-  "sala": "Cinesystem Belas Artes Botafogo 4",
-  "cinema": "Cinesystem Belas Artes Botafogo",
-  "endereco_cinema": "Praia de Botafogo, 316",
-  "idioma": "",
-  "legendas": "com convidados",
-  "secao": "Première Brasil: Midnight Movies",
-  "duracao": "111 min.",
-  "link_compra": "https://checkout.ingresso.com/?sessionId=87174112&partnership=home"
- },
- {
   "sessao_id": "7821654",
   "filme_id": "7405998",
   "filme_slug": "privadas-de-suas-vidas",
@@ -12123,9 +12235,25 @@
   "endereco_cinema": "Praia de Botafogo, 316",
   "idioma": "",
   "legendas": "com convidados",
-  "secao": "Première Brasil: Midnight Movies",
+  "secao": "Première Brasil",
   "duracao": "111 min.",
-  "link_compra": "https://checkout.ingresso.com/?sessionId=87232163&partnership=home"
+  "link_compra": ""
+ },
+ {
+  "sessao_id": "6941785",
+  "filme_id": "7405998",
+  "filme_slug": "privadas-de-suas-vidas",
+  "titulo": "Privadas de Suas Vidas",
+  "data": "2026-10-05",
+  "hora": "21:00",
+  "sala": "Cinesystem Belas Artes Botafogo 4",
+  "cinema": "Cinesystem Belas Artes Botafogo",
+  "endereco_cinema": "Praia de Botafogo, 316",
+  "idioma": "",
+  "legendas": "com convidados",
+  "secao": "Première Brasil",
+  "duracao": "111 min.",
+  "link_compra": ""
  },
  {
   "sessao_id": "2918931",
@@ -12139,9 +12267,9 @@
   "endereco_cinema": "Rua Voluntários da Pátria, 35",
   "idioma": "",
   "legendas": "",
-  "secao": "Première Brasil: Midnight Movies",
+  "secao": "Première Brasil",
   "duracao": "111 min.",
-  "link_compra": "https://checkout.ingresso.com/?sessionId=87174133&partnership=home"
+  "link_compra": ""
  },
  {
   "sessao_id": "4499324",
@@ -12155,25 +12283,9 @@
   "endereco_cinema": "Rua Marquês de São Vicente, 52",
   "idioma": "",
   "legendas": "",
-  "secao": "Première Brasil: Midnight Movies",
+  "secao": "Première Brasil",
   "duracao": "111 min.",
-  "link_compra": "https://checkout.ingresso.com/?sessionId=87174154&partnership=home"
- },
- {
-  "sessao_id": "6643378",
-  "filme_id": "6047269",
-  "filme_slug": "wim-wenders-shorts-program",
-  "titulo": "Programa de Curtas Wim Wenders",
-  "data": "2026-10-01",
-  "hora": "16:15",
-  "sala": "CineCarioca José Wilker 2",
-  "cinema": "CineCarioca José Wilker",
-  "endereco_cinema": "Rua Leite Leal, 45",
-  "idioma": "",
-  "legendas": "",
-  "secao": "Clássicos e Cults",
-  "duracao": "111 min.",
-  "link_compra": "https://checkout.ingresso.com/?sessionId=87174221&partnership=home"
+  "link_compra": ""
  },
  {
   "sessao_id": "1786246",
@@ -12189,7 +12301,7 @@
   "legendas": "",
   "secao": "Clássicos e Cults",
   "duracao": "111 min.",
-  "link_compra": "https://checkout.ingresso.com/?sessionId=87174199&partnership=home"
+  "link_compra": ""
  },
  {
   "sessao_id": "3694627",
@@ -12205,7 +12317,7 @@
   "legendas": "",
   "secao": "Clássicos e Cults",
   "duracao": "111 min.",
-  "link_compra": "https://checkout.ingresso.com/?sessionId=87174165&partnership=home"
+  "link_compra": ""
  },
  {
   "sessao_id": "4450517",
@@ -12272,22 +12384,6 @@
   "link_compra": "https://checkout.ingresso.com/?sessionId=87174611&partnership=home"
  },
  {
-  "sessao_id": "6450981",
-  "filme_id": "5403264",
-  "filme_slug": "chambre-666",
-  "titulo": "Quarto 666",
-  "data": "2026-10-01",
-  "hora": "16:15",
-  "sala": "CineCarioca José Wilker 2",
-  "cinema": "CineCarioca José Wilker",
-  "endereco_cinema": "Rua Leite Leal, 45",
-  "idioma": "",
-  "legendas": "",
-  "secao": "Clássicos e Cults",
-  "duracao": "47 min.",
-  "link_compra": "https://checkout.ingresso.com/?sessionId=87174221&partnership=home"
- },
- {
   "sessao_id": "8442289",
   "filme_id": "5403264",
   "filme_slug": "chambre-666",
@@ -12301,7 +12397,7 @@
   "legendas": "",
   "secao": "Clássicos e Cults",
   "duracao": "47 min.",
-  "link_compra": "https://checkout.ingresso.com/?sessionId=87174199&partnership=home"
+  "link_compra": ""
  },
  {
   "sessao_id": "6251267",
@@ -12635,7 +12731,7 @@
   "endereco_cinema": "Praia de Botafogo, 190",
   "idioma": "",
   "legendas": "com convidados, gratuito",
-  "secao": "Première Brasil: Panorama Carioca de Curtas",
+  "secao": "Première Brasil",
   "duracao": "17 min.",
   "link_compra": ""
  },
@@ -13163,9 +13259,9 @@
   "endereco_cinema": "Rua Marquês de São Vicente, 52",
   "idioma": "",
   "legendas": "com convidados",
-  "secao": "Première Brasil: Hors Concours",
+  "secao": "Première Brasil",
   "duracao": "85 min.",
-  "link_compra": "https://checkout.ingresso.com/?sessionId=87174541&partnership=home"
+  "link_compra": ""
  },
  {
   "sessao_id": "7645957",
@@ -13179,7 +13275,7 @@
   "endereco_cinema": "Rua Marquês de São Vicente, 52",
   "idioma": "",
   "legendas": "com convidados",
-  "secao": "Première Brasil: Hors Concours",
+  "secao": "Première Brasil",
   "duracao": "85 min.",
   "link_compra": ""
  },
@@ -14032,67 +14128,35 @@
   "link_compra": "https://checkout.ingresso.com/?sessionId=87174554&partnership=home"
  },
  {
-  "sessao_id": "6316232",
+  "sessao_id": "7488264",
   "filme_id": "9699328",
   "filme_slug": "taina-e-os-guardioes-da-amazonia-em-busca-da-flecha-azul",
-  "titulo": "Tainá e os Guardiões da Amazônia - Em busca da Flecha Azul",
-  "data": "2026-10-01",
-  "hora": "16:00",
-  "sala": "CineCarioca Penha",
-  "cinema": "CineCarioca Penha",
-  "endereco_cinema": "Av. Brás de Pina, 150",
+  "titulo": "Tainá e os Guardiões da Amazônia - Em Busca da Flecha Azul",
+  "data": "2026-10-04",
+  "hora": "14:45",
+  "sala": "Estação NET Gávea 5",
+  "cinema": "Estação NET Gávea",
+  "endereco_cinema": "Shopping da Gávea, Rua Marquês de São Vicente, 52 - 4º andar",
   "idioma": "",
-  "legendas": "gratuito",
-  "secao": "Cinema Circulação",
-  "duracao": "78 min.",
+  "legendas": "com convidados",
+  "secao": "Première Brasil: Geração",
+  "duracao": "79 min.",
   "link_compra": ""
  },
  {
-  "sessao_id": "1852149",
+  "sessao_id": "6077517",
   "filme_id": "9699328",
   "filme_slug": "taina-e-os-guardioes-da-amazonia-em-busca-da-flecha-azul",
-  "titulo": "Tainá e os Guardiões da Amazônia - Em busca da Flecha Azul",
-  "data": "2026-10-03",
-  "hora": "14:00",
-  "sala": "Centro Cultural da Justiça Federal - CCJF - Teatro",
-  "cinema": "Centro Cultural da Justiça Federal - CCJF - Teatro",
-  "endereco_cinema": "Av. Rio Branco, 241",
+  "titulo": "Tainá e os Guardiões da Amazônia - Em Busca da Flecha Azul",
+  "data": "2026-10-12",
+  "hora": "11:00",
+  "sala": "Estação NET Gávea 2",
+  "cinema": "Estação NET Gávea",
+  "endereco_cinema": "Shopping da Gávea, Rua Marquês de São Vicente, 52 - 4º andar",
   "idioma": "",
-  "legendas": "gratuito",
-  "secao": "Cinema Circulação",
-  "duracao": "78 min.",
-  "link_compra": ""
- },
- {
-  "sessao_id": "5043523",
-  "filme_id": "9699328",
-  "filme_slug": "taina-e-os-guardioes-da-amazonia-em-busca-da-flecha-azul",
-  "titulo": "Tainá e os Guardiões da Amazônia - Em busca da Flecha Azul",
-  "data": "2026-10-10",
-  "hora": "16:00",
-  "sala": "Parque Realengo Susana Naspolini",
-  "cinema": "Parque Realengo Susana Naspolini",
-  "endereco_cinema": "Rua Prof. Carlos Wenceslau, 290",
-  "idioma": "",
-  "legendas": "gratuito",
-  "secao": "Cinema Circulação",
-  "duracao": "78 min.",
-  "link_compra": ""
- },
- {
-  "sessao_id": "4236662",
-  "filme_id": "9699328",
-  "filme_slug": "taina-e-os-guardioes-da-amazonia-em-busca-da-flecha-azul",
-  "titulo": "Tainá e os Guardiões da Amazônia - Em busca da Flecha Azul",
-  "data": "2026-10-11",
-  "hora": "17:00",
-  "sala": "CineCarioca Nova Brasília",
-  "cinema": "CineCarioca Nova Brasília",
-  "endereco_cinema": "Praça Nossa Senhora de Fátima - Rua Nova Brasília, S/N",
-  "idioma": "",
-  "legendas": "gratuito",
-  "secao": "Cinema Circulação",
-  "duracao": "78 min.",
+  "legendas": "com convidados",
+  "secao": "Première Brasil: Geração",
+  "duracao": "79 min.",
   "link_compra": ""
  },
  {
@@ -16030,38 +16094,6 @@
   "secao": "Première Brasil: O Estado das Coisas",
   "duracao": "100 min.",
   "link_compra": "https://checkout.ingresso.com/?sessionId=87174095&partnership=home"
- },
- {
-  "sessao_id": "1759655",
-  "filme_id": "6123851",
-  "filme_slug": "xica-da-silva",
-  "titulo": "Xica da Silva",
-  "data": "2026-10-08",
-  "hora": "17:00",
-  "sala": "CineCarioca Nova Brasília",
-  "cinema": "CineCarioca Nova Brasília",
-  "endereco_cinema": "Praça Nossa Senhora de Fátima - Rua Nova Brasília, S/N",
-  "idioma": "",
-  "legendas": "gratuito",
-  "secao": "Cinema Circulação",
-  "duracao": "107 min.",
-  "link_compra": ""
- },
- {
-  "sessao_id": "2114675",
-  "filme_id": "6123851",
-  "filme_slug": "xica-da-silva",
-  "titulo": "Xica da Silva",
-  "data": "2026-10-11",
-  "hora": "18:00",
-  "sala": "Centro Cultural da Justiça Federal - CCJF - Cinema",
-  "cinema": "Centro Cultural da Justiça Federal - CCJF - Cinema",
-  "endereco_cinema": "",
-  "idioma": "",
-  "legendas": "gratuito",
-  "secao": "Cinema Circulação",
-  "duracao": "107 min.",
-  "link_compra": ""
  },
  {
   "sessao_id": "3340481",
