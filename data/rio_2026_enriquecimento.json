@@ -2282,7 +2282,9 @@
   "lb_url": "https://letterboxd.com/film/where-to-2026/"
  },
  "5403264": {
-  "festivais": [],
+  "festivais": [
+   "Cannes"
+  ],
   "premiado": false,
   "premio_txt": "",
   "lb_nota": 3.56,

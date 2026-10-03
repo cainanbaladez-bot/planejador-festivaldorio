@@ -1,8 +1,8 @@
 {
  "ano": 2026,
- "raspado_em": "2026-10-02T14:29:26",
+ "raspado_em": "2026-10-03T07:07:14",
  "filmes": 343,
- "sessoes": 1012,
+ "sessoes": 1018,
  "programacao_publica": true,
  "primeiro_dia": "2026-10-01",
  "ultimo_dia": "2026-10-14",
@@ -19,7 +19,6 @@
   "Cinesystem Belas Artes Botafogo",
   "Estação Claro Gávea",
   "Estação Claro Rio",
-  "Estação NET Gávea",
   "Kinoplex São Luiz",
   "Parque Realengo Susana Naspolini",
   "Reserva Cultural Niterói"
