@@ -3360,38 +3360,6 @@
   "link_compra": "https://checkout.ingresso.com/?sessionId=87173613&partnership=home"
  },
  {
-  "sessao_id": "4501240",
-  "filme_id": "4733911",
-  "filme_slug": "moragheb",
-  "titulo": "Casa em Queda",
-  "data": "2026-10-06",
-  "hora": "16:15",
-  "sala": "Cinesystem Belas Artes Botafogo 3",
-  "cinema": "Cinesystem Belas Artes Botafogo",
-  "endereco_cinema": "Praia de Botafogo, 316",
-  "idioma": "",
-  "legendas": "",
-  "secao": "Expectativa",
-  "duracao": "125 min.",
-  "link_compra": "https://checkout.ingresso.com/?sessionId=87173594&partnership=home"
- },
- {
-  "sessao_id": "7930931",
-  "filme_id": "4733911",
-  "filme_slug": "moragheb",
-  "titulo": "Casa em Queda",
-  "data": "2026-10-10",
-  "hora": "14:15",
-  "sala": "Estação Claro Rio 4",
-  "cinema": "Estação Claro Rio",
-  "endereco_cinema": "Rua Voluntários da Pátria, 35",
-  "idioma": "",
-  "legendas": "",
-  "secao": "Expectativa",
-  "duracao": "125 min.",
-  "link_compra": "https://checkout.ingresso.com/?sessionId=87173632&partnership=home"
- },
- {
   "sessao_id": "4612266",
   "filme_id": "3517545",
   "filme_slug": "ji-guang",
@@ -4701,7 +4669,7 @@
   "legendas": "com convidados",
   "secao": "Première Brasil: Competição de Longas-metragens Documentário",
   "duracao": "84 min.",
-  "link_compra": ""
+  "link_compra": "https://checkout.ingresso.com/?sessionId=87256312&partnership=home"
  },
  {
   "sessao_id": "1504278",
@@ -4766,22 +4734,6 @@
   "secao": "Expectativa",
   "duracao": "101 min.",
   "link_compra": "https://checkout.ingresso.com/?sessionId=87173706&partnership=home"
- },
- {
-  "sessao_id": "3194801",
-  "filme_id": "8919250",
-  "filme_slug": "dua",
-  "titulo": "Dua - Tempos de Guerra",
-  "data": "2026-10-11",
-  "hora": "18:15",
-  "sala": "Estação Claro Gávea 3",
-  "cinema": "Estação Claro Gávea",
-  "endereco_cinema": "Rua Marquês de São Vicente, 52",
-  "idioma": "",
-  "legendas": "",
-  "secao": "Expectativa",
-  "duracao": "101 min.",
-  "link_compra": "https://checkout.ingresso.com/?sessionId=87173724&partnership=home"
  },
  {
   "sessao_id": "2949844",
@@ -5725,7 +5677,7 @@
   "legendas": "com convidados",
   "secao": "Première Brasil: Competição Novos Rumos de Curtas-metragens",
   "duracao": "25 min.",
-  "link_compra": ""
+  "link_compra": "https://checkout.ingresso.com/?sessionId=87256303&partnership=home"
  },
  {
   "sessao_id": "7884600",
@@ -5805,7 +5757,7 @@
   "legendas": "com convidados",
   "secao": "Première Brasil: Curtas em Competição",
   "duracao": "15 min.",
-  "link_compra": ""
+  "link_compra": "https://checkout.ingresso.com/?sessionId=87256312&partnership=home"
  },
  {
   "sessao_id": "8495544",
@@ -8432,54 +8384,6 @@
   "link_compra": "https://checkout.ingresso.com/?sessionId=87173873&partnership=home"
  },
  {
-  "sessao_id": "2263243",
-  "filme_id": "7553163",
-  "filme_slug": "marie-madeleine",
-  "titulo": "Marie Madeleine, uma mulher livre",
-  "data": "2026-10-03",
-  "hora": "20:45",
-  "sala": "Estação Claro Rio 3",
-  "cinema": "Estação Claro Rio",
-  "endereco_cinema": "Rua Voluntários da Pátria, 35",
-  "idioma": "",
-  "legendas": "",
-  "secao": "Expectativa",
-  "duracao": "103 min.",
-  "link_compra": ""
- },
- {
-  "sessao_id": "5895895",
-  "filme_id": "7553163",
-  "filme_slug": "marie-madeleine",
-  "titulo": "Marie Madeleine, uma mulher livre",
-  "data": "2026-10-07",
-  "hora": "16:00",
-  "sala": "CineCarioca José Wilker 1",
-  "cinema": "CineCarioca José Wilker",
-  "endereco_cinema": "Rua Leite Leal, 45",
-  "idioma": "",
-  "legendas": "",
-  "secao": "Expectativa",
-  "duracao": "103 min.",
-  "link_compra": "https://checkout.ingresso.com/?sessionId=87173875&partnership=home"
- },
- {
-  "sessao_id": "3847327",
-  "filme_id": "7553163",
-  "filme_slug": "marie-madeleine",
-  "titulo": "Marie Madeleine, uma mulher livre",
-  "data": "2026-10-09",
-  "hora": "19:00",
-  "sala": "Cinesystem Belas Artes Botafogo 1",
-  "cinema": "Cinesystem Belas Artes Botafogo",
-  "endereco_cinema": "Praia de Botafogo, 316",
-  "idioma": "",
-  "legendas": "",
-  "secao": "Expectativa",
-  "duracao": "103 min.",
-  "link_compra": "https://checkout.ingresso.com/?sessionId=87173877&partnership=home"
- },
- {
   "sessao_id": "4515317",
   "filme_id": "1215198",
   "filme_slug": "marilia-mendonca-sentimento-louco",
@@ -10077,7 +9981,7 @@
   "legendas": "com convidados",
   "secao": "Première Brasil: Competição Novos Rumos",
   "duracao": "101 min.",
-  "link_compra": ""
+  "link_compra": "https://checkout.ingresso.com/?sessionId=87256303&partnership=home"
  },
  {
   "sessao_id": "3265187",
