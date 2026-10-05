@@ -2281,6 +2281,16 @@
   "lb_votos": 418,
   "lb_url": "https://letterboxd.com/film/where-to-2026/"
  },
+ "5403264": {
+  "festivais": [
+   "Cannes"
+  ],
+  "premiado": false,
+  "premio_txt": "",
+  "lb_nota": 3.56,
+  "lb_votos": 8350,
+  "lb_url": "https://letterboxd.com/film/room-666/"
+ },
  "5919175": {
   "festivais": [
    "Berlim"
@@ -2302,12 +2312,22 @@
   "lb_url": "https://letterboxd.com/film/narciso-2026/"
  },
  "8858082": {
-  "festivais": [],
+  "festivais": [
+   "Veneza"
+  ],
   "premiado": false,
   "premio_txt": "",
   "lb_nota": null,
   "lb_votos": null,
   "lb_url": "https://letterboxd.com/film/dear-ajayi/"
+ },
+ "7911453": {
+  "festivais": [],
+  "premiado": false,
+  "premio_txt": "",
+  "lb_nota": 3.25,
+  "lb_votos": 77098,
+  "lb_url": "https://letterboxd.com/film/here-the-whole-time/"
  },
  "8578314": {
   "festivais": [
@@ -2320,12 +2340,22 @@
   "lb_url": "https://letterboxd.com/film/queen-at-sea/"
  },
  "2172112": {
+  "festivais": [
+   "Xangai"
+  ],
+  "premiado": true,
+  "premio_txt": "Vencedor de melhor filme e melhor fotografia no Festival de Xangai 2026.",
+  "lb_nota": null,
+  "lb_votos": null,
+  "lb_url": "https://letterboxd.com/film/atlantic-rhapsody-2026/"
+ },
+ "7859456": {
   "festivais": [],
   "premiado": false,
   "premio_txt": "",
   "lb_nota": null,
   "lb_votos": null,
-  "lb_url": "https://letterboxd.com/film/atlantic-rhapsody-2026/"
+  "lb_url": "https://letterboxd.com/film/retete/"
  },
  "3283872": {
   "festivais": [],

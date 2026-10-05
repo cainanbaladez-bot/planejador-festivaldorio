@@ -12011,9 +12011,9 @@
   "endereco_cinema": "Rua Marquês de São Vicente, 52",
   "idioma": "",
   "legendas": "com convidados",
-  "secao": "Première Brasil",
+  "secao": "Première Brasil: O Estado das Coisas",
   "duracao": "101 min.",
-  "link_compra": ""
+  "link_compra": "https://checkout.ingresso.com/?sessionId=87174603&partnership=home"
  },
  {
   "sessao_id": "6510797",
@@ -12027,9 +12027,9 @@
   "endereco_cinema": "Rua Voluntários da Pátria, 35",
   "idioma": "",
   "legendas": "debate",
-  "secao": "Première Brasil",
+  "secao": "Première Brasil: O Estado das Coisas",
   "duracao": "101 min.",
-  "link_compra": ""
+  "link_compra": "https://checkout.ingresso.com/?sessionId=87174636&partnership=home"
  },
  {
   "sessao_id": "4289262",
@@ -12043,9 +12043,9 @@
   "endereco_cinema": "Rua Leite Leal, 45",
   "idioma": "",
   "legendas": "",
-  "secao": "Première Brasil",
+  "secao": "Première Brasil: O Estado das Coisas",
   "duracao": "101 min.",
-  "link_compra": ""
+  "link_compra": "https://checkout.ingresso.com/?sessionId=87174584&partnership=home"
  },
  {
   "sessao_id": "7461894",
@@ -12240,6 +12240,38 @@
   "link_compra": "https://checkout.ingresso.com/?sessionId=87174154&partnership=home"
  },
  {
+  "sessao_id": "6643378",
+  "filme_id": "6047269",
+  "filme_slug": "wim-wenders-shorts-program",
+  "titulo": "Programa de Curtas Wim Wenders",
+  "data": "2026-10-01",
+  "hora": "16:15",
+  "sala": "CineCarioca José Wilker 2",
+  "cinema": "CineCarioca José Wilker",
+  "endereco_cinema": "Rua Leite Leal, 45",
+  "idioma": "",
+  "legendas": "",
+  "secao": "Clássicos e Cults",
+  "duracao": "111 min.",
+  "link_compra": "https://checkout.ingresso.com/?sessionId=87174221&partnership=home"
+ },
+ {
+  "sessao_id": "1786246",
+  "filme_id": "6047269",
+  "filme_slug": "wim-wenders-shorts-program",
+  "titulo": "Programa de Curtas Wim Wenders",
+  "data": "2026-10-03",
+  "hora": "14:15",
+  "sala": "Cinesystem Belas Artes Botafogo 6",
+  "cinema": "Cinesystem Belas Artes Botafogo",
+  "endereco_cinema": "Praia de Botafogo, 316",
+  "idioma": "",
+  "legendas": "",
+  "secao": "Clássicos e Cults",
+  "duracao": "111 min.",
+  "link_compra": "https://checkout.ingresso.com/?sessionId=87174199&partnership=home"
+ },
+ {
   "sessao_id": "3694627",
   "filme_id": "6047269",
   "filme_slug": "wim-wenders-shorts-program",
@@ -12253,7 +12285,7 @@
   "legendas": "",
   "secao": "Clássicos e Cults",
   "duracao": "111 min.",
-  "link_compra": ""
+  "link_compra": "https://checkout.ingresso.com/?sessionId=87174165&partnership=home"
  },
  {
   "sessao_id": "4450517",
@@ -12318,6 +12350,38 @@
   "secao": "Expectativa",
   "duracao": "95 min.",
   "link_compra": "https://checkout.ingresso.com/?sessionId=87174611&partnership=home"
+ },
+ {
+  "sessao_id": "6450981",
+  "filme_id": "5403264",
+  "filme_slug": "chambre-666",
+  "titulo": "Quarto 666",
+  "data": "2026-10-01",
+  "hora": "16:15",
+  "sala": "CineCarioca José Wilker 2",
+  "cinema": "CineCarioca José Wilker",
+  "endereco_cinema": "Rua Leite Leal, 45",
+  "idioma": "",
+  "legendas": "",
+  "secao": "Clássicos e Cults",
+  "duracao": "47 min.",
+  "link_compra": "https://checkout.ingresso.com/?sessionId=87174221&partnership=home"
+ },
+ {
+  "sessao_id": "8442289",
+  "filme_id": "5403264",
+  "filme_slug": "chambre-666",
+  "titulo": "Quarto 666",
+  "data": "2026-10-03",
+  "hora": "14:15",
+  "sala": "Cinesystem Belas Artes Botafogo 6",
+  "cinema": "Cinesystem Belas Artes Botafogo",
+  "endereco_cinema": "Praia de Botafogo, 316",
+  "idioma": "",
+  "legendas": "",
+  "secao": "Clássicos e Cults",
+  "duracao": "47 min.",
+  "link_compra": "https://checkout.ingresso.com/?sessionId=87174199&partnership=home"
  },
  {
   "sessao_id": "6251267",
@@ -12416,6 +12480,38 @@
   "link_compra": "https://checkout.ingresso.com/?sessionId=87174259&partnership=home"
  },
  {
+  "sessao_id": "3422907",
+  "filme_id": "8858082",
+  "filme_slug": "dear-ajayi",
+  "titulo": "Querida Ajayi",
+  "data": "2026-10-01",
+  "hora": "21:15",
+  "sala": "Cinesystem Belas Artes Botafogo 3",
+  "cinema": "Cinesystem Belas Artes Botafogo",
+  "endereco_cinema": "Praia de Botafogo, 316",
+  "idioma": "",
+  "legendas": "",
+  "secao": "Expectativa",
+  "duracao": "115 min.",
+  "link_compra": "https://checkout.ingresso.com/?sessionId=87174178&partnership=home"
+ },
+ {
+  "sessao_id": "1461396",
+  "filme_id": "8858082",
+  "filme_slug": "dear-ajayi",
+  "titulo": "Querida Ajayi",
+  "data": "2026-10-04",
+  "hora": "16:00",
+  "sala": "CineCarioca José Wilker 1",
+  "cinema": "CineCarioca José Wilker",
+  "endereco_cinema": "Rua Leite Leal, 45",
+  "idioma": "",
+  "legendas": "",
+  "secao": "Expectativa",
+  "duracao": "115 min.",
+  "link_compra": "https://checkout.ingresso.com/?sessionId=87174186&partnership=home"
+ },
+ {
   "sessao_id": "6944760",
   "filme_id": "8858082",
   "filme_slug": "dear-ajayi",
@@ -12429,6 +12525,22 @@
   "legendas": "",
   "secao": "Expectativa",
   "duracao": "115 min.",
+  "link_compra": "https://checkout.ingresso.com/?sessionId=87174245&partnership=home"
+ },
+ {
+  "sessao_id": "3874355",
+  "filme_id": "7911453",
+  "filme_slug": "quinze-dias",
+  "titulo": "Quinze Dias",
+  "data": "2026-10-03",
+  "hora": "16:00",
+  "sala": "Centro Cultural da Justiça Federal - CCJF - Teatro",
+  "cinema": "Centro Cultural da Justiça Federal - CCJF - Teatro",
+  "endereco_cinema": "Av. Rio Branco, 241",
+  "idioma": "",
+  "legendas": "gratuito",
+  "secao": "Cinema Circulação",
+  "duracao": "100 min.",
   "link_compra": ""
  },
  {
@@ -12480,6 +12592,22 @@
   "link_compra": "https://checkout.ingresso.com/?sessionId=87174243&partnership=home"
  },
  {
+  "sessao_id": "9471195",
+  "filme_id": "2172112",
+  "filme_slug": "da-xi-yang",
+  "titulo": "Rapsódia Fantástica",
+  "data": "2026-10-02",
+  "hora": "19:45",
+  "sala": "CineCarioca José Wilker 2",
+  "cinema": "CineCarioca José Wilker",
+  "endereco_cinema": "Rua Leite Leal, 45",
+  "idioma": "",
+  "legendas": "",
+  "secao": "Expectativa",
+  "duracao": "101 min.",
+  "link_compra": "https://checkout.ingresso.com/?sessionId=87174185&partnership=home"
+ },
+ {
   "sessao_id": "8428256",
   "filme_id": "2172112",
   "filme_slug": "da-xi-yang",
@@ -12493,7 +12621,7 @@
   "legendas": "",
   "secao": "Expectativa",
   "duracao": "101 min.",
-  "link_compra": ""
+  "link_compra": "https://checkout.ingresso.com/?sessionId=87174344&partnership=home"
  },
  {
   "sessao_id": "4501396",
@@ -12509,7 +12637,71 @@
   "legendas": "",
   "secao": "Expectativa",
   "duracao": "101 min.",
+  "link_compra": "https://checkout.ingresso.com/?sessionId=87174175&partnership=home"
+ },
+ {
+  "sessao_id": "8909005",
+  "filme_id": "7859456",
+  "filme_slug": "retete",
+  "titulo": "Reteté",
+  "data": "2026-10-02",
+  "hora": "21:45",
+  "sala": "Estação Claro Gávea 4",
+  "cinema": "Estação Claro Gávea",
+  "endereco_cinema": "Rua Marquês de São Vicente, 52",
+  "idioma": "",
+  "legendas": "com convidados",
+  "secao": "Première Brasil: Curtas em Competição",
+  "duracao": "17 min.",
+  "link_compra": "https://checkout.ingresso.com/?sessionId=87173991&partnership=home"
+ },
+ {
+  "sessao_id": "3751835",
+  "filme_id": "7859456",
+  "filme_slug": "retete",
+  "titulo": "Reteté",
+  "data": "2026-10-02",
+  "hora": "21:45",
+  "sala": "Estação Claro Gávea 5",
+  "cinema": "Estação Claro Gávea",
+  "endereco_cinema": "Rua Marquês de São Vicente, 52",
+  "idioma": "",
+  "legendas": "com convidados",
+  "secao": "Première Brasil: Curtas em Competição",
+  "duracao": "17 min.",
   "link_compra": ""
+ },
+ {
+  "sessao_id": "6668455",
+  "filme_id": "7859456",
+  "filme_slug": "retete",
+  "titulo": "Reteté",
+  "data": "2026-10-03",
+  "hora": "16:30",
+  "sala": "Cine Odeon - CCLSR",
+  "cinema": "Cine Odeon - CCLSR",
+  "endereco_cinema": "Praça Floriano, 7",
+  "idioma": "",
+  "legendas": "debate, gratuito, gratuito (lugares limitados)",
+  "secao": "Première Brasil: Curtas em Competição",
+  "duracao": "17 min.",
+  "link_compra": "https://checkout.ingresso.com/?sessionId=87203705&partnership=home"
+ },
+ {
+  "sessao_id": "4807865",
+  "filme_id": "7859456",
+  "filme_slug": "retete",
+  "titulo": "Reteté",
+  "data": "2026-10-04",
+  "hora": "21:15",
+  "sala": "Cinesystem Belas Artes Botafogo 5",
+  "cinema": "Cinesystem Belas Artes Botafogo",
+  "endereco_cinema": "Praia de Botafogo, 316",
+  "idioma": "",
+  "legendas": "",
+  "secao": "Première Brasil: Curtas em Competição",
+  "duracao": "17 min.",
+  "link_compra": "https://checkout.ingresso.com/?sessionId=87173946&partnership=home"
  },
  {
   "sessao_id": "7820620",
@@ -13168,6 +13360,38 @@
   "link_compra": "https://checkout.ingresso.com/?sessionId=87174562&partnership=home"
  },
  {
+  "sessao_id": "5055570",
+  "filme_id": "7731770",
+  "filme_slug": "on-seura-heureux",
+  "titulo": "Seremos Felizes",
+  "data": "2026-10-02",
+  "hora": "20:45",
+  "sala": "Estação Claro Gávea 3",
+  "cinema": "Estação Claro Gávea",
+  "endereco_cinema": "Rua Marquês de São Vicente, 52",
+  "idioma": "",
+  "legendas": "",
+  "secao": "Panorama Mundial",
+  "duracao": "101 min.",
+  "link_compra": "https://checkout.ingresso.com/?sessionId=87174545&partnership=home"
+ },
+ {
+  "sessao_id": "7369633",
+  "filme_id": "7731770",
+  "filme_slug": "on-seura-heureux",
+  "titulo": "Seremos Felizes",
+  "data": "2026-10-04",
+  "hora": "16:30",
+  "sala": "Cinesystem Belas Artes Botafogo 1",
+  "cinema": "Cinesystem Belas Artes Botafogo",
+  "endereco_cinema": "Praia de Botafogo, 316",
+  "idioma": "",
+  "legendas": "",
+  "secao": "Panorama Mundial",
+  "duracao": "101 min.",
+  "link_compra": "https://checkout.ingresso.com/?sessionId=87174517&partnership=home"
+ },
+ {
   "sessao_id": "3551920",
   "filme_id": "7731770",
   "filme_slug": "on-seura-heureux",
@@ -13181,7 +13405,7 @@
   "legendas": "",
   "secao": "Panorama Mundial",
   "duracao": "101 min.",
-  "link_compra": ""
+  "link_compra": "https://checkout.ingresso.com/?sessionId=87186488&partnership=home"
  },
  {
   "sessao_id": "2683204",
@@ -13197,7 +13421,7 @@
   "legendas": "",
   "secao": "Panorama Mundial",
   "duracao": "101 min.",
-  "link_compra": ""
+  "link_compra": "https://checkout.ingresso.com/?sessionId=87174544&partnership=home"
  },
  {
   "sessao_id": "6301803",
