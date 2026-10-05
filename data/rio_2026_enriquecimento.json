@@ -2281,16 +2281,6 @@
   "lb_votos": 418,
   "lb_url": "https://letterboxd.com/film/where-to-2026/"
  },
- "5403264": {
-  "festivais": [
-   "Cannes"
-  ],
-  "premiado": false,
-  "premio_txt": "",
-  "lb_nota": 3.56,
-  "lb_votos": 8350,
-  "lb_url": "https://letterboxd.com/film/room-666/"
- },
  "5919175": {
   "festivais": [
    "Berlim"
@@ -2312,22 +2302,12 @@
   "lb_url": "https://letterboxd.com/film/narciso-2026/"
  },
  "8858082": {
-  "festivais": [
-   "Veneza"
-  ],
+  "festivais": [],
   "premiado": false,
   "premio_txt": "",
   "lb_nota": null,
   "lb_votos": null,
   "lb_url": "https://letterboxd.com/film/dear-ajayi/"
- },
- "7911453": {
-  "festivais": [],
-  "premiado": false,
-  "premio_txt": "",
-  "lb_nota": 3.25,
-  "lb_votos": 77098,
-  "lb_url": "https://letterboxd.com/film/here-the-whole-time/"
  },
  "8578314": {
   "festivais": [
@@ -2340,22 +2320,12 @@
   "lb_url": "https://letterboxd.com/film/queen-at-sea/"
  },
  "2172112": {
-  "festivais": [
-   "Xangai"
-  ],
-  "premiado": true,
-  "premio_txt": "Vencedor de melhor filme e melhor fotografia no Festival de Xangai 2026.",
-  "lb_nota": null,
-  "lb_votos": null,
-  "lb_url": "https://letterboxd.com/film/atlantic-rhapsody-2026/"
- },
- "7859456": {
   "festivais": [],
   "premiado": false,
   "premio_txt": "",
   "lb_nota": null,
   "lb_votos": null,
-  "lb_url": "https://letterboxd.com/film/retete/"
+  "lb_url": "https://letterboxd.com/film/atlantic-rhapsody-2026/"
  },
  "3283872": {
   "festivais": [],
@@ -2828,7 +2798,10 @@
   "lb_url": "https://letterboxd.com/film/a-fading-man/"
  },
  "1626464": {
-  "festivais": [],
+  "festivais": [
+   "Toronto",
+   "Nova York"
+  ],
   "premiado": false,
   "premio_txt": "",
   "lb_nota": 3.33,
@@ -2882,12 +2855,22 @@
   "lb_url": "https://letterboxd.com/film/one-in-a-million-2026/"
  },
  "9929508": {
-  "festivais": [],
+  "festivais": [
+   "Karlovy Vary"
+  ],
   "premiado": false,
   "premio_txt": "",
   "lb_nota": null,
   "lb_votos": null,
   "lb_url": "https://letterboxd.com/film/a-happy-family-2026/"
+ },
+ "3476186": {
+  "festivais": [],
+  "premiado": false,
+  "premio_txt": "",
+  "lb_nota": null,
+  "lb_votos": null,
+  "lb_url": "https://letterboxd.com/film/a-mass-for-dom-angelico/"
  },
  "6790497": {
   "festivais": [],
@@ -2906,7 +2889,9 @@
   "lb_url": "https://letterboxd.com/film/canned-heat-2026/"
  },
  "9615828": {
-  "festivais": [],
+  "festivais": [
+   "Cannes"
+  ],
   "premiado": false,
   "premio_txt": "",
   "lb_nota": 3.09,
@@ -2993,7 +2978,9 @@
   "lb_url": "https://letterboxd.com/film/your-mother-your-mother-your-mother/"
  },
  "1870168": {
-  "festivais": [],
+  "festivais": [
+   "Cannes"
+  ],
   "premiado": false,
   "premio_txt": "",
   "lb_nota": 3.36,
