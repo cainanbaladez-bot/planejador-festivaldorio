@@ -2828,10 +2828,7 @@
   "lb_url": "https://letterboxd.com/film/a-fading-man/"
  },
  "1626464": {
-  "festivais": [
-   "Toronto",
-   "Nova York"
-  ],
+  "festivais": [],
   "premiado": false,
   "premio_txt": "",
   "lb_nota": 3.33,
@@ -2885,22 +2882,12 @@
   "lb_url": "https://letterboxd.com/film/one-in-a-million-2026/"
  },
  "9929508": {
-  "festivais": [
-   "Karlovy Vary"
-  ],
-  "premiado": false,
-  "premio_txt": "",
-  "lb_nota": null,
-  "lb_votos": null,
-  "lb_url": "https://letterboxd.com/film/a-happy-family-2026/"
- },
- "3476186": {
   "festivais": [],
   "premiado": false,
   "premio_txt": "",
   "lb_nota": null,
   "lb_votos": null,
-  "lb_url": "https://letterboxd.com/film/a-mass-for-dom-angelico/"
+  "lb_url": "https://letterboxd.com/film/a-happy-family-2026/"
  },
  "6790497": {
   "festivais": [],
@@ -2919,9 +2906,7 @@
   "lb_url": "https://letterboxd.com/film/canned-heat-2026/"
  },
  "9615828": {
-  "festivais": [
-   "Cannes"
-  ],
+  "festivais": [],
   "premiado": false,
   "premio_txt": "",
   "lb_nota": 3.09,
@@ -3008,9 +2993,7 @@
   "lb_url": "https://letterboxd.com/film/your-mother-your-mother-your-mother/"
  },
  "1870168": {
-  "festivais": [
-   "Cannes"
-  ],
+  "festivais": [],
   "premiado": false,
   "premio_txt": "",
   "lb_nota": 3.36,
