@@ -136,6 +136,19 @@ if corrente:
     urls += extras
     print(f"[grade] +{len(extras)} fora da lista de filmes: {', '.join(extras) or '—'}")
 
+# 1c) a lista paginada do site às vezes vem com um trecho faltando (05/10/2026: a mesma
+# raspagem deu 340 e 342 filmes com o site mostrando 343, e filmes "saíam" e "voltavam"
+# entre uma rodada e outra — e quem tinha sessão deles recebia aviso falso de sessão
+# tirada). Filme da raspagem anterior que sumiu da lista é conferido pela ficha: se a
+# página ainda existe, fica; se der 404, aí sim saiu (o 404 já é tratado no passo 2).
+anterior = DATA / f"rio_{ano}_filmes.json"
+if anterior.exists():
+    antes = [f["url_pagina"].replace(BASE, "") for f in json.loads(anterior.read_text(encoding="utf-8"))]
+    conferir = [u for u in dict.fromkeys(antes) if u not in urls]
+    urls += conferir
+    print(f"[conferência] {len(conferir)} filme(s) da raspagem anterior fora da lista, "
+          f"conferidos pela ficha: {', '.join(conferir) or '—'}")
+
 
 def ficha_da_grade(progs):
     """Ficha mínima montada da grade, para filme cuja página dá 404 no site.
