@@ -653,7 +653,7 @@
   "legendas": "com convidados",
   "secao": "Première Brasil: Competição de Longas-metragens Documentário",
   "duracao": "78 min.",
-  "link_compra": ""
+  "link_compra": "https://checkout.ingresso.com/?sessionId=87258119&partnership=home"
  },
  {
   "sessao_id": "8969841",
@@ -1069,7 +1069,7 @@
   "legendas": "com convidados",
   "secao": "Première Brasil: Competição de Longas-metragens Ficção",
   "duracao": "117 min.",
-  "link_compra": ""
+  "link_compra": "https://checkout.ingresso.com/?sessionId=87258545&partnership=home"
  },
  {
   "sessao_id": "3594474",
@@ -5565,7 +5565,7 @@
   "legendas": "com convidados",
   "secao": "Première Brasil: Curtas em Competição",
   "duracao": "13 min.",
-  "link_compra": ""
+  "link_compra": "https://checkout.ingresso.com/?sessionId=87258119&partnership=home"
  },
  {
   "sessao_id": "6796684",
@@ -9213,7 +9213,7 @@
   "legendas": "com convidados",
   "secao": "Première Brasil: Retratos",
   "duracao": "77 min.",
-  "link_compra": ""
+  "link_compra": "https://checkout.ingresso.com/?sessionId=87256970&partnership=home"
  },
  {
   "sessao_id": "4769243",
@@ -14224,6 +14224,22 @@
   "link_compra": "https://checkout.ingresso.com/?sessionId=87174107&partnership=home"
  },
  {
+  "sessao_id": "8257457",
+  "filme_id": "9632412",
+  "filme_slug": "taisa-machado-em-estado-de-encontro",
+  "titulo": "Taísa Machado - Em Estado de Encontro",
+  "data": "2026-10-09",
+  "hora": "14:00",
+  "sala": "Estação Claro Rio 3",
+  "cinema": "Estação Claro Rio",
+  "endereco_cinema": "Rua Voluntários da Pátria, 35",
+  "idioma": "",
+  "legendas": "",
+  "secao": "Première Brasil: Retratos - Curtas",
+  "duracao": "18 min.",
+  "link_compra": "https://checkout.ingresso.com/?sessionId=87173610&partnership=home"
+ },
+ {
   "sessao_id": "7871197",
   "filme_id": "6618016",
   "filme_slug": "talisma",
@@ -15965,7 +15981,7 @@
   "legendas": "com convidados",
   "secao": "Première Brasil: Retratos",
   "duracao": "102 min.",
-  "link_compra": ""
+  "link_compra": "https://checkout.ingresso.com/?sessionId=87174098&partnership=home"
  },
  {
   "sessao_id": "3679534",
