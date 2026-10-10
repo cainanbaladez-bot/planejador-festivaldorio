@@ -146,14 +146,19 @@ def main():
     except (ValueError, KeyError, TypeError) as exc:
         return desfaz("dados inconsistentes: " + str(exc))
 
-    chave = lambda s: (s["sessao_id"], s["data"], s["hora"], s["sala"])
-    mudou_grade = sorted(map(chave, sessoes)) != sorted(map(chave, sessoes0))
-    sem_data = lambda fs: sorted(json.dumps(f, sort_keys=True, ensure_ascii=False) for f in fs)
-    mudou_filmes = sem_data(filmes) != sem_data(filmes0)
+    # Compara o registro INTEIRO (09/10/2026): antes só dia/hora/sala, e em 07/10 o site
+    # ganhou link de ingresso em 3 sessões — o script disse "sem mudança", mas o arquivo
+    # novo ficou no disco, o checkout ficou sujo e as rodadas de 08 e 09/10 pararam.
+    tudo = lambda xs: sorted(json.dumps(x, sort_keys=True, ensure_ascii=False) for x in xs)
+    mudou_grade = tudo(sessoes) != tudo(sessoes0)
+    mudou_filmes = tudo(filmes) != tudo(filmes0)
     if not (mudou_grade or mudou_filmes):
-        # o meta tem a hora da raspagem; sem mudança, volta o de antes (a faixa ATUALIZADO
-        # do site continua dizendo a hora da última versão publicada, que é a verdade)
-        shutil.copy2(backup / f"rio_{ANO}_meta.json", DATA / f"rio_{ANO}_meta.json")
+        # sem mudança: devolve TODOS os arquivos de antes (o meta tem a hora da raspagem, e a
+        # faixa ATUALIZADO do site continua dizendo a hora da última versão publicada)
+        for a in ARQS:
+            b = backup / a.name
+            if b.exists():
+                shutil.copy2(b, a)
         log(f"sem mudança no site do festival ({len(filmes)} filmes, {len(sessoes)} sessões)")
         return 0
 
