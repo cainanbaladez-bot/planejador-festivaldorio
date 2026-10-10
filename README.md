@@ -117,6 +117,20 @@ raspa → confere → enriquece → sobe o `VERSAO` do sw.js → build → teste
   visita há 7 dias) ou dentro do X/Instagram (gaveta própria); fecha uma vez e não volta. O
   passo a passo do iPhone avisa que o app instalado começa vazio.
 
+### Festivais em símbolo e notas do Letterboxd (09/10/2026)
+
+- **Festivais:** no card, só o símbolo do **troféu** de cada festival, desenho próprio em traço
+  (não o logo oficial, que é marca registrada): palma = Cannes, urso = Berlim, leão = Veneza,
+  leopardo = Locarno, tigre = Roterdã, concha = San Sebastián, louro = os demais (`SVG_FEST`).
+  Nome ao passar o mouse. **Premiado = asterisco âmbar no festival que deu o prêmio**, achado
+  pela frase do prêmio (`festPremio`, padrões em `PAD_FEST`); sem achar, vai no 1º festival.
+  Na ficha: símbolo + nome, o premiado primeiro, e a frase do prêmio.
+- **Letterboxd:** o `enrich_filmes.py` guarda também o histograma (`lb_hist`, 10 faixas de
+  meia estrela, de `letterboxd.com/csi/film/<slug>/rating-histogram/`). **Card:** só o
+  mini-histograma e o número de notas, **sem a média**. **Ficha:** histograma maior, média e
+  número de notas, link para o Letterboxd. A média saiu também da lateral do calendário e dos
+  ingressos — só aparece na ficha (a ordenação por nota continua usando a média).
+
 ## Diferenças em relação a SP
 
 - **Mostras:** o site tem 28 submostras (20 são "Première Brasil: …"). Filtro e cor usam o **nome

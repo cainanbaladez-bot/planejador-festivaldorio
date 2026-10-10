@@ -221,6 +221,15 @@ select:focus{outline:none;border-color:var(--amber)}
 .laurel{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.04em;color:var(--dim)}
 .laurel+.laurel::before{content:"·";margin:0 5px;color:var(--line)}
 .laurel.win{color:var(--muted)}
+.fest-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:8px;color:var(--dim)}
+.fest{display:inline-flex;align-items:flex-start;color:var(--dim)}
+.fest.prem{color:var(--muted)}
+.fest.mais{font:10px var(--font-mono)}
+.fest sup,.fest-mod sup{color:var(--amber);font-size:11px;line-height:1;margin-left:1px}
+.fest-ic{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.15;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.fest-ic .ch{fill:currentColor;stroke:none}
+.fest-mod{display:inline-flex;align-items:center;gap:5px;font:11px var(--font-mono);color:var(--dim);margin-right:12px}
+.fest-mod.prem{color:var(--muted)}
 .lb-line{
   display:inline-flex;align-items:baseline;gap:6px;text-decoration:none;
   font-family:var(--font-mono);font-size:11.5px;color:var(--muted);
@@ -233,6 +242,12 @@ select:focus{outline:none;border-color:var(--amber)}
 .lb-hist:hover .lb-barras i{background:#6a6352}
 .lb-barras i:hover{background:var(--muted)!important}
 .lb-media{font:10px var(--font-mono);color:var(--dim);letter-spacing:.02em}
+.card-foot{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;margin-top:8px;min-height:15px}
+.card-foot .fest-row{margin-top:0}
+.lb-mini{display:inline-flex;flex-direction:column;align-items:flex-end;gap:3px;margin-left:auto;flex:none}
+.lb-mini .lb-barras{width:54px;height:14px;gap:1.5px}
+.lb-mini .lb-barras i{background:#4a4538}
+.lb-n{font:9px var(--font-mono);color:var(--dim);letter-spacing:.02em}
 .lb-line small{font-weight:400;color:var(--dim)}
 .premio-box{
   border-left:2px solid var(--line);padding:2px 0 2px 12px;margin:0 0 16px;
@@ -982,7 +997,7 @@ footer{
   <p class="feedback">Encontrou um erro ou tem uma ideia?
     <a href="https://github.com/cainanbaladez-bot/planejador-festivaldorio/issues/new/choose" target="_blank" rel="noopener">Conte pelo GitHub</a>.
     Precisa de uma conta; a mensagem será pública.</p>
-  <p class="versao">versão rio-v24 · programação conferida em 09/10 às 23h02</p>
+  <p class="versao">versão rio-v25 · programação conferida em 09/10 às 23h02</p>
 </footer>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
@@ -1436,7 +1451,6 @@ function renderGrid(){
           title="${watch.has(f.id)?`${PRIO_ICONE[watch.get(f.id)]} ${PRIO_ROT[watch.get(f.id)]}`:"não marcado"} — clique para: ${
             PRIO_ROT[(watch.get(f.id)||0)+1] || "tirar da lista"}"
           onclick="event.stopPropagation();toggleWatch('${f.id}')">${PRIO_ICONE[watch.get(f.id)]||"★"}</button>
-        ${f.lb_nota?`<span class="lb-chip">★ ${Number(f.lb_nota).toFixed(1)}</span>`:""}
       </div>
       <div class="card-body">
         <div class="card-title">${esc(f.titulo)}</div>
@@ -1445,11 +1459,7 @@ function renderGrid(){
           <span>${esc(f.pais)}</span><span>${esc(f.ano)}</span><span>${esc(f.duracao)}</span>
           <span class="sess">${f.n_sessoes} ${Number(f.n_sessoes)===1?"sessão":"sessões"}</span>
         </div>
-        ${(f.premiado||(f.festivais||[]).length)?`<div class="laurels">
-          ${f.premiado?`<span class="laurel win">premiado</span>`:""}
-          ${(f.festivais||[]).slice(0,3).map(x=>`<span class="laurel">${esc(x)}</span>`).join("")}
-          ${(f.festivais||[]).length>3?`<span class="laurel">+${f.festivais.length-3}</span>`:""}
-        </div>`:""}
+        <div class="card-foot">${festCardHTML(f)}${lbMiniHTML(f)}</div>
       </div>
     </article>`).join("") : `<div class="empty">NENHUM FILME COM ESSES FILTROS<br><button class="btn" onclick="limparFiltros()">Limpar filtros</button></div>`;
 }
@@ -1488,6 +1498,45 @@ function toggleWatch(id){
 /* Histograma de notas do Letterboxd na ficha (09/10/2026): as 10 faixas de meia estrela
    (f.lb_hist, do enrich_filmes.py), barras sem eixo nem moldura, no tom apagado do app;
    a média vai embaixo, em texto miúdo. Passar o mouse numa barra mostra a contagem. */
+/* Festivais em símbolo (09/10/2026, proposta C). Desenho próprio do TROFÉU de cada
+   festival — não o logo oficial, que é marca registrada: palma (Cannes), urso (Berlim),
+   leão (Veneza), leopardo (Locarno), tigre (Roterdã), concha (San Sebastián); os demais
+   levam um louro. No card só o símbolo (nome no title); asterisco âmbar no festival que
+   deu o prêmio — achado pela frase do prêmio, senão o 1º festival citado. */
+const FEST_ICONE={Cannes:"palma",Berlim:"urso",Veneza:"leao",Locarno:"leopardo","Roterdã":"tigre","San Sebastián":"concha"};
+const SVG_FEST={"palma": "<path d=\"M7.5 15C7.8 10.5 8.2 6 8.8 1.8\"/><path d=\"M8.6 4C7 3.6 5.6 4 4.6 5\"/><path d=\"M8.7 4.2c1.4-.8 2.8-.8 3.9 0\"/><path d=\"M8.3 7C6.6 6.6 5 7.1 4 8.3\"/><path d=\"M8.4 7.2c1.6-.8 3.1-.6 4.2.4\"/><path d=\"M8 10C6.5 9.8 5.2 10.3 4.4 11.4\"/><path d=\"M8.1 10.2c1.4-.6 2.7-.3 3.6.6\"/>", "urso": "<circle cx=\"4.3\" cy=\"4.6\" r=\"1.7\"/><circle cx=\"11.7\" cy=\"4.6\" r=\"1.7\"/><path d=\"M8 3.6c3 0 5 2.2 5 5.2S11 14 8 14 3 11.8 3 8.8 5 3.6 8 3.6z\"/><ellipse cx=\"8\" cy=\"10.6\" rx=\"1.9\" ry=\"1.4\"/><circle class=\"ch\" cx=\"6.2\" cy=\"7.8\" r=\".45\"/><circle class=\"ch\" cx=\"9.8\" cy=\"7.8\" r=\".45\"/>", "leao": "<path d=\"M8.0 1.9L9.4 3.4L11.4 2.8L11.8 4.8L13.8 5.2L13.2 7.2L14.7 8.6L13.2 10.0L13.8 11.9L11.8 12.4L11.4 14.4L9.4 13.8L8.0 15.3L6.6 13.8L4.7 14.4L4.2 12.4L2.2 11.9L2.8 10.0L1.3 8.6L2.8 7.2L2.2 5.2L4.2 4.8L4.6 2.8L6.6 3.4Z\"/><circle cx=\"8\" cy=\"8.6\" r=\"3.2\"/><circle class=\"ch\" cx=\"6.9\" cy=\"8\" r=\".4\"/><circle class=\"ch\" cx=\"9.1\" cy=\"8\" r=\".4\"/><path d=\"M7.4 9.9h1.2L8 10.6z\"/>", "leopardo": "<path d=\"M3 13V5.6L5.1 3l1.7 2.2h2.4L10.9 3 13 5.6V13c-1.2.8-3 1.2-5 1.2S4.2 13.8 3 13z\"/><circle class=\"ch\" cx=\"5.6\" cy=\"8.4\" r=\".6\"/><circle class=\"ch\" cx=\"10.4\" cy=\"8.4\" r=\".6\"/><circle class=\"ch\" cx=\"8\" cy=\"7.2\" r=\".6\"/><circle class=\"ch\" cx=\"6.4\" cy=\"11.2\" r=\".55\"/><circle class=\"ch\" cx=\"9.6\" cy=\"11.2\" r=\".55\"/>", "tigre": "<path d=\"M3 13V5.6L5.1 3l1.7 2.2h2.4L10.9 3 13 5.6V13c-1.2.8-3 1.2-5 1.2S4.2 13.8 3 13z\"/><path d=\"M8 5.6v2.4\"/><path d=\"M4.9 8.4l1.7.7\"/><path d=\"M11.1 8.4l-1.7.7\"/><path d=\"M5.1 11l1.5.2\"/><path d=\"M10.9 11l-1.5.2\"/>", "concha": "<path d=\"M8 14.5 2 6.6c1.5-2.4 3.7-3.9 6-3.9s4.5 1.5 6 3.9z\"/><path d=\"M8 14.5 4.2 4.2\"/><path d=\"M8 14.5 6 3.1\"/><path d=\"M8 14.5V2.7\"/><path d=\"M8 14.5 10 3.1\"/><path d=\"M8 14.5l3.8-10.3\"/>", "louro": "<path d=\"M7.2 14.2C4.2 12.6 3 9.4 3.8 5.6\"/><path d=\"M8.8 14.2c3-1.6 4.2-4.8 3.4-8.6\"/><path d=\"M4.6 11.4 3 10.9\"/><path d=\"M4 8.6 2.6 7.7\"/><path d=\"M4.1 6.1 3.2 4.8\"/><path d=\"M11.4 11.4l1.6-.5\"/><path d=\"M12 8.6l1.4-.9\"/><path d=\"M11.9 6.1l.9-1.3\"/>"};
+const PAD_FEST={Cannes:/cannes/i,Berlim:/berlim|berlinale/i,Veneza:/venez|venice|orizzonti/i,Locarno:/locarno/i,
+  "Roterdã":/roterd|rotterdam/i,"San Sebastián":/sebasti/i,Sundance:/sundance/i,Toronto:/toronto/i,"Nova York":/nova york|new york/i};
+const iconeFest=n=>`<svg class="fest-ic" viewBox="0 0 16 16" aria-hidden="true">${SVG_FEST[FEST_ICONE[n]||"louro"]}</svg>`;
+function festPremio(f){
+  if(!f.premiado) return null;
+  const fs=f.festivais||[], t=f.premio_txt||"";
+  return fs.find(x=>(PAD_FEST[x]||new RegExp(x.slice(0,5),"i")).test(t))||fs[0]||"";
+}
+function festOrdem(f){ const p=festPremio(f); const fs=[...(f.festivais||[])]; if(p) fs.sort((a,b)=>(b===p)-(a===p)); return [fs,p]; }
+function festCardHTML(f){
+  const [fs,p]=festOrdem(f);
+  if(!fs.length&&!f.premiado) return "";
+  const dica=x=>esc(x===p&&f.premio_txt?`${x} — ${f.premio_txt}`:x);
+  const itens=fs.slice(0,4).map(x=>`<span class="fest${x===p?" prem":""}" title="${dica(x)}">${iconeFest(x)}${x===p?"<sup>*</sup>":""}</span>`);
+  if(fs.length>4) itens.push(`<span class="fest mais" title="${esc(fs.slice(4).join(", "))}">+${fs.length-4}</span>`);
+  if(f.premiado&&!fs.length) itens.push(`<span class="fest prem" title="${esc(f.premio_txt||"Premiado")}"><sup>*</sup></span>`);
+  return `<div class="fest-row">${itens.join("")}</div>`;
+}
+function festModalHTML(f){
+  const [fs,p]=festOrdem(f);
+  return fs.map(x=>`<span class="fest-mod${x===p?" prem":""}">${iconeFest(x)}${esc(x)}${x===p?"<sup>*</sup>":""}</span>`).join("");
+}
+/* Card da tela principal (09/10/2026): mini-histograma do Letterboxd + número de notas,
+   SEM a média — média e distribuição completa só na ficha (lbHistHTML). */
+function lbMiniHTML(f){
+  const h=Array.isArray(f.lb_hist)&&f.lb_hist.length===10&&f.lb_hist.some(Boolean)?f.lb_hist:null;
+  if(!h) return "";
+  const mx=Math.max(...h);
+  return `<span class="lb-mini" title="Distribuição das notas no Letterboxd">
+    <span class="lb-barras">${h.map(v=>`<i style="height:${Math.max(4,100*v/mx).toFixed(0)}%"></i>`).join("")}</span>
+    ${f.lb_votos?`<span class="lb-n">${Number(f.lb_votos).toLocaleString("pt-BR")} notas</span>`:""}</span>`;
+}
 function lbHistHTML(f){
   const h=Array.isArray(f.lb_hist)&&f.lb_hist.length===10&&f.lb_hist.some(Boolean)?f.lb_hist:null;
   const media=`★ ${Number(f.lb_nota).toFixed(1).replace(".",",")}${f.lb_votos?` · ${Number(f.lb_votos).toLocaleString("pt-BR")} notas`:""} · Letterboxd`;
@@ -1522,7 +1571,7 @@ function openModal(id, keepScroll){
       </div>
       ${(f.lb_nota||(f.festivais||[]).length)?`<div class="modal-actions" style="margin-bottom:14px">
         ${f.lb_nota?lbHistHTML(f):""}
-        ${(f.festivais||[]).map(x=>`<span class="laurel">${esc(x)}</span>`).join("")}
+        ${festModalHTML(f)}
       </div>`:""}
       ${f.premio_txt?`<div class="premio-box">🏆 ${esc(f.premio_txt)}</div>`:""}
       <div class="modal-actions">
@@ -1638,7 +1687,7 @@ function calBody(){
         return `<div class="side-film">
           <div class="side-film-t" onclick="openModal('${f.id}')">
             <span class="dot" style="background:${secColor(f.secao)}"></span>
-            <span>${esc(f.titulo)}</span><span class="dur">${f.lb_nota?`<span style="color:var(--dim)">★${Number(f.lb_nota).toFixed(1)}</span> · `:""}${esc(f.duracao)}</span>
+            <span>${esc(f.titulo)}</span><span class="dur">${esc(f.duracao)}</span>
           </div>
           <div class="side-chips">
             ${ss.map(s=>{
@@ -1726,7 +1775,6 @@ function agendaListBody(items, porDia, watchPend){
             <div class="ticket-flags">
               ${confs.length?`<span class="flag red">⚠ CHOCA COM ${esc(confs[0].titulo).toUpperCase()}</span>`:""}
               <span class="flag dim" style="color:${secColor(f.secao)};border-color:${secColor(f.secao)}55">${esc(f.secao||"")}</span>
-              ${f.lb_nota?`<span class="flag dim">★ ${Number(f.lb_nota).toFixed(1)}</span>`:""}
               <span class="flag dim">${esc(s.duracao)}</span>
               ${s.legendas?`<span class="flag dim">LEG. ${esc(s.legendas).toUpperCase()}</span>`:""}
             </div>
