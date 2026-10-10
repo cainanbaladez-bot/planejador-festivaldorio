@@ -183,3 +183,5 @@ próprio festival publica, e o `enrich_filmes.py` agora confere antes de aceitar
   último antes) — é nele que vai o troféu/louro. Festivais novos na lista: Jerusalém,
   Gotemburgo, Tóquio, Cracóvia, Clermont-Ferrand.
 Regra nova: **nunca completar com fonte externa** — se o texto do festival não diz, não aparece.
+
+**Palma de Ouro deitada (10/10/2026):** o símbolo de Cannes virou um ramo na horizontal (3 pares de folíolos), como o troféu.
