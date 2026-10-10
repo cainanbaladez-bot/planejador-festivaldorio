@@ -171,3 +171,15 @@ raspa → confere → enriquece → sobe o `VERSAO` do sw.js → build → teste
 2. Adaptar o `enrich_filmes.py` (Letterboxd) se quiser o filtro de festivais e as notas.
 3. Ícones próprios do Rio (hoje são os de SP).
 4. País vem truncado do site ("Sérvia + 4 países"); dá para montar a lista inteira pelo filtro de país da grade.
+
+**Prêmios só com o texto do festival (09/10/2026):** festivais e prêmios vêm SÓ da sinopse que o
+próprio festival publica, e o `enrich_filmes.py` agora confere antes de aceitar:
+- frase termina em . ? ou ! (pergunta do enredo não gruda no prêmio);
+- festival só conta em frase que fala de festival ("exibido", "competição", "Festival de…",
+  "prêmio"…): cidade do enredo ("vive em Berlim", "Mar del Plata, 1985") não vira festival;
+- prêmio só conta com marca de prêmio + festival/Mostra na mesma frase; fora: Nobel, Pritzker,
+  Jabuti, Pulitzer, Grammy e homenagem a cineasta ("recebe o Prêmio Leon Cakoff nesta 50ª Mostra");
+- `premio_fest` = festival que deu o prêmio (o 1º citado depois da palavra de prêmio; senão o
+  último antes) — é nele que vai o troféu/louro. Festivais novos na lista: Jerusalém,
+  Gotemburgo, Tóquio, Cracóvia, Clermont-Ferrand.
+Regra nova: **nunca completar com fonte externa** — se o texto do festival não diz, não aparece.

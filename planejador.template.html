@@ -1518,6 +1518,7 @@ const iconePremio=(n,t)=>svgFest(TROFEU_FEST[n]&&TROFEU_FEST[n].test(t||"")?FEST
 function festPremio(f){
   if(!f.premiado) return null;
   const fs=f.festivais||[], t=f.premio_txt||"";
+  if(f.premio_fest&&fs.includes(f.premio_fest)) return f.premio_fest;   // calculado no enrich (09/10/2026)
   return fs.find(x=>(PAD_FEST[x]||new RegExp(x.slice(0,5),"i")).test(t))||fs[0]||"";
 }
 function festOrdem(f){ const p=festPremio(f); const fs=[...(f.festivais||[])]; if(p) fs.sort((a,b)=>(b===p)-(a===p)); return [fs,p]; }

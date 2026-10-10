@@ -48,28 +48,65 @@ FESTIVAIS = [
     (r"Mostra Internacional de Cinema de S[ãa]o Paulo|Mostra de S[ãa]o Paulo", "Mostra SP"),
     (r"Cinema do Real", "Cinéma du Réel"),
     (r"Nova York", "Nova York"),
+    (r"Jerusal[ée]m", "Jerusalém"),
+    (r"Gotemburgo", "Gotemburgo"),
+    (r"T[óo]quio", "Tóquio"),
+    (r"Crac[óo]via", "Cracóvia"),
+    (r"Clermont-Ferrand", "Clermont-Ferrand"),
 ]
+# Regra apertada em 09/10/2026 (pedido do Cainan: usar SÓ o que o próprio festival diz).
+# Antes, qualquer frase com "vencedor"/"Melhor X" + "festival/prêmio" contava: entrava enredo
+# ("vencedor do Prêmio Nobel", "arquiteto vencedor do Pritzker", "ao Festival Melhor Dia").
+# Agora: (1) frase = até . ? ou ! (pergunta de enredo não gruda no prêmio);
+# (2) festival só conta em frase que fala de festival (palavra de contexto) — cidade citada no
+#     enredo (Brasília, Veneza, Nova York...) não vira festival;
+# (3) prêmio só conta se a frase tem marca de prêmio E cita um festival da lista ou a palavra
+#     Festival/Mostra — "Prêmio Nobel" sozinho não passa; "Melhor X" só com categoria de cinema.
 RE_PREMIO = re.compile(
-    r"[Vv]encedor|[Gg]anhou|[Gg]anhador|[Pp]remiad[oa]|Palma de Ouro|Urso de Ouro|"
-    r"Urso de Prata|Le[ãa]o de Ouro|Le[ãa]o de Prata|Concha de Ouro|Grande Pr[êe]mio|"
-    r"Pr[êe]mio do J[úu]ri|Pr[êe]mio Especial|Melhor [A-ZÀ-Üa-zà-ü]+")
-RE_FRASE = re.compile(r"[^.\n]*\.")
+    r"\b(vencedor|vencedora|venceu|ganhou|ganhador|ganhadora|premiad[oa]s?|recebeu|levou|"
+    r"pr[êe]mios?|award|palma de ouro|urso de (ouro|prata|cristal)|le[ãa]o de (ouro|prata)|"
+    r"concha de (ouro|prata)|leopardo de ouro|tigre|men[çc][ãa]o (especial|honrosa)|kikito|"
+    r"melhor (filme|longa|curta|dire[çc][ãa]o|diretor|diretora|ator|atriz|roteiro|document[áa]rio|"
+    r"fotografia|montagem|atua[çc][ãa]o|interpreta[çc][ãa]o|elenco|anima[çc][ãa]o|som|trilha))\b", re.I)
+RE_CONTEXTO = re.compile(
+    r"\b(festival|festivais|mostra|berlinale|competi[çc][ãa]o|sele[çc][ãa]o oficial|estreia|estreou|"
+    r"exibido|exibida|premi|vencedor|vencedora|pr[êe]mio|urso|le[ãa]o|palma|concha|leopardo|"
+    r"un certain regard|um certo olhar|quinzena|semana da cr[íi]tica|orizzonti|panorama|f[óo]rum|"
+    r"generation|cineastas do presente|world cinema|sundance|tribeca|sxsw|idfa|hot docs)", re.I)
+# não é prêmio DO FILME: prêmio de pessoa fora do cinema, ou homenagem da própria Mostra a
+# um cineasta ("Paulo Branco recebe o Prêmio Leon Cakoff nesta 50ª Mostra")
+RE_NAO_FILME = re.compile(r"\b(nobel|pritzker|jabuti|pulitzer|grammy|leon cakoff|pr[êe]mio humanidade|homenag\w*)\b|\bnesta \d+ª mostra", re.I)
+RE_FRASE = re.compile(r"[^.?!\n]*[.?!]")
 
 def festivais_da_sinopse(sinopse):
     fests, premio_txt = [], []
     for frase in RE_FRASE.findall(sinopse or ""):
-        eh_premio = bool(RE_PREMIO.search(frase))
+        if not RE_CONTEXTO.search(frase):
+            continue
         citou = False
         for pat, nome in FESTIVAIS:
             if re.search(pat, frase):
                 citou = True
                 if nome not in fests:
                     fests.append(nome)
-        if eh_premio and (citou or re.search(r"[Ff]estival|[Mm]ostra|[Pp]r[êe]mio", frase)):
+        eh_premio = bool(RE_PREMIO.search(frase)) and not RE_NAO_FILME.search(frase)
+        if eh_premio and (citou or re.search(r"\b(festival|mostra)\b", frase, re.I)):
             t = frase.strip()
             if t not in premio_txt:
                 premio_txt.append(t)
     return fests, bool(premio_txt), " ".join(premio_txt[:2])
+
+def festival_do_premio(premio_txt):
+    """Festival que deu o prêmio: o 1º citado DEPOIS da 1ª marca de prêmio da frase
+    ("Estreia em Berlim, prêmio de melhor filme em Jerusalém" = Jerusalém); se nenhum vem
+    depois, o último citado antes ("estreia em Berlim, onde X recebeu o Urso" = Berlim)."""
+    m = RE_PREMIO.search(premio_txt or "")
+    if not m:
+        return None
+    pos = sorted((x.start(), nome) for pat, nome in FESTIVAIS for x in re.finditer(pat, premio_txt))
+    depois = [n for p, n in pos if p >= m.start()]
+    antes = [n for p, n in pos if p < m.start()]
+    return depois[0] if depois else (antes[-1] if antes else None)
 
 # ─── letterboxd ───
 HEADERS = {
@@ -167,7 +204,8 @@ def main():
     for i, f in enumerate(filmes):
         fid = f["id"]
         fests, premiado, premio_txt = festivais_da_sinopse(f.get("sinopse"))
-        reg = {"festivais": fests, "premiado": premiado, "premio_txt": premio_txt}
+        reg = {"festivais": fests, "premiado": premiado, "premio_txt": premio_txt,
+               "premio_fest": festival_do_premio(premio_txt)}
 
         if not so_fest:
             if fid in cache:
