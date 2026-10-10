@@ -212,11 +212,10 @@ select:focus{outline:none;border-color:var(--amber)}
   font-family:var(--font-mono);font-size:10.5px;color:var(--dim);letter-spacing:.03em;
 }
 .card-meta .sess{color:var(--amber)}
-.lb-chip{                     /* discreto (09/10/2026) */
-  position:absolute;right:8px;bottom:8px;z-index:2;
-  font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:.02em;
-  background:#0d0b07b3;color:#c9d4bf;border:0;
-  padding:2px 6px;border-radius:4px;
+.lb-chip{                     /* bem discreto (09/10/2026) */
+  position:absolute;right:7px;bottom:7px;z-index:2;
+  font-family:var(--font-mono);font-size:9px;letter-spacing:.02em;
+  background:#0d0b0799;color:#b3ad9c;border:0;padding:1px 5px;border-radius:3px;
 }
 .laurels{display:flex;flex-wrap:wrap;align-items:baseline;margin-top:7px;line-height:1.3}
 .laurel{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.04em;color:var(--dim)}
@@ -228,6 +227,12 @@ select:focus{outline:none;border-color:var(--amber)}
   border-bottom:1px dotted var(--line);padding:2px 0;transition:color .15s;
 }
 .lb-line:hover{color:var(--ink)}
+.lb-hist{display:inline-flex;flex-direction:column;gap:5px;text-decoration:none;margin-right:16px}
+.lb-barras{display:flex;align-items:flex-end;gap:2px;width:118px;height:30px}
+.lb-barras i{flex:1;background:#4f4a3d;border-radius:1px 1px 0 0;transition:background .15s}
+.lb-hist:hover .lb-barras i{background:#6a6352}
+.lb-barras i:hover{background:var(--muted)!important}
+.lb-media{font:10px var(--font-mono);color:var(--dim);letter-spacing:.02em}
 .lb-line small{font-weight:400;color:var(--dim)}
 .premio-box{
   border-left:2px solid var(--line);padding:2px 0 2px 12px;margin:0 0 16px;
@@ -1480,6 +1485,19 @@ function toggleWatch(id){
 }
 
 /* ───────────────── modal ───────────────── */
+/* Histograma de notas do Letterboxd na ficha (09/10/2026): as 10 faixas de meia estrela
+   (f.lb_hist, do enrich_filmes.py), barras sem eixo nem moldura, no tom apagado do app;
+   a média vai embaixo, em texto miúdo. Passar o mouse numa barra mostra a contagem. */
+function lbHistHTML(f){
+  const h=Array.isArray(f.lb_hist)&&f.lb_hist.length===10&&f.lb_hist.some(Boolean)?f.lb_hist:null;
+  const media=`★ ${Number(f.lb_nota).toFixed(1).replace(".",",")}${f.lb_votos?` · ${Number(f.lb_votos).toLocaleString("pt-BR")} notas`:""} · Letterboxd`;
+  const href=esc(f.lb_url||"#");
+  if(!h) return `<a class="lb-line" href="${href}" target="_blank" rel="noopener">${media}</a>`;
+  const mx=Math.max(...h), tot=h.reduce((a,b)=>a+b,0), rot=["½","1","1½","2","2½","3","3½","4","4½","5"];
+  return `<a class="lb-hist" href="${href}" target="_blank" rel="noopener" aria-label="Notas no Letterboxd: ${media}">
+    <span class="lb-barras">${h.map((v,i)=>`<i style="height:${Math.max(3,100*v/mx).toFixed(1)}%" title="${rot[i]} ★ — ${v.toLocaleString("pt-BR")} notas (${Math.round(100*v/tot)}%)"></i>`).join("")}</span>
+    <span class="lb-media">${media}</span></a>`;
+}
 function openModal(id, keepScroll){
   const f=FILME.get(id); if(!f) return;
   if(!keepScroll) modalTrigger=document.activeElement;
@@ -1503,7 +1521,7 @@ function openModal(id, keepScroll){
         <span>${esc(f.pais)}</span><span>${esc(f.ano)}</span><span>${esc(f.duracao)}</span>
       </div>
       ${(f.lb_nota||(f.festivais||[]).length)?`<div class="modal-actions" style="margin-bottom:14px">
-        ${f.lb_nota?`<a class="lb-line" href="${esc(f.lb_url||"#")}" target="_blank" rel="noopener">★ ${Number(f.lb_nota).toFixed(2)} Letterboxd <small>${f.lb_votos?Number(f.lb_votos).toLocaleString("pt-BR")+" avaliações":""}</small></a>`:""}
+        ${f.lb_nota?lbHistHTML(f):""}
         ${(f.festivais||[]).map(x=>`<span class="laurel">${esc(x)}</span>`).join("")}
       </div>`:""}
       ${f.premio_txt?`<div class="premio-box">🏆 ${esc(f.premio_txt)}</div>`:""}
@@ -1620,7 +1638,7 @@ function calBody(){
         return `<div class="side-film">
           <div class="side-film-t" onclick="openModal('${f.id}')">
             <span class="dot" style="background:${secColor(f.secao)}"></span>
-            <span>${esc(f.titulo)}</span><span class="dur">${f.lb_nota?`<span style="color:#7ee26b">★${Number(f.lb_nota).toFixed(1)}</span> · `:""}${esc(f.duracao)}</span>
+            <span>${esc(f.titulo)}</span><span class="dur">${f.lb_nota?`<span style="color:var(--dim)">★${Number(f.lb_nota).toFixed(1)}</span> · `:""}${esc(f.duracao)}</span>
           </div>
           <div class="side-chips">
             ${ss.map(s=>{
@@ -1708,7 +1726,7 @@ function agendaListBody(items, porDia, watchPend){
             <div class="ticket-flags">
               ${confs.length?`<span class="flag red">⚠ CHOCA COM ${esc(confs[0].titulo).toUpperCase()}</span>`:""}
               <span class="flag dim" style="color:${secColor(f.secao)};border-color:${secColor(f.secao)}55">${esc(f.secao||"")}</span>
-              ${f.lb_nota?`<span class="flag dim" style="color:#7ee26b;border-color:#4a7a3f">★ ${Number(f.lb_nota).toFixed(1)}</span>`:""}
+              ${f.lb_nota?`<span class="flag dim">★ ${Number(f.lb_nota).toFixed(1)}</span>`:""}
               <span class="flag dim">${esc(s.duracao)}</span>
               ${s.legendas?`<span class="flag dim">LEG. ${esc(s.legendas).toUpperCase()}</span>`:""}
             </div>

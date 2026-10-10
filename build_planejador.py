@@ -26,7 +26,7 @@ CAMPOS_FILME = [
     "ano", "duracao", "secao", "classificacao", "diretores", "elenco",
     "roteiro", "fotografia", "montagem", "musica", "producao", "distribuicao",
     "imagem", "trailer", "link_compra", "url_pagina", "n_sessoes",
-    "festivais", "premiado", "premio_txt", "lb_nota", "lb_votos", "lb_url",
+    "festivais", "premiado", "premio_txt", "lb_nota", "lb_votos", "lb_url", "lb_hist",
 ]
 CAMPOS_SESSAO = [
     "sessao_id", "filme_id", "titulo", "data", "hora", "sala", "cinema",
@@ -100,7 +100,7 @@ for f in filmes:
     e = enriq.get(f["id"], {})
     f.update(festivais=e.get("festivais", []), premiado=e.get("premiado", False),
              premio_txt=e.get("premio_txt", ""), lb_nota=e.get("lb_nota"),
-             lb_votos=e.get("lb_votos"), lb_url=e.get("lb_url"))
+             lb_votos=e.get("lb_votos"), lb_url=e.get("lb_url"), lb_hist=e.get("lb_hist"))
 
 # ── sessões que o festival mudou ou tirou (28/09/2026) ─────────────────────────
 # A agenda da pessoa guarda o id da sessão, e o id muda quando muda dia/hora/sala.

@@ -147,6 +147,15 @@ def nota_lb(slug):
     agg = json.loads(m.group(1)).get("aggregateRating") or {}
     return agg.get("ratingValue"), agg.get("ratingCount")
 
+def histograma_lb(slug):
+    """As 10 contagens do gráfico de notas do Letterboxd, de meia estrela a ★★★★★ (09/10/2026).
+    Cada barra vem como title="12,645 ★★★★ ratings (35%)"; faixa sem nota não vem → 0."""
+    html = http_get(f"https://letterboxd.com/csi/film/{slug}/rating-histogram/")
+    faixas = ["half-★", "★", "★½", "★★", "★★½", "★★★", "★★★½", "★★★★", "★★★★½", "★★★★★"]
+    achou = {lab: int(n.replace(",", "")) for n, lab in
+             re.findall(r'title="([\d,]+)\s+(half-★|★+½?)\s+ratings?', html)}
+    return [achou.get(f, 0) for f in faixas] if achou else None
+
 def main():
     so_fest = "--so-festivais" in sys.argv
     filmes = json.loads((DATA / f"rio_{ANO}_filmes.json").read_text(encoding="utf-8"))
@@ -162,7 +171,17 @@ def main():
 
         if not so_fest:
             if fid in cache:
-                reg.update(cache[fid])
+                # histograma de notas (09/10/2026): busca só o que ainda não tem
+                c = cache[fid]
+                if c.get("lb_url") and "lb_hist" not in c:
+                    try:
+                        c["lb_hist"] = histograma_lb(c["lb_url"].rstrip("/").split("/film/")[1])
+                    except Exception as e:
+                        print(f"  ! histograma {f.get('titulo')}: {e}")
+                    time.sleep(0.4)
+                    if sum(1 for x in cache.values() if "lb_hist" in x) % 20 == 0:
+                        CACHE.write_text(json.dumps(cache, ensure_ascii=False), encoding="utf-8")
+                reg.update(c)
             else:
                 lb = {"lb_nota": None, "lb_votos": None, "lb_url": None}
                 try:
