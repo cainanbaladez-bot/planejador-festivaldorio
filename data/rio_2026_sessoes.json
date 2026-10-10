@@ -109,7 +109,7 @@
   "legendas": "com convidados",
   "secao": "Première Brasil: Competição Novos Rumos",
   "duracao": "84 min.",
-  "link_compra": ""
+  "link_compra": "https://checkout.ingresso.com/?sessionId=87335302&partnership=home"
  },
  {
   "sessao_id": "1631094",
@@ -446,6 +446,22 @@
   "secao": "Gala de Abertura",
   "duracao": "155 min.",
   "link_compra": "https://checkout.ingresso.com/?sessionId=87203608&partnership=home"
+ },
+ {
+  "sessao_id": "5234816",
+  "filme_id": "1729993",
+  "filme_slug": "la-bola-negra",
+  "titulo": "A Bola Preta",
+  "data": "2026-10-12",
+  "hora": "20:30",
+  "sala": "Cinesystem Belas Artes Botafogo 6",
+  "cinema": "Cinesystem Belas Artes Botafogo",
+  "endereco_cinema": "Praia de Botafogo, 316",
+  "idioma": "",
+  "legendas": "",
+  "secao": "Gala de Abertura",
+  "duracao": "155 min.",
+  "link_compra": "https://checkout.ingresso.com/?sessionId=87338715&partnership=home"
  },
  {
   "sessao_id": "8399059",
@@ -2880,6 +2896,22 @@
   "link_compra": "https://checkout.ingresso.com/?sessionId=87174137&partnership=home"
  },
  {
+  "sessao_id": "7516141",
+  "filme_id": "2363310",
+  "filme_slug": "cadu-barcellos-cria-nao-morre-vira-lenda",
+  "titulo": "Cadu Barcellos - Cria não morre, vira lenda",
+  "data": "2026-10-12",
+  "hora": "14:00",
+  "sala": "Estação Claro Rio 4",
+  "cinema": "Estação Claro Rio",
+  "endereco_cinema": "Rua Voluntários da Pátria, 35",
+  "idioma": "",
+  "legendas": "",
+  "secao": "Première Brasil: Première Brasil - Itinerários Únicos",
+  "duracao": "15 min.",
+  "link_compra": "https://checkout.ingresso.com/?sessionId=87339781&partnership=home"
+ },
+ {
   "sessao_id": "1681980",
   "filme_id": "3796429",
   "filme_slug": "cansei-de-ser-gala",
@@ -2973,7 +3005,7 @@
   "legendas": "com convidados",
   "secao": "Première Brasil: Competição de Longas-metragens Documentário",
   "duracao": "73 min.",
-  "link_compra": ""
+  "link_compra": "https://checkout.ingresso.com/?sessionId=87335174&partnership=home"
  },
  {
   "sessao_id": "7869322",
@@ -3598,6 +3630,22 @@
   "secao": "Première Brasil: Midnight Movies",
   "duracao": "72 min.",
   "link_compra": "https://checkout.ingresso.com/?sessionId=87173627&partnership=home"
+ },
+ {
+  "sessao_id": "3715402",
+  "filme_id": "3546122",
+  "filme_slug": "chuva-acida-historias-do-crepusculo-de-cubatao",
+  "titulo": "Chuva Ácida: Histórias do Crepúsculo de Cubatão",
+  "data": "2026-10-10",
+  "hora": "14:00",
+  "sala": "Estação Claro Rio 1",
+  "cinema": "Estação Claro Rio",
+  "endereco_cinema": "Rua Voluntários da Pátria, 35",
+  "idioma": "",
+  "legendas": "",
+  "secao": "Première Brasil: Midnight Movies",
+  "duracao": "72 min.",
+  "link_compra": "https://checkout.ingresso.com/?sessionId=87318646&partnership=home"
  },
  {
   "sessao_id": "7442775",
@@ -4240,6 +4288,22 @@
   "link_compra": "https://checkout.ingresso.com/?sessionId=87173655&partnership=home"
  },
  {
+  "sessao_id": "6899665",
+  "filme_id": "7469245",
+  "filme_slug": "coward",
+  "titulo": "Covarde",
+  "data": "2026-10-12",
+  "hora": "16:00",
+  "sala": "Cinesystem Belas Artes Botafogo 6",
+  "cinema": "Cinesystem Belas Artes Botafogo",
+  "endereco_cinema": "Praia de Botafogo, 316",
+  "idioma": "",
+  "legendas": "",
+  "secao": "Panorama Mundial",
+  "duracao": "100 min.",
+  "link_compra": "https://checkout.ingresso.com/?sessionId=87338716&partnership=home"
+ },
+ {
   "sessao_id": "1397211",
   "filme_id": "3104419",
   "filme_slug": "watashi-no-shiranai-kodomotachi",
@@ -4314,7 +4378,7 @@
   "cinema": "Estação Claro Rio",
   "endereco_cinema": "Rua Voluntários da Pátria, 35",
   "idioma": "",
-  "legendas": "",
+  "legendas": "com convidados, debate",
   "secao": "Panorama Mundial",
   "duracao": "217 min.",
   "link_compra": "https://checkout.ingresso.com/?sessionId=87173694&partnership=home"
@@ -4334,6 +4398,54 @@
   "secao": "Panorama Mundial",
   "duracao": "217 min.",
   "link_compra": "https://checkout.ingresso.com/?sessionId=87173691&partnership=home"
+ },
+ {
+  "sessao_id": "9086039",
+  "filme_id": "2975271",
+  "filme_slug": "from-inside-out-the-architecture-of-peter-zumthor",
+  "titulo": "De Dentro para Fora — A Arquitetura de Peter Zumthor",
+  "data": "2026-10-09",
+  "hora": "18:30",
+  "sala": "Cinesystem Belas Artes Botafogo 2",
+  "cinema": "Cinesystem Belas Artes Botafogo",
+  "endereco_cinema": "Praia de Botafogo, 316",
+  "idioma": "",
+  "legendas": "",
+  "secao": "Itinerários Únicos",
+  "duracao": "114 min.",
+  "link_compra": "https://checkout.ingresso.com/?sessionId=87327430&partnership=home"
+ },
+ {
+  "sessao_id": "1385748",
+  "filme_id": "2975271",
+  "filme_slug": "from-inside-out-the-architecture-of-peter-zumthor",
+  "titulo": "De Dentro para Fora — A Arquitetura de Peter Zumthor",
+  "data": "2026-10-10",
+  "hora": "12:15",
+  "sala": "Estação Claro Rio 5",
+  "cinema": "Estação Claro Rio",
+  "endereco_cinema": "Rua Voluntários da Pátria, 35",
+  "idioma": "",
+  "legendas": "",
+  "secao": "Itinerários Únicos",
+  "duracao": "114 min.",
+  "link_compra": "https://checkout.ingresso.com/?sessionId=87324595&partnership=home"
+ },
+ {
+  "sessao_id": "2049086",
+  "filme_id": "2975271",
+  "filme_slug": "from-inside-out-the-architecture-of-peter-zumthor",
+  "titulo": "De Dentro para Fora — A Arquitetura de Peter Zumthor",
+  "data": "2026-10-11",
+  "hora": "21:00",
+  "sala": "Estação Claro Gávea 1",
+  "cinema": "Estação Claro Gávea",
+  "endereco_cinema": "Rua Marquês de São Vicente, 52",
+  "idioma": "",
+  "legendas": "",
+  "secao": "Itinerários Únicos",
+  "duracao": "114 min.",
+  "link_compra": "https://checkout.ingresso.com/?sessionId=87318825&partnership=home"
  },
  {
   "sessao_id": "8839058",
@@ -6381,7 +6493,7 @@
   "legendas": "com convidados",
   "secao": "Première Brasil: Panorama Carioca de Curtas",
   "duracao": "13 min.",
-  "link_compra": ""
+  "link_compra": "https://checkout.ingresso.com/?sessionId=87335336&partnership=home"
  },
  {
   "sessao_id": "7183699",
@@ -6512,12 +6624,12 @@
   "link_compra": "https://checkout.ingresso.com/?sessionId=87173824&partnership=home"
  },
  {
-  "sessao_id": "3067689",
+  "sessao_id": "2736207",
   "filme_id": "4649478",
   "filme_slug": "holy-wood-dust",
   "titulo": "Holy Wood Dust",
   "data": "2026-10-09",
-  "hora": "18:30",
+  "hora": "16:00",
   "sala": "Cinesystem Belas Artes Botafogo 2",
   "cinema": "Cinesystem Belas Artes Botafogo",
   "endereco_cinema": "Praia de Botafogo, 316",
@@ -6525,7 +6637,7 @@
   "legendas": "",
   "secao": "O Estado das Coisas",
   "duracao": "105 min.",
-  "link_compra": "https://checkout.ingresso.com/?sessionId=87173843&partnership=home"
+  "link_compra": "https://checkout.ingresso.com/?sessionId=87327428&partnership=home"
  },
  {
   "sessao_id": "3435083",
@@ -7342,6 +7454,22 @@
   "secao": "Panorama Mundial",
   "duracao": "119 min.",
   "link_compra": "https://checkout.ingresso.com/?sessionId=87174625&partnership=home"
+ },
+ {
+  "sessao_id": "6211466",
+  "filme_id": "9757096",
+  "filme_slug": "josephine",
+  "titulo": "Josephine - Fragmentos de um Crime",
+  "data": "2026-10-12",
+  "hora": "18:00",
+  "sala": "Cinesystem Belas Artes Botafogo 6",
+  "cinema": "Cinesystem Belas Artes Botafogo",
+  "endereco_cinema": "Praia de Botafogo, 316",
+  "idioma": "",
+  "legendas": "",
+  "secao": "Panorama Mundial",
+  "duracao": "119 min.",
+  "link_compra": "https://checkout.ingresso.com/?sessionId=87338871&partnership=home"
  },
  {
   "sessao_id": "4226296",
@@ -9933,7 +10061,7 @@
   "legendas": "com convidados",
   "secao": "Première Brasil: Panorama Carioca",
   "duracao": "75 min.",
-  "link_compra": ""
+  "link_compra": "https://checkout.ingresso.com/?sessionId=87335336&partnership=home"
  },
  {
   "sessao_id": "4778233",
@@ -10942,54 +11070,6 @@
   "secao": "Cinema Circulação",
   "duracao": "112 min.",
   "link_compra": ""
- },
- {
-  "sessao_id": "2683573",
-  "filme_id": "2332422",
-  "filme_slug": "paradis",
-  "titulo": "O Último Resort",
-  "data": "2026-10-06",
-  "hora": "19:15",
-  "sala": "Estação Claro Rio 3",
-  "cinema": "Estação Claro Rio",
-  "endereco_cinema": "Rua Voluntários da Pátria, 35",
-  "idioma": "",
-  "legendas": "com convidados",
-  "secao": "Panorama Mundial",
-  "duracao": "98 min.",
-  "link_compra": "https://checkout.ingresso.com/?sessionId=87174034&partnership=home"
- },
- {
-  "sessao_id": "8352833",
-  "filme_id": "2332422",
-  "filme_slug": "paradis",
-  "titulo": "O Último Resort",
-  "data": "2026-10-09",
-  "hora": "21:30",
-  "sala": "Cinesystem Belas Artes Botafogo 1",
-  "cinema": "Cinesystem Belas Artes Botafogo",
-  "endereco_cinema": "Praia de Botafogo, 316",
-  "idioma": "",
-  "legendas": "",
-  "secao": "Panorama Mundial",
-  "duracao": "98 min.",
-  "link_compra": "https://checkout.ingresso.com/?sessionId=87173957&partnership=home"
- },
- {
-  "sessao_id": "8916528",
-  "filme_id": "2332422",
-  "filme_slug": "paradis",
-  "titulo": "O Último Resort",
-  "data": "2026-10-11",
-  "hora": "13:45",
-  "sala": "Cine Santa Teresa",
-  "cinema": "Cine Santa Teresa",
-  "endereco_cinema": "Rua Paschoal Carlos Magno, 136",
-  "idioma": "",
-  "legendas": "",
-  "secao": "Panorama Mundial",
-  "duracao": "98 min.",
-  "link_compra": "https://checkout.ingresso.com/?sessionId=87173989&partnership=home"
  },
  {
   "sessao_id": "3578074",
@@ -12832,6 +12912,22 @@
   "link_compra": "https://checkout.ingresso.com/?sessionId=87226199&partnership=home"
  },
  {
+  "sessao_id": "2356649",
+  "filme_id": "4519857",
+  "filme_slug": "rose",
+  "titulo": "Rose",
+  "data": "2026-10-12",
+  "hora": "14:00",
+  "sala": "Cinesystem Belas Artes Botafogo 6",
+  "cinema": "Cinesystem Belas Artes Botafogo",
+  "endereco_cinema": "Praia de Botafogo, 316",
+  "idioma": "",
+  "legendas": "",
+  "secao": "Panorama Mundial",
+  "duracao": "93 min.",
+  "link_compra": "https://checkout.ingresso.com/?sessionId=87338717&partnership=home"
+ },
+ {
   "sessao_id": "9727513",
   "filme_id": "7555075",
   "filme_slug": "rosebush-pruning",
@@ -13069,7 +13165,7 @@
   "legendas": "com convidados",
   "secao": "Première Brasil: Curtas em Competição",
   "duracao": "15 min.",
-  "link_compra": ""
+  "link_compra": "https://checkout.ingresso.com/?sessionId=87335174&partnership=home"
  },
  {
   "sessao_id": "6838992",
@@ -14413,7 +14509,7 @@
   "legendas": "com convidados",
   "secao": "Première Brasil: Novos Rumos Hors Concours",
   "duracao": "119 min.",
-  "link_compra": ""
+  "link_compra": "https://checkout.ingresso.com/?sessionId=87335335&partnership=home"
  },
  {
   "sessao_id": "3822919",
@@ -15117,7 +15213,7 @@
   "legendas": "com convidados",
   "secao": "Première Brasil: Competição Novos Rumos de Curtas-metragens",
   "duracao": "15 min.",
-  "link_compra": ""
+  "link_compra": "https://checkout.ingresso.com/?sessionId=87335302&partnership=home"
  },
  {
   "sessao_id": "1053246",
@@ -15805,7 +15901,7 @@
   "legendas": "com convidados",
   "secao": "Première Brasil: Competição de Longas-metragens Ficção",
   "duracao": "144 min.",
-  "link_compra": ""
+  "link_compra": "https://checkout.ingresso.com/?sessionId=87335391&partnership=home"
  },
  {
   "sessao_id": "3577578",

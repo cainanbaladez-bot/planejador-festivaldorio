@@ -267,7 +267,7 @@
   "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/medium2/labola_p01cor_2026117537.jpg",
   "trailer": "https://youtu.be/8svqSkpiPFM?si=zy0a4c75Qt2D5qnl",
   "link_compra": "",
-  "n_sessoes": "2"
+  "n_sessoes": "3"
  },
  {
   "id": "1250088",
@@ -1725,7 +1725,7 @@
   "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/large2/cadubar_f01cor_2026117995.jpg",
   "trailer": "",
   "link_compra": "",
-  "n_sessoes": "2"
+  "n_sessoes": "3"
  },
  {
   "id": "3796429",
@@ -2103,7 +2103,7 @@
   "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/medium2/chuvac_p01cor_2026117599.jpg",
   "trailer": "https://www.youtube.com/watch?v=z0WM_VadFD0",
   "link_compra": "",
-  "n_sessoes": "2"
+  "n_sessoes": "3"
  },
  {
   "id": "5582015",
@@ -2454,7 +2454,7 @@
   "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/medium2/coward_p01cor_2026117756.jpg",
   "trailer": "https://youtu.be/gVChwLerijg?si=vE3NaHxLBxzrOIPU",
   "link_compra": "",
-  "n_sessoes": "3"
+  "n_sessoes": "4"
  },
  {
   "id": "3104419",
@@ -2507,6 +2507,33 @@
   "distribuicao": "",
   "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/medium2/dau_p01cor_2026118481.jpg",
   "trailer": "https://youtu.be/_C6eMY_cu1M?si=aGr8ubsnRcrGOsxV",
+  "link_compra": "",
+  "n_sessoes": "3"
+ },
+ {
+  "id": "2975271",
+  "slug": "from-inside-out-the-architecture-of-peter-zumthor",
+  "url_pagina": "https://www.festivaldorio.com.br/br/filmes/from-inside-out-the-architecture-of-peter-zumthor",
+  "titulo": "De Dentro para Fora — A Arquitetura de Peter Zumthor",
+  "titulo_original": "From Inside Out - The Architecture of Peter Zumthor",
+  "sinopse": "Wenders mergulha na obra de Peter Zumthor, vencedor do Prêmio Pritzker e um dos arquitetos contemporâneos mais influentes do mundo. Por meio de uma experiência imersiva em 3D, apresenta suas construções pelo olhar de visitantes, usuários, moradores e artesãos. Como se pudesse percorrer livremente cada espaço, o público é convidado a perceber de que modo a arquitetura transforma nossa relação com o mundo e molda a vida cotidiana.",
+  "genero": "Documentário",
+  "pais": "Alemanha + 1 país",
+  "ano": "2026",
+  "duracao": "114 min.",
+  "secao": "Itinerários Únicos",
+  "mostra": "Itinerários Únicos",
+  "classificacao": "",
+  "diretores": "Wim Wenders",
+  "elenco": "Peter Zumthor",
+  "roteiro": "",
+  "fotografia": "Franz Lustig, Sebastian Cramer",
+  "montagem": "Maxine Goedicke",
+  "musica": "Vera Kappeler, Peter Conradin Zumthor, Laurent Petitgand, Sophie Hunger",
+  "producao": "Dcm, Road Movies",
+  "distribuicao": "",
+  "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/medium2/fromins_p01cor_2026118485.jpg",
+  "trailer": "https://youtu.be/RRjN-kiT98k?si=wqVABebNDMtuEr0U",
   "link_compra": "",
   "n_sessoes": "3"
  },
@@ -4128,7 +4155,7 @@
   "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/medium2/josephin_p01cor_2026116353.jpg",
   "trailer": "https://youtu.be/VaoGuaA-LCQ?si=PvPRp8TV2XasdU1v",
   "link_compra": "",
-  "n_sessoes": "3"
+  "n_sessoes": "4"
  },
  {
   "id": "3222441",
@@ -6207,7 +6234,7 @@
   "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/medium2/thelast_p01cor_2026118436.jpg",
   "trailer": "https://youtu.be/zbc0I4p7ScM?si=1bC4aH6FgYGA7LfU",
   "link_compra": "",
-  "n_sessoes": "3"
+  "n_sessoes": "0"
  },
  {
   "id": "6976866",
@@ -7368,7 +7395,7 @@
   "imagem": "https://imagens.festivaldorio.com.br/2026/site/peliculas/large2/rose_f01cor_2026116363.jpg",
   "trailer": "https://youtu.be/80xR3G5eowo?si=XYKQYdGea0C7_sOQ",
   "link_compra": "",
-  "n_sessoes": "4"
+  "n_sessoes": "5"
  },
  {
   "id": "7555075",
