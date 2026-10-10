@@ -212,29 +212,26 @@ select:focus{outline:none;border-color:var(--amber)}
   font-family:var(--font-mono);font-size:10.5px;color:var(--dim);letter-spacing:.03em;
 }
 .card-meta .sess{color:var(--amber)}
-.lb-chip{
-  position:absolute;right:10px;bottom:10px;z-index:2;
-  font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:.02em;
-  background:#0c150ae0;color:#7ee26b;border:1px solid #4a7a3f;
-  padding:3px 9px;border-radius:99px;backdrop-filter:blur(4px);
+.lb-chip{                     /* discreto (09/10/2026) */
+  position:absolute;right:8px;bottom:8px;z-index:2;
+  font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:.02em;
+  background:#0d0b07b3;color:#c9d4bf;border:0;
+  padding:2px 6px;border-radius:4px;
 }
-.laurels{display:flex;flex-wrap:wrap;gap:4px;margin-top:9px}
-.laurel{
-  font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:.09em;
-  color:#c9a15f;border:1px solid #c9a15f4d;padding:2px 8px;border-radius:99px;
-}
-.laurel.win{color:var(--amber);border-color:#f2a93b77;background:var(--amber-soft);font-weight:600}
+.laurels{display:flex;flex-wrap:wrap;align-items:baseline;margin-top:7px;line-height:1.3}
+.laurel{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.04em;color:var(--dim)}
+.laurel+.laurel::before{content:"·";margin:0 5px;color:var(--line)}
+.laurel.win{color:var(--muted)}
 .lb-line{
-  display:inline-flex;align-items:center;gap:7px;text-decoration:none;
-  font-family:var(--font-mono);font-size:12px;font-weight:600;color:#7ee26b;
-  border:1px solid #4a7a3f;border-radius:99px;padding:5px 13px;transition:all .15s;
+  display:inline-flex;align-items:baseline;gap:6px;text-decoration:none;
+  font-family:var(--font-mono);font-size:11.5px;color:var(--muted);
+  border-bottom:1px dotted var(--line);padding:2px 0;transition:color .15s;
 }
-.lb-line:hover{background:#7ee26b1a}
+.lb-line:hover{color:var(--ink)}
 .lb-line small{font-weight:400;color:var(--dim)}
 .premio-box{
-  border-left:3px solid var(--amber);background:var(--amber-soft);
-  border-radius:0 9px 9px 0;padding:10px 14px;margin:0 0 18px;
-  font-size:13px;color:#e8d9b4;line-height:1.5;
+  border-left:2px solid var(--line);padding:2px 0 2px 12px;margin:0 0 16px;
+  font-size:12.5px;color:var(--muted);line-height:1.5;
 }
 .card.in-agenda::before{
   content:"NA AGENDA";
@@ -1444,8 +1441,8 @@ function renderGrid(){
           <span class="sess">${f.n_sessoes} ${Number(f.n_sessoes)===1?"sessão":"sessões"}</span>
         </div>
         ${(f.premiado||(f.festivais||[]).length)?`<div class="laurels">
-          ${f.premiado?`<span class="laurel win">🏆 PREMIADO</span>`:""}
-          ${(f.festivais||[]).slice(0,3).map(x=>`<span class="laurel">${esc(x.toUpperCase())}</span>`).join("")}
+          ${f.premiado?`<span class="laurel win">premiado</span>`:""}
+          ${(f.festivais||[]).slice(0,3).map(x=>`<span class="laurel">${esc(x)}</span>`).join("")}
           ${(f.festivais||[]).length>3?`<span class="laurel">+${f.festivais.length-3}</span>`:""}
         </div>`:""}
       </div>
@@ -1507,7 +1504,7 @@ function openModal(id, keepScroll){
       </div>
       ${(f.lb_nota||(f.festivais||[]).length)?`<div class="modal-actions" style="margin-bottom:14px">
         ${f.lb_nota?`<a class="lb-line" href="${esc(f.lb_url||"#")}" target="_blank" rel="noopener">★ ${Number(f.lb_nota).toFixed(2)} Letterboxd <small>${f.lb_votos?Number(f.lb_votos).toLocaleString("pt-BR")+" avaliações":""}</small></a>`:""}
-        ${(f.festivais||[]).map(x=>`<span class="laurel" style="font-size:10px;padding:5px 11px">${esc(x.toUpperCase())}</span>`).join("")}
+        ${(f.festivais||[]).map(x=>`<span class="laurel">${esc(x)}</span>`).join("")}
       </div>`:""}
       ${f.premio_txt?`<div class="premio-box">🏆 ${esc(f.premio_txt)}</div>`:""}
       <div class="modal-actions">
