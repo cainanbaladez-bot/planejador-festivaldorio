@@ -119,6 +119,12 @@ raspa → confere → enriquece → sobe o `VERSAO` do sw.js → build → teste
 
 ### Festivais em símbolo e notas do Letterboxd (09/10/2026)
 
+> **Atualizado (rio-v27, 09/10/2026):** os festivais agora aparecem pelo **nome** (texto miúdo,
+> até 3 no card + "+N"). Símbolo só no festival que deu o prêmio: o **troféu da casa** quando a
+> frase diz que o filme levou ele (`TROFEU_FEST`: Palma de Ouro, Urso de Ouro/Prata/Cristal,
+> Leão de Ouro/Prata, Leopardo de Ouro, Tigre, Concha de Ouro/Prata) e o **louro** para qualquer
+> outro prêmio. Sem asterisco. O texto abaixo descreve a versão anterior.
+
 - **Festivais:** no card, só o símbolo do **troféu** de cada festival, desenho próprio em traço
   (não o logo oficial, que é marca registrada): palma = Cannes, urso = Berlim, leão = Veneza,
   leopardo = Locarno, tigre = Roterdã, concha = San Sebastián, louro = os demais (`SVG_FEST`).
