@@ -166,6 +166,7 @@ select:focus{outline:none;border-color:var(--amber)}
 /* ─── film grid ─── */
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:18px}
 .card{
+  display:flex;flex-direction:column;   /* rodapé preso embaixo, alinhado entre cards */
   background:var(--panel);border:1px solid var(--line);border-radius:12px;
   overflow:hidden;cursor:pointer;position:relative;
   transition:transform .18s ease, border-color .18s, box-shadow .18s;
@@ -201,7 +202,7 @@ select:focus{outline:none;border-color:var(--amber)}
 .fav.on{background:var(--amber);border-color:var(--amber);color:#1b1608}
 .fav.on.p2{background:none;border-color:var(--amber);color:var(--amber)}
 .fav.on.p3{background:var(--panel2);border-color:var(--muted);color:var(--muted)}
-.card-body{padding:13px 14px 15px}
+.card-body{padding:13px 14px 15px;flex:1;display:flex;flex-direction:column}
 .card-title{
   font-family:var(--font-display);font-weight:700;font-size:16.5px;line-height:1.2;
   letter-spacing:-.01em;margin-bottom:4px;
@@ -242,7 +243,8 @@ select:focus{outline:none;border-color:var(--amber)}
 .lb-hist:hover .lb-barras i{background:#6a6352}
 .lb-barras i:hover{background:var(--muted)!important}
 .lb-media{font:10px var(--font-mono);color:var(--dim);letter-spacing:.02em}
-.card-foot{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;margin-top:8px;min-height:15px}
+.card-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:auto;padding-top:10px;min-height:25px}
+.card-foot:empty{display:none}
 .card-foot .fest-row{margin-top:0}
 .lb-mini{display:inline-flex;flex-direction:column;align-items:flex-end;gap:3px;margin-left:auto;flex:none}
 .lb-mini .lb-barras{width:54px;height:14px;gap:1.5px}
