@@ -1720,37 +1720,6 @@
    9
   ]
  },
- "1935103": {
-  "festivais": [],
-  "premiado": false,
-  "premio_txt": "",
-  "premio_fest": null,
-  "lb_nota": null,
-  "lb_votos": null,
-  "lb_url": "https://letterboxd.com/film/cony-intimate-portrait/",
-  "lb_hist": null
- },
- "3668281": {
-  "festivais": [],
-  "premiado": false,
-  "premio_txt": "",
-  "premio_fest": null,
-  "lb_nota": 3.8,
-  "lb_votos": 63028,
-  "lb_url": "https://letterboxd.com/film/desert-hearts/",
-  "lb_hist": [
-   111,
-   236,
-   316,
-   1337,
-   2071,
-   8360,
-   13162,
-   20512,
-   7587,
-   9684
-  ]
- },
  "7469245": {
   "festivais": [
    "Cannes"
@@ -1774,147 +1743,6 @@
    945
   ]
  },
- "3104419": {
-  "festivais": [
-   "Toronto"
-  ],
-  "premiado": false,
-  "premio_txt": "",
-  "premio_fest": null,
-  "lb_nota": 3.57,
-  "lb_votos": 233,
-  "lb_url": "https://letterboxd.com/film/children-untold/",
-  "lb_hist": [
-   0,
-   0,
-   1,
-   1,
-   11,
-   40,
-   63,
-   95,
-   32,
-   18
-  ]
- },
- "7324218": {
-  "festivais": [
-   "Veneza"
-  ],
-  "premiado": true,
-  "premio_txt": "Projeto de uma década e prêmio de melhor Direção no Festival de Veneza de 2026.",
-  "premio_fest": "Veneza",
-  "lb_nota": 3.57,
-  "lb_votos": 532,
-  "lb_url": "https://letterboxd.com/film/dau/",
-  "lb_hist": [
-   6,
-   12,
-   11,
-   24,
-   29,
-   70,
-   114,
-   197,
-   75,
-   46
-  ]
- },
- "2975271": {
-  "festivais": [],
-  "premiado": false,
-  "premio_txt": "",
-  "premio_fest": null,
-  "lb_nota": 3.44,
-  "lb_votos": 357,
-  "lb_url": "https://letterboxd.com/film/from-inside-out-the-architecture-of-peter/",
-  "lb_hist": [
-   1,
-   2,
-   4,
-   27,
-   24,
-   81,
-   91,
-   87,
-   23,
-   17
-  ]
- },
- "5288362": {
-  "festivais": [],
-  "premiado": false,
-  "premio_txt": "",
-  "premio_fest": null,
-  "lb_nota": null,
-  "lb_votos": null,
-  "lb_url": null
- },
- "6741187": {
-  "festivais": [
-   "Toronto"
-  ],
-  "premiado": false,
-  "premio_txt": "",
-  "premio_fest": null,
-  "lb_nota": null,
-  "lb_votos": null,
-  "lb_url": "https://letterboxd.com/film/after-elena/",
-  "lb_hist": [
-   0,
-   1,
-   1,
-   8,
-   10,
-   47,
-   38,
-   16,
-   6,
-   5
-  ]
- },
- "3841861": {
-  "festivais": [],
-  "premiado": false,
-  "premio_txt": "",
-  "premio_fest": null,
-  "lb_nota": null,
-  "lb_votos": null,
-  "lb_url": "https://letterboxd.com/film/after-contact-1/",
-  "lb_hist": [
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   1,
-   3,
-   1,
-   0
-  ]
- },
- "9811346": {
-  "festivais": [],
-  "premiado": false,
-  "premio_txt": "",
-  "premio_fest": null,
-  "lb_nota": null,
-  "lb_votos": null,
-  "lb_url": "https://letterboxd.com/film/days-of-fire/",
-  "lb_hist": [
-   1,
-   4,
-   0,
-   6,
-   7,
-   15,
-   10,
-   4,
-   1,
-   6
-  ]
- },
  "6595216": {
   "festivais": [
    "Cannes"
@@ -1936,29 +1764,6 @@
    263,
    57,
    35
-  ]
- },
- "5491594": {
-  "festivais": [
-   "Cannes"
-  ],
-  "premiado": false,
-  "premio_txt": "",
-  "premio_fest": null,
-  "lb_nota": 3.45,
-  "lb_votos": 280,
-  "lb_url": "https://letterboxd.com/film/the-disciple-a-wu-tang-fable/",
-  "lb_hist": [
-   1,
-   0,
-   2,
-   16,
-   25,
-   58,
-   80,
-   73,
-   18,
-   18
   ]
  },
  "5974483": {
@@ -2001,27 +1806,6 @@
    17,
    1,
    1
-  ]
- },
- "2834829": {
-  "festivais": [],
-  "premiado": false,
-  "premio_txt": "",
-  "premio_fest": null,
-  "lb_nota": null,
-  "lb_votos": null,
-  "lb_url": "https://letterboxd.com/film/dragoons-2026/",
-  "lb_hist": [
-   0,
-   1,
-   0,
-   0,
-   0,
-   2,
-   1,
-   3,
-   4,
-   7
   ]
  },
  "8919250": {
@@ -2087,27 +1871,6 @@
    5,
    4,
    5
-  ]
- },
- "3541188": {
-  "festivais": [],
-  "premiado": false,
-  "premio_txt": "",
-  "premio_fest": null,
-  "lb_nota": 3.87,
-  "lb_votos": 3430,
-  "lb_url": "https://letterboxd.com/film/elephants-in-the-fog/",
-  "lb_hist": [
-   7,
-   19,
-   19,
-   112,
-   212,
-   674,
-   1174,
-   1700,
-   656,
-   625
   ]
  },
  "2217182": {
@@ -2177,15 +1940,6 @@
    75
   ]
  },
- "8638667": {
-  "festivais": [],
-  "premiado": false,
-  "premio_txt": "",
-  "premio_fest": null,
-  "lb_nota": null,
-  "lb_votos": null,
-  "lb_url": null
- },
  "1864571": {
   "festivais": [],
   "premiado": false,
@@ -2205,48 +1959,6 @@
    6,
    1,
    8
-  ]
- },
- "6569716": {
-  "festivais": [],
-  "premiado": false,
-  "premio_txt": "",
-  "premio_fest": null,
-  "lb_nota": 3.67,
-  "lb_votos": 1337,
-  "lb_url": "https://letterboxd.com/film/my-grandfather-is-a-nihonjin/",
-  "lb_hist": [
-   3,
-   6,
-   7,
-   30,
-   41,
-   193,
-   215,
-   388,
-   104,
-   363
-  ]
- },
- "4819094": {
-  "festivais": [],
-  "premiado": false,
-  "premio_txt": "",
-  "premio_fest": null,
-  "lb_nota": 4.26,
-  "lb_votos": 347227,
-  "lb_url": "https://letterboxd.com/film/i-swear/",
-  "lb_hist": [
-   101,
-   209,
-   314,
-   1277,
-   2814,
-   15874,
-   38785,
-   119244,
-   80152,
-   94091
   ]
  },
  "3727591": {
@@ -2289,30 +2001,6 @@
    141,
    26,
    23
-  ]
- },
- "5465671": {
-  "festivais": [
-   "Berlim",
-   "Gramado"
-  ],
-  "premiado": true,
-  "premio_txt": "Premiado duplamente no Festival de Berlim e vencedor de cinco prêmios no Festival de Gramado 2026.",
-  "premio_fest": "Berlim",
-  "lb_nota": 3.78,
-  "lb_votos": 938,
-  "lb_url": "https://letterboxd.com/film/gugus-world/",
-  "lb_hist": [
-   3,
-   0,
-   1,
-   16,
-   44,
-   98,
-   150,
-   322,
-   154,
-   357
   ]
  },
  "3907659": {
