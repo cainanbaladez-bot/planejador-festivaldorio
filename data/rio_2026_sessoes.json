@@ -12045,7 +12045,7 @@
   "legendas": "",
   "secao": "Expectativa",
   "duracao": "107 min.",
-  "link_compra": ""
+  "link_compra": "https://checkout.ingresso.com/?sessionId=87398372&partnership=home"
  },
  {
   "sessao_id": "1998017",
@@ -16590,53 +16590,5 @@
   "secao": "Panorama Mundial",
   "duracao": "112 min.",
   "link_compra": "https://checkout.ingresso.com/?sessionId=87173938&partnership=home"
- },
- {
-  "sessao_id": "8698415",
-  "filme_id": "1870168",
-  "filme_slug": "gun-che",
-  "titulo": "Zona Zero",
-  "data": "2026-10-09",
-  "hora": "13:45",
-  "sala": "Cinesystem Belas Artes Botafogo 3",
-  "cinema": "Cinesystem Belas Artes Botafogo",
-  "endereco_cinema": "Praia de Botafogo, 316",
-  "idioma": "",
-  "legendas": "",
-  "secao": "Midnight Movies",
-  "duracao": "122 min.",
-  "link_compra": "https://checkout.ingresso.com/?sessionId=87173461&partnership=home"
- },
- {
-  "sessao_id": "9122344",
-  "filme_id": "1870168",
-  "filme_slug": "gun-che",
-  "titulo": "Zona Zero",
-  "data": "2026-10-10",
-  "hora": "23:30",
-  "sala": "Estação Claro Rio 5",
-  "cinema": "Estação Claro Rio",
-  "endereco_cinema": "Rua Voluntários da Pátria, 35",
-  "idioma": "",
-  "legendas": "",
-  "secao": "Midnight Movies",
-  "duracao": "122 min.",
-  "link_compra": "https://checkout.ingresso.com/?sessionId=87173463&partnership=home"
- },
- {
-  "sessao_id": "8917864",
-  "filme_id": "1870168",
-  "filme_slug": "gun-che",
-  "titulo": "Zona Zero",
-  "data": "2026-10-14",
-  "hora": "21:00",
-  "sala": "Estação Claro Rio 4",
-  "cinema": "Estação Claro Rio",
-  "endereco_cinema": "Rua Voluntários da Pátria, 35",
-  "idioma": "",
-  "legendas": "",
-  "secao": "Midnight Movies",
-  "duracao": "122 min.",
-  "link_compra": "https://checkout.ingresso.com/?sessionId=87173467&partnership=home"
  }
 ]
